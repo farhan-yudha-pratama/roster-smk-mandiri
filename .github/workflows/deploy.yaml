@@ -61,4 +61,4 @@ jobs:
           phpunit.xml
           auth.json
         local-dir: ./
-        server-dir: ./
+        server-dir: ./ 
