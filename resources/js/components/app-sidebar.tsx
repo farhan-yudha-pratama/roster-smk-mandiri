@@ -1,5 +1,5 @@
 import { Link, usePage } from '@inertiajs/react';
-import { BookOpen, FolderGit2, LayoutGrid, Users, Book, DoorOpen, UserCircle, CalendarDays } from 'lucide-react';
+import { BookOpen, FolderGit2, LayoutGrid, Users, Book, DoorOpen, UserCircle, CalendarDays, Clock } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
@@ -35,6 +35,12 @@ const masterDataItems: NavItem[] = [
         title: 'Master Hari',
         href: '/master-days',
         icon: CalendarDays,
+        roles: ['SUPERADMIN'],
+    },
+    {
+        title: 'Alokasi Waktu',
+        href: '/time-allocations',
+        icon: Clock,
         roles: ['SUPERADMIN'],
     },
     {

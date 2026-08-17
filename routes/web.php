@@ -47,6 +47,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/master-days', [\App\Http\Controllers\MasterDayController::class, 'store'])->name('master-days.store');
     Route::put('/master-days/{id}', [\App\Http\Controllers\MasterDayController::class, 'update'])->name('master-days.update');
     Route::delete('/master-days/{id}', [\App\Http\Controllers\MasterDayController::class, 'destroy'])->name('master-days.destroy');
+    // Master Time Allocations Management
+    Route::get('/time-allocations', [\App\Http\Controllers\MasterTimeAllocationController::class, 'index'])->name('time-allocations.index');
+    Route::post('/time-allocations', [\App\Http\Controllers\MasterTimeAllocationController::class, 'store'])->name('time-allocations.store');
+    Route::put('/time-allocations/{id}', [\App\Http\Controllers\MasterTimeAllocationController::class, 'update'])->name('time-allocations.update');
+    Route::delete('/time-allocations/{id}', [\App\Http\Controllers\MasterTimeAllocationController::class, 'destroy'])->name('time-allocations.destroy');
 });
 
 require __DIR__.'/settings.php';
