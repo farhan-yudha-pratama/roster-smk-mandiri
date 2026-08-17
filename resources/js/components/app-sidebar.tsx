@@ -1,5 +1,5 @@
 import { Link, usePage } from '@inertiajs/react';
-import { BookOpen, FolderGit2, LayoutGrid, Users, Book, DoorOpen, UserCircle, CalendarDays, Clock } from 'lucide-react';
+import { BookOpen, FolderGit2, LayoutGrid, Users, Book, DoorOpen, UserCircle, CalendarDays, Clock, Shirt } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
@@ -29,6 +29,12 @@ const masterDataItems: NavItem[] = [
         title: 'Mata Pelajaran',
         href: '/subjects',
         icon: Book,
+        roles: ['SUPERADMIN'],
+    },
+    {
+        title: 'Master Seragam',
+        href: '/master-uniforms',
+        icon: Shirt,
         roles: ['SUPERADMIN'],
     },
     {

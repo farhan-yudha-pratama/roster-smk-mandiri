@@ -2,7 +2,6 @@ import { Head, usePage } from '@inertiajs/react';
 import { WelcomeHeader } from './Welcome/components/WelcomeHeader';
 import { WelcomeFilters } from './Welcome/components/WelcomeFilters';
 import { ScheduleCard } from './Welcome/components/ScheduleCard';
-import { BottomNav } from './Welcome/components/BottomNav';
 import { MapPin, Wrench, Router, Bike } from 'lucide-react';
 
 interface RosterSchedule {
@@ -12,7 +11,7 @@ interface RosterSchedule {
     subject?: { subject_name: string };
     user?: { name: string };
     classroom?: { room_name: string };
-    master_class?: { 
+    master_class?: {
         class_name: string;
         homeroom_teacher?: { teacher_name: string };
     };
@@ -62,12 +61,12 @@ export default function Welcome({ schedules = [], filters = {} }: { schedules: R
                     {/* Welcome & Status */}
                     <section className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
                         <div>
-                            <h2 className="text-[36px] font-bold text-foreground leading-tight tracking-tight">Dashboard Jadwal</h2>
-                            <p className="text-[16px] text-muted-foreground mt-1">Tahun Pelajaran 2026/2027</p>
+                            <h2 className="text-2xl md:text-[36px] font-bold text-foreground leading-tight tracking-tight">Dashboard Jadwal</h2>
+                            <p className="text-sm md:text-base text-muted-foreground mt-1">Tahun Pelajaran 2026/2027</p>
                         </div>
-                        <div className="flex items-center gap-2 px-4 py-2 bg-secondary border border-border rounded-lg">
+                        <div className="flex w-fit items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-secondary border border-border rounded-lg">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                            <span className="text-[12px] font-medium text-muted-foreground uppercase tracking-wider">
+                            <span className="text-[10px] md:text-xs font-medium text-muted-foreground uppercase tracking-wider">
                                 Hari Ini: {displayDay} | <span className="font-bold text-primary">{displayCycle}</span>
                             </span>
                         </div>
@@ -97,8 +96,6 @@ export default function Welcome({ schedules = [], filters = {} }: { schedules: R
                         )}
                     </div>
                 </main>
-
-                <BottomNav />
             </div>
         </>
     );

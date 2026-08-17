@@ -11,7 +11,7 @@ class MasterTimeAllocation extends Model
 
     protected $fillable = [
         'id',
-        'master_day_id',
+        'name',
         'type',
         'period_number',
         'start_time',
@@ -19,8 +19,13 @@ class MasterTimeAllocation extends Model
         'description',
     ];
 
-    public function masterDay()
+    public function masterDays()
     {
-        return $this->belongsTo(MasterDay::class, 'master_day_id', 'id');
+        return $this->belongsToMany(
+            MasterDay::class,
+            'master_day_time_allocations',
+            'master_time_allocation_id',
+            'master_day_id'
+        );
     }
 }

@@ -30,11 +30,11 @@ export function WelcomeFilters({ filters }: { filters: any }) {
 
     const days = [
         { value: 'all', label: 'Semua Hari' },
-        { value: 'Monday', label: 'Senin' },
-        { value: 'Tuesday', label: 'Selasa' },
-        { value: 'Wednesday', label: 'Rabu' },
-        { value: 'Thursday', label: 'Kamis' },
-        { value: 'Friday', label: 'Jumat' },
+        { value: 'Senin', label: 'Senin' },
+        { value: 'Selasa', label: 'Selasa' },
+        { value: 'Rabu', label: 'Rabu' },
+        { value: 'Kamis', label: 'Kamis' },
+        { value: 'Jumat', label: 'Jumat' },
     ];
 
     const weekCycles = [
@@ -80,8 +80,8 @@ export function WelcomeFilters({ filters }: { filters: any }) {
                             <SelectItem value="TBKR">TBKR</SelectItem>
                             <SelectItem value="TKJ">TKJ</SelectItem>
                             <SelectItem value="RPL">RPL</SelectItem>
-                            <SelectItem value="TJK">TJK</SelectItem>
-                            <SelectItem value="PPL GIM">PPL GIM</SelectItem>
+                            <SelectItem value="TJK-TELEKOMUNIKASI">TJK Telekomunikasi</SelectItem>
+                            <SelectItem value="PPL-GIM">PPL GIM</SelectItem>
                         </SelectContent>
                     </Select>
                 </div>

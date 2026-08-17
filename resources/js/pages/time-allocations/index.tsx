@@ -21,13 +21,13 @@ interface MasterDay {
 
 interface MasterTimeAllocation {
     id: string;
-    master_day_id: string;
+    name: string;
     type: string;
     period_number: number | null;
     start_time: string;
     end_time: string;
     description: string | null;
-    master_day?: MasterDay;
+    master_days?: MasterDay[];
 }
 
 export default function TimeAllocationIndex({ allocations, days }: { allocations: MasterTimeAllocation[], days: MasterDay[] }) {
@@ -38,11 +38,17 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
     // Group allocations by day
     const dayOrder = ['DAY-SENIN', 'DAY-SELASA', 'DAY-RABU', 'DAY-KAMIS', 'DAY-JUMAT', 'DAY-SABTU', 'DAY-MINGGU'];
     const groupedAllocations = allocations.reduce((acc, alloc) => {
-        const dayId = alloc.master_day_id;
-        if (!acc[dayId]) {
-            acc[dayId] = [];
+        if (alloc.master_days) {
+            alloc.master_days.forEach(day => {
+                if (!acc[day.id]) {
+                    acc[day.id] = [];
+                }
+                // avoid duplicate push if same object somehow
+                if (!acc[day.id].find(a => a.id === alloc.id)) {
+                    acc[day.id].push(alloc);
+                }
+            });
         }
-        acc[dayId].push(alloc);
         return acc;
     }, {} as Record<string, MasterTimeAllocation[]>);
 
@@ -67,7 +73,8 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
     };
 
     const { data: createData, setData: setCreateData, post: createPost, processing: createProcessing, errors: createErrors, reset: createReset } = useForm({
-        master_day_id: '',
+        name: '',
+        master_day_ids: [] as string[],
         type: 'period',
         period_number: '',
         start_time: '',
@@ -76,7 +83,8 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
     });
 
     const { data: editData, setData: setEditData, put: editPut, processing: editProcessing, errors: editErrors, reset: editReset } = useForm({
-        master_day_id: '',
+        name: '',
+        master_day_ids: [] as string[],
         type: 'period',
         period_number: '',
         start_time: '',
@@ -121,10 +129,10 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
     const openEdit = (allocation: MasterTimeAllocation) => {
         setEditAllocation(allocation);
         setEditData({
-            master_day_id: allocation.master_day_id,
+            name: allocation.name,
+            master_day_ids: allocation.master_days?.map(d => d.id) || [],
             type: allocation.type,
             period_number: allocation.period_number?.toString() || '',
-            // Handle time string to HH:MM format for input type="time"
             start_time: allocation.start_time.substring(0, 5),
             end_time: allocation.end_time.substring(0, 5),
             description: allocation.description || '',
@@ -162,20 +170,43 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                             </DialogHeader>
                             <form onSubmit={handleCreateSubmit} className="space-y-4">
                                 <div className="space-y-2">
-                                    <Label htmlFor="create_day">Hari <span className="text-red-500">*</span></Label>
-                                    <select
-                                        id="create_day"
-                                        className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                        value={createData.master_day_id}
-                                        onChange={(e) => setCreateData('master_day_id', e.target.value)}
+                                    <Label htmlFor="create_name">Nama Jadwal <span className="text-red-500">*</span></Label>
+                                    <Input
+                                        id="create_name"
+                                        value={createData.name}
+                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCreateData('name', e.target.value)}
+                                        placeholder="Misal: Jadwal Reguler JP 1"
                                         required
-                                    >
-                                        <option value="">-- Pilih Hari --</option>
+                                    />
+                                    {createErrors.name && <p className="text-sm text-red-500">{createErrors.name}</p>}
+                                </div>
+                                <div className="space-y-2">
+                                    <Label>Berlaku pada Hari <span className="text-red-500">*</span></Label>
+                                    <div className="grid grid-cols-2 md:grid-cols-3 gap-2 border border-input rounded-md p-3 bg-background">
                                         {days.map((day) => (
-                                            <option key={day.id} value={day.id}>{day.day_name}</option>
+                                            <div key={`create_day_${day.id}`} className="flex items-center space-x-2">
+                                                <input
+                                                    type="checkbox"
+                                                    id={`create_day_${day.id}`}
+                                                    value={day.id}
+                                                    checked={createData.master_day_ids.includes(day.id)}
+                                                    onChange={(e) => {
+                                                        const current = [...createData.master_day_ids];
+                                                        if (e.target.checked) {
+                                                            current.push(day.id);
+                                                        } else {
+                                                            const idx = current.indexOf(day.id);
+                                                            if (idx > -1) current.splice(idx, 1);
+                                                        }
+                                                        setCreateData('master_day_ids', current);
+                                                    }}
+                                                    className="rounded border-gray-300 text-primary shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"
+                                                />
+                                                <Label htmlFor={`create_day_${day.id}`} className="font-normal cursor-pointer">{day.day_name}</Label>
+                                            </div>
                                         ))}
-                                    </select>
-                                    {createErrors.master_day_id && <p className="text-sm text-red-500">{createErrors.master_day_id}</p>}
+                                    </div>
+                                    {createErrors.master_day_ids && <p className="text-sm text-red-500">{createErrors.master_day_ids}</p>}
                                 </div>
                                 <div className="space-y-2">
                                     <Label htmlFor="create_type">Tipe <span className="text-red-500">*</span></Label>
@@ -254,6 +285,7 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                         <thead className="border-b bg-muted/50">
                             <tr className="text-left">
                                 <th className="p-4 font-medium w-48">Hari</th>
+                                <th className="p-4 font-medium">Nama Jadwal</th>
                                 <th className="p-4 font-medium">Tipe</th>
                                 <th className="p-4 font-medium">JP Ke-</th>
                                 <th className="p-4 font-medium">Waktu</th>
@@ -273,7 +305,7 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                             {sortedDayKeys.map(dayId => {
                                 const isExpanded = expandedDays[dayId];
                                 const allocationsForDay = groupedAllocations[dayId];
-                                const dayName = allocationsForDay[0]?.master_day?.day_name || dayId;
+                                const dayName = days.find(d => d.id === dayId)?.day_name || dayId;
                                 const sessionCount = allocationsForDay.length;
 
                                 return (
@@ -299,6 +331,7 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                                                     <div className="absolute left-5 top-0 bottom-0 w-px bg-border"></div>
                                                     <div className="absolute left-5 top-1/2 w-3 h-px bg-border"></div>
                                                 </td>
+                                                <td className="p-4 font-medium">{alloc.name}</td>
                                                 <td className="p-4">
                                                     <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${alloc.type === 'period' ? 'bg-blue-100 text-blue-800' : alloc.type === 'break' ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'}`}>
                                                         {formatType(alloc.type)}
@@ -328,20 +361,43 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                     </DialogHeader>
                     <form onSubmit={handleEditSubmit} className="space-y-4">
                         <div className="space-y-2">
-                            <Label htmlFor="edit_day">Hari <span className="text-red-500">*</span></Label>
-                            <select
-                                id="edit_day"
-                                className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                value={editData.master_day_id}
-                                onChange={(e) => setEditData('master_day_id', e.target.value)}
+                            <Label htmlFor="edit_name">Nama Jadwal <span className="text-red-500">*</span></Label>
+                            <Input
+                                id="edit_name"
+                                value={editData.name}
+                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEditData('name', e.target.value)}
+                                placeholder="Misal: Jadwal Reguler JP 1"
                                 required
-                            >
-                                <option value="">-- Pilih Hari --</option>
+                            />
+                            {editErrors.name && <p className="text-sm text-red-500">{editErrors.name}</p>}
+                        </div>
+                        <div className="space-y-2">
+                            <Label>Berlaku pada Hari <span className="text-red-500">*</span></Label>
+                            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 border border-input rounded-md p-3 bg-background">
                                 {days.map((day) => (
-                                    <option key={day.id} value={day.id}>{day.day_name}</option>
+                                    <div key={`edit_day_${day.id}`} className="flex items-center space-x-2">
+                                        <input
+                                            type="checkbox"
+                                            id={`edit_day_${day.id}`}
+                                            value={day.id}
+                                            checked={editData.master_day_ids.includes(day.id)}
+                                            onChange={(e) => {
+                                                const current = [...editData.master_day_ids];
+                                                if (e.target.checked) {
+                                                    current.push(day.id);
+                                                } else {
+                                                    const idx = current.indexOf(day.id);
+                                                    if (idx > -1) current.splice(idx, 1);
+                                                }
+                                                setEditData('master_day_ids', current);
+                                            }}
+                                            className="rounded border-gray-300 text-primary shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"
+                                        />
+                                        <Label htmlFor={`edit_day_${day.id}`} className="font-normal cursor-pointer">{day.day_name}</Label>
+                                    </div>
                                 ))}
-                            </select>
-                            {editErrors.master_day_id && <p className="text-sm text-red-500">{editErrors.master_day_id}</p>}
+                            </div>
+                            {editErrors.master_day_ids && <p className="text-sm text-red-500">{editErrors.master_day_ids}</p>}
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="edit_type">Tipe <span className="text-red-500">*</span></Label>

@@ -13,12 +13,9 @@ class MasterTimeAllocationController extends Controller
 {
     public function index()
     {
-        $allocations = MasterTimeAllocation::with('masterDay')
-            ->orderBy('master_day_id')
-            ->orderBy('start_time')
-            ->get();
-            
-        $days = MasterDay::orderBy('id')->get();
+        // Fetch allocations with their attached days
+        $allocations = MasterTimeAllocation::with('masterDays')->orderBy('start_time')->get();
+        $days = MasterDay::orderByRaw("FIELD(day_name, 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu')")->get();
 
         return Inertia::render('time-allocations/index', [
             'allocations' => $allocations,
@@ -29,33 +26,35 @@ class MasterTimeAllocationController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'master_day_id' => 'required|exists:master_days,id',
+            'name' => 'required|string|max:255',
             'type' => ['required', Rule::in(['ceremony', 'period', 'break'])],
             'period_number' => 'nullable|integer|min:1',
             'start_time' => 'required|date_format:H:i',
             'end_time' => 'required|date_format:H:i|after:start_time',
             'description' => 'nullable|string|max:255',
+            'master_day_ids' => 'required|array|min:1',
+            'master_day_ids.*' => 'exists:master_days,id',
         ], [
-            'master_day_id.required' => 'Hari wajib dipilih.',
+            'name.required' => 'Nama jadwal wajib diisi.',
             'type.required' => 'Tipe alokasi wajib dipilih.',
             'start_time.required' => 'Waktu mulai wajib diisi.',
             'end_time.required' => 'Waktu selesai wajib diisi.',
             'end_time.after' => 'Waktu selesai harus setelah waktu mulai.',
+            'master_day_ids.required' => 'Pilih setidaknya satu hari untuk jadwal ini.',
+            'master_day_ids.min' => 'Pilih setidaknya satu hari untuk jadwal ini.',
         ]);
 
         $id = 'TIME-' . strtoupper(Str::random(6));
         
-        // Append seconds to time for database storing correctly if necessary, but H:i should be fine or H:i:s
-        // Usually Laravel can handle H:i for time column, but to be safe, append :00
         $startTime = $validated['start_time'];
         if (strlen($startTime) == 5) $startTime .= ':00';
         
         $endTime = $validated['end_time'];
         if (strlen($endTime) == 5) $endTime .= ':00';
 
-        MasterTimeAllocation::create([
+        $allocation = MasterTimeAllocation::create([
             'id' => $id,
-            'master_day_id' => $validated['master_day_id'],
+            'name' => $validated['name'],
             'type' => $validated['type'],
             'period_number' => $validated['type'] === 'period' ? $validated['period_number'] : null,
             'start_time' => $startTime,
@@ -63,7 +62,9 @@ class MasterTimeAllocationController extends Controller
             'description' => $validated['description'],
         ]);
 
-        return redirect()->route('time-allocations.index')->with('success', 'Alokasi waktu berhasil ditambahkan.');
+        $allocation->masterDays()->sync($validated['master_day_ids']);
+
+        return redirect()->route('time-allocations.index')->with('success', 'Jadwal waktu berhasil ditambahkan.');
     }
 
     public function update(Request $request, $id)
@@ -71,18 +72,22 @@ class MasterTimeAllocationController extends Controller
         $allocation = MasterTimeAllocation::findOrFail($id);
 
         $validated = $request->validate([
-            'master_day_id' => 'required|exists:master_days,id',
+            'name' => 'required|string|max:255',
             'type' => ['required', Rule::in(['ceremony', 'period', 'break'])],
             'period_number' => 'nullable|integer|min:1',
             'start_time' => 'required|date_format:H:i',
             'end_time' => 'required|date_format:H:i|after:start_time',
             'description' => 'nullable|string|max:255',
+            'master_day_ids' => 'required|array|min:1',
+            'master_day_ids.*' => 'exists:master_days,id',
         ], [
-            'master_day_id.required' => 'Hari wajib dipilih.',
+            'name.required' => 'Nama jadwal wajib diisi.',
             'type.required' => 'Tipe alokasi wajib dipilih.',
             'start_time.required' => 'Waktu mulai wajib diisi.',
             'end_time.required' => 'Waktu selesai wajib diisi.',
             'end_time.after' => 'Waktu selesai harus setelah waktu mulai.',
+            'master_day_ids.required' => 'Pilih setidaknya satu hari untuk jadwal ini.',
+            'master_day_ids.min' => 'Pilih setidaknya satu hari untuk jadwal ini.',
         ]);
         
         $startTime = $validated['start_time'];
@@ -92,7 +97,7 @@ class MasterTimeAllocationController extends Controller
         if (strlen($endTime) == 5) $endTime .= ':00';
 
         $allocation->update([
-            'master_day_id' => $validated['master_day_id'],
+            'name' => $validated['name'],
             'type' => $validated['type'],
             'period_number' => $validated['type'] === 'period' ? $validated['period_number'] : null,
             'start_time' => $startTime,
@@ -100,7 +105,9 @@ class MasterTimeAllocationController extends Controller
             'description' => $validated['description'],
         ]);
 
-        return redirect()->route('time-allocations.index')->with('success', 'Alokasi waktu berhasil diperbarui.');
+        $allocation->masterDays()->sync($validated['master_day_ids']);
+
+        return redirect()->route('time-allocations.index')->with('success', 'Jadwal waktu berhasil diperbarui.');
     }
 
     public function destroy($id)
@@ -108,6 +115,6 @@ class MasterTimeAllocationController extends Controller
         $allocation = MasterTimeAllocation::findOrFail($id);
         $allocation->delete();
 
-        return redirect()->route('time-allocations.index')->with('success', 'Alokasi waktu berhasil dihapus.');
+        return redirect()->route('time-allocations.index')->with('success', 'Jadwal waktu berhasil dihapus.');
     }
 }

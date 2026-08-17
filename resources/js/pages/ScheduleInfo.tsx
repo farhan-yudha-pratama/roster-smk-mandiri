@@ -3,11 +3,18 @@ import { WelcomeHeader } from './Welcome/components/WelcomeHeader';
 import { Shirt, AlertCircle, Clock, CalendarDays } from 'lucide-react';
 import { useState } from 'react';
 
+interface MasterUniform {
+    id: string;
+    uniform_name: string;
+    is_any_day: boolean;
+}
+
 interface MasterDay {
     id: string;
     day_name: string;
-    uniform_description: string;
     notes: string | null;
+    master_uniforms: MasterUniform[];
+    time_allocations: MasterTimeAllocation[];
 }
 
 interface MasterTimeAllocation {
@@ -20,7 +27,7 @@ interface MasterTimeAllocation {
     description: string | null;
 }
 
-export default function ScheduleInfo({ days, allocations }: { days: MasterDay[], allocations: Record<string, MasterTimeAllocation[]> }) {
+export default function ScheduleInfo({ days, anyDayUniforms }: { days: MasterDay[], anyDayUniforms: MasterUniform[] }) {
     const { auth } = usePage().props;
     const [activeTab, setActiveTab] = useState<'uniforms' | 'time'>('uniforms');
     const [activeDayId, setActiveDayId] = useState<string>(days[0]?.id || '');
@@ -30,7 +37,7 @@ export default function ScheduleInfo({ days, allocations }: { days: MasterDay[],
     };
 
     const activeDay = days.find(d => d.id === activeDayId) || days[0];
-    const activeAllocations = activeDay ? (allocations[activeDay.id] || []) : [];
+    const activeAllocations = activeDay?.time_allocations || [];
 
     return (
         <>
@@ -72,28 +79,59 @@ export default function ScheduleInfo({ days, allocations }: { days: MasterDay[],
 
                     {/* Tab Content: Uniforms */}
                     {activeTab === 'uniforms' && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
-                            {days.map((day) => (
-                                <div key={day.id} className="bg-card border border-border rounded-xl shadow-sm hover:shadow-md transition-all p-6 flex flex-col">
-                                    <div className="flex justify-between items-start mb-4">
-                                        <h3 className="text-xl font-bold text-foreground">{day.day_name}</h3>
-                                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-primary/10 text-primary">
-                                            <Shirt size={14} />
-                                            {day.uniform_description}
-                                        </span>
+                        <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
+                            {/* Any Day Uniforms */}
+                            {anyDayUniforms && anyDayUniforms.length > 0 && (
+                                <div className="mb-8 p-6 bg-primary/5 border border-primary/20 rounded-xl shadow-sm">
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <div className="p-2 bg-primary/10 text-primary rounded-lg">
+                                            <Shirt size={20} />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-foreground">Seragam Bebas Hari</h3>
                                     </div>
-                                    {day.notes ? (
-                                        <div className="mt-auto flex items-start gap-2.5 text-sm text-amber-600 bg-amber-500/10 p-4 rounded-lg border border-amber-500/20">
-                                            <AlertCircle size={16} className="shrink-0 mt-0.5" />
-                                            <p className="leading-relaxed">{day.notes}</p>
-                                        </div>
-                                    ) : (
-                                        <div className="mt-auto flex items-center justify-center h-full min-h-[60px] text-sm text-muted-foreground bg-secondary/30 rounded-lg border border-dashed border-border">
-                                            Tidak ada catatan khusus
-                                        </div>
-                                    )}
+                                    <p className="text-muted-foreground text-sm mb-4">Seragam berikut dapat dipakai di hari apa saja menyesuaikan dengan jadwal transaksional (misalnya: Baju Praktik untuk mata pelajaran produktif).</p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {anyDayUniforms.map(uniform => (
+                                            <span key={uniform.id} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-bold uppercase tracking-wider bg-primary/10 text-primary">
+                                                {uniform.uniform_name}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
-                            ))}
+                            )}
+
+                            {/* Regular Days */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {days.map((day) => (
+                                    <div key={day.id} className="bg-card border border-border rounded-xl shadow-sm hover:shadow-md transition-all p-6 flex flex-col">
+                                        <div className="flex justify-between items-start mb-4 gap-2">
+                                            <h3 className="text-xl font-bold text-foreground">{day.day_name}</h3>
+                                            <div className="flex flex-col gap-1.5 items-end text-right">
+                                                {day.master_uniforms && day.master_uniforms.length > 0 ? (
+                                                    day.master_uniforms.map(uniform => (
+                                                        <span key={uniform.id} className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-secondary text-secondary-foreground border border-border">
+                                                            <Shirt size={12} />
+                                                            {uniform.uniform_name}
+                                                        </span>
+                                                    ))
+                                                ) : (
+                                                    <span className="text-xs text-muted-foreground italic">Belum diatur</span>
+                                                )}
+                                            </div>
+                                        </div>
+                                        {day.notes ? (
+                                            <div className="mt-auto flex items-start gap-2.5 text-sm text-amber-600 bg-amber-500/10 p-4 rounded-lg border border-amber-500/20">
+                                                <AlertCircle size={16} className="shrink-0 mt-0.5" />
+                                                <p className="leading-relaxed">{day.notes}</p>
+                                            </div>
+                                        ) : (
+                                            <div className="mt-auto flex items-center justify-center h-full min-h-[60px] text-sm text-muted-foreground bg-secondary/30 rounded-lg border border-dashed border-border">
+                                                Tidak ada catatan khusus
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     )}
 

@@ -48,13 +48,17 @@ class RosterScheduleController extends Controller
         $lastPeriod = $periodNumber + $periodDuration - 1;
 
         // Ambil start_time dari JP pertama
-        $firstSlot = MasterTimeAllocation::where('master_day_id', $dayId)
+        $firstSlot = MasterTimeAllocation::whereHas('masterDays', function($q) use ($dayId) {
+                $q->where('master_days.id', $dayId);
+            })
             ->where('type', 'period')
             ->where('period_number', $periodNumber)
             ->first();
 
         // Ambil end_time dari JP terakhir
-        $lastSlot = MasterTimeAllocation::where('master_day_id', $dayId)
+        $lastSlot = MasterTimeAllocation::whereHas('masterDays', function($q) use ($dayId) {
+                $q->where('master_days.id', $dayId);
+            })
             ->where('type', 'period')
             ->where('period_number', $lastPeriod)
             ->first();
@@ -79,7 +83,9 @@ class RosterScheduleController extends Controller
     private function getMaxPeriodForDay(string $day): int
     {
         $dayId = $this->getDayId($day);
-        return MasterTimeAllocation::where('master_day_id', $dayId)
+        return MasterTimeAllocation::whereHas('masterDays', function($q) use ($dayId) {
+                $q->where('master_days.id', $dayId);
+            })
             ->where('type', 'period')
             ->max('period_number') ?? 10;
     }
@@ -138,10 +144,10 @@ class RosterScheduleController extends Controller
         $weekCycles = WeekCycle::values();
 
         // Kirim data alokasi waktu agar frontend bisa menampilkan info JP per hari
-        $timeAllocations = MasterTimeAllocation::where('type', 'period')
-            ->orderBy('master_day_id')
+        $timeAllocations = MasterTimeAllocation::with('masterDays')
+            ->where('type', 'period')
             ->orderBy('period_number')
-            ->get(['master_day_id', 'period_number', 'start_time', 'end_time']);
+            ->get();
 
         return Inertia::render('roster-schedules/index', [
             'schedules'       => $schedules,

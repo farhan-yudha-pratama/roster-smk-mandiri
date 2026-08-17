@@ -76,11 +76,17 @@ export default function RosterScheduleIndex({
         period_duration_hours: '',
     });
 
-    createTransform((data) => ({
-        ...data,
-        period_number: Number(data.period_number),
-        period_duration_hours: Number(data.period_duration_hours) * 2,
-    }));
+    createTransform((data) => {
+        const durationStr = String(data.period_duration_hours);
+        let durationNum = parseInt(durationStr.replace(/\D/g, '') || '0', 10);
+        if (durationNum > 5) durationNum = 5;
+        
+        return {
+            ...data,
+            period_number: Number(data.period_number),
+            period_duration_hours: durationNum * 2,
+        };
+    });
 
     const { data: editData, setData: setEditData, put: editPut, processing: editProcessing, errors: editErrors, reset: editReset, transform: editTransform } = useForm({
         class_id: '',
@@ -93,11 +99,17 @@ export default function RosterScheduleIndex({
         period_duration_hours: '',
     });
 
-    editTransform((data) => ({
-        ...data,
-        period_number: Number(data.period_number),
-        period_duration_hours: Number(data.period_duration_hours) * 2,
-    }));
+    editTransform((data) => {
+        const durationStr = String(data.period_duration_hours);
+        let durationNum = parseInt(durationStr.replace(/\D/g, '') || '0', 10);
+        if (durationNum > 5) durationNum = 5;
+        
+        return {
+            ...data,
+            period_number: Number(data.period_number),
+            period_duration_hours: durationNum * 2,
+        };
+    });
 
     const handleCreateSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -219,14 +231,10 @@ export default function RosterScheduleIndex({
                                         <Label htmlFor="create_period_duration_hours">Durasi (Banyak Les)</Label>
                                         <Input
                                             id="create_period_duration_hours"
-                                            type="number"
-                                            min="1"
-                                            max="5"
+                                            type="text"
                                             value={createData.period_duration_hours}
                                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                                let val = e.target.value;
-                                                if (Number(val) > 5) val = '5';
-                                                setCreateData('period_duration_hours', val);
+                                                setCreateData('period_duration_hours', e.target.value);
                                             }}
                                         />
                                         {createErrors.period_duration_hours && <p className="text-sm text-red-500">{createErrors.period_duration_hours}</p>}
@@ -378,14 +386,10 @@ export default function RosterScheduleIndex({
                                 <Label htmlFor="edit_period_duration_hours">Durasi (Banyak Les)</Label>
                                 <Input
                                     id="edit_period_duration_hours"
-                                    type="number"
-                                    min="1"
-                                    max="5"
+                                    type="text"
                                     value={editData.period_duration_hours}
                                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                        let val = e.target.value;
-                                        if (Number(val) > 5) val = '5';
-                                        setEditData('period_duration_hours', val);
+                                        setEditData('period_duration_hours', e.target.value);
                                     }}
                                 />
                                 {editErrors.period_duration_hours && <p className="text-sm text-red-500">{editErrors.period_duration_hours}</p>}

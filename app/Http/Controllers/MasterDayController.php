@@ -11,7 +11,8 @@ class MasterDayController extends Controller
 {
     public function index()
     {
-        $days = MasterDay::orderBy('id')->get();
+        $days = MasterDay::orderByRaw("FIELD(day_name, 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu')")->get();
+
         return Inertia::render('master-days/index', [
             'days' => $days,
         ]);
@@ -20,20 +21,14 @@ class MasterDayController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'day_name' => 'required|string|max:255|unique:master_days,day_name',
-            'uniform_description' => 'nullable|string|max:255',
+            'id' => 'required|string|unique:master_days,id|max:50',
+            'day_name' => 'required|string|max:255',
             'notes' => 'nullable|string',
-        ], [
-            'day_name.required' => 'Nama Hari wajib diisi.',
-            'day_name.unique' => 'Nama Hari sudah terdaftar.',
         ]);
 
-        $id = 'DAY-' . strtoupper($validated['day_name']);
-
         MasterDay::create([
-            'id' => $id,
+            'id' => strtoupper($validated['id']),
             'day_name' => $validated['day_name'],
-            'uniform_description' => $validated['uniform_description'],
             'notes' => $validated['notes'],
         ]);
 
@@ -45,17 +40,12 @@ class MasterDayController extends Controller
         $day = MasterDay::findOrFail($id);
 
         $validated = $request->validate([
-            'day_name' => 'required|string|max:255|unique:master_days,day_name,' . $id,
-            'uniform_description' => 'nullable|string|max:255',
+            'day_name' => 'required|string|max:255',
             'notes' => 'nullable|string',
-        ], [
-            'day_name.required' => 'Nama Hari wajib diisi.',
-            'day_name.unique' => 'Nama Hari sudah terdaftar.',
         ]);
 
         $day->update([
             'day_name' => $validated['day_name'],
-            'uniform_description' => $validated['uniform_description'],
             'notes' => $validated['notes'],
         ]);
 

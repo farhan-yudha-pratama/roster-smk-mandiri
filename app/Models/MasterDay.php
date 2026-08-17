@@ -12,12 +12,22 @@ class MasterDay extends Model
     protected $fillable = [
         'id',
         'day_name',
-        'uniform_description',
+        'master_uniform_id',
         'notes',
     ];
 
+    public function masterUniforms()
+    {
+        return $this->belongsToMany(MasterUniform::class, 'master_day_uniforms', 'master_day_id', 'master_uniform_id');
+    }
+
     public function timeAllocations()
     {
-        return $this->hasMany(MasterTimeAllocation::class, 'master_day_id', 'id');
+        return $this->belongsToMany(
+            MasterTimeAllocation::class,
+            'master_day_time_allocations',
+            'master_day_id',
+            'master_time_allocation_id'
+        );
     }
 }

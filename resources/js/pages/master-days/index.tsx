@@ -16,7 +16,6 @@ import { toast } from 'sonner';
 interface MasterDay {
     id: string;
     day_name: string;
-    uniform_description?: string;
     notes?: string;
 }
 
@@ -26,14 +25,13 @@ export default function MasterDayIndex({ days }: { days: MasterDay[] }) {
     const [isEditOpen, setIsEditOpen] = useState(false);
 
     const { data: createData, setData: setCreateData, post: createPost, processing: createProcessing, errors: createErrors, reset: createReset } = useForm({
+        id: '',
         day_name: '',
-        uniform_description: '',
         notes: '',
     });
 
     const { data: editData, setData: setEditData, put: editPut, processing: editProcessing, errors: editErrors, reset: editReset } = useForm({
         day_name: '',
-        uniform_description: '',
         notes: '',
     });
 
@@ -75,7 +73,6 @@ export default function MasterDayIndex({ days }: { days: MasterDay[] }) {
         setEditDay(day);
         setEditData({
             day_name: day.day_name,
-            uniform_description: day.uniform_description || '',
             notes: day.notes || '',
         });
         setIsEditOpen(true);
@@ -102,6 +99,17 @@ export default function MasterDayIndex({ days }: { days: MasterDay[] }) {
                             </DialogHeader>
                             <form onSubmit={handleCreateSubmit} className="space-y-4">
                                 <div className="space-y-2">
+                                    <Label htmlFor="create_id">ID Hari <span className="text-red-500">*</span></Label>
+                                    <Input
+                                        id="create_id"
+                                        value={createData.id}
+                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCreateData('id', e.target.value)}
+                                        placeholder="Misal: DAY-SENIN"
+                                        required
+                                    />
+                                    {createErrors.id && <p className="text-sm text-red-500">{createErrors.id}</p>}
+                                </div>
+                                <div className="space-y-2">
                                     <Label htmlFor="create_day_name">Nama Hari <span className="text-red-500">*</span></Label>
                                     <Input
                                         id="create_day_name"
@@ -111,16 +119,6 @@ export default function MasterDayIndex({ days }: { days: MasterDay[] }) {
                                         required
                                     />
                                     {createErrors.day_name && <p className="text-sm text-red-500">{createErrors.day_name}</p>}
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="create_uniform">Deskripsi Seragam</Label>
-                                    <Input
-                                        id="create_uniform"
-                                        value={createData.uniform_description}
-                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCreateData('uniform_description', e.target.value)}
-                                        placeholder="Misal: Putih Abu-Abu"
-                                    />
-                                    {createErrors.uniform_description && <p className="text-sm text-red-500">{createErrors.uniform_description}</p>}
                                 </div>
                                 <div className="space-y-2">
                                     <Label htmlFor="create_notes">Catatan Tambahan</Label>
@@ -148,7 +146,6 @@ export default function MasterDayIndex({ days }: { days: MasterDay[] }) {
                             <tr className="text-left">
                                 <th className="p-4 font-medium">ID</th>
                                 <th className="p-4 font-medium">Nama Hari</th>
-                                <th className="p-4 font-medium">Seragam</th>
                                 <th className="p-4 font-medium">Catatan</th>
                                 <th className="p-4 font-medium text-right">Aksi</th>
                             </tr>
@@ -158,7 +155,6 @@ export default function MasterDayIndex({ days }: { days: MasterDay[] }) {
                                 <tr key={day.id} className="border-b transition-colors hover:bg-muted/50">
                                     <td className="p-4 font-medium">{day.id}</td>
                                     <td className="p-4">{day.day_name}</td>
-                                    <td className="p-4">{day.uniform_description || '-'}</td>
                                     <td className="p-4">{day.notes || '-'}</td>
                                     <td className="p-4 text-right space-x-2">
                                         <Button variant="outline" size="sm" onClick={() => openEdit(day)}>Edit</Button>
@@ -169,7 +165,7 @@ export default function MasterDayIndex({ days }: { days: MasterDay[] }) {
                             
                             {days.length === 0 && (
                                 <tr>
-                                    <td colSpan={5} className="p-4 text-center text-muted-foreground">
+                                    <td colSpan={4} className="p-4 text-center text-muted-foreground">
                                         Tidak ada data master hari.
                                     </td>
                                 </tr>
@@ -194,15 +190,6 @@ export default function MasterDayIndex({ days }: { days: MasterDay[] }) {
                                 required
                             />
                             {editErrors.day_name && <p className="text-sm text-red-500">{editErrors.day_name}</p>}
-                        </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="edit_uniform">Deskripsi Seragam</Label>
-                            <Input
-                                id="edit_uniform"
-                                value={editData.uniform_description}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEditData('uniform_description', e.target.value)}
-                            />
-                            {editErrors.uniform_description && <p className="text-sm text-red-500">{editErrors.uniform_description}</p>}
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="edit_notes">Catatan Tambahan</Label>

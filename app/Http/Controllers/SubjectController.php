@@ -10,7 +10,7 @@ class SubjectController extends Controller
 {
     public function index()
     {
-        $subjects = MasterSubject::all();
+        $subjects = MasterSubject::orderBy('subject_name', 'asc')->get();
         return Inertia::render('subjects/index', [
             'subjects' => $subjects
         ]);

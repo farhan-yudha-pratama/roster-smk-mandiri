@@ -10,7 +10,16 @@ class WelcomeController extends Controller
 {
     public function index(Request $request)
     {
-        $currentDay = \Carbon\Carbon::now()->format('l');
+        $mapDay = [
+            'Monday' => 'Senin',
+            'Tuesday' => 'Selasa',
+            'Wednesday' => 'Rabu',
+            'Thursday' => 'Kamis',
+            'Friday' => 'Jumat',
+            'Saturday' => 'Sabtu',
+            'Sunday' => 'Minggu'
+        ];
+        $currentDay = $mapDay[\Carbon\Carbon::now()->format('l')] ?? 'Senin';
         // Simple logic for week cycle: odd or even week of the year
         $currentCycle = \Carbon\Carbon::now()->weekOfYear % 2 == 0 ? \App\Enums\WeekCycle::EVEN->value : \App\Enums\WeekCycle::ODD->value;
 
@@ -19,7 +28,7 @@ class WelcomeController extends Controller
             'major' => $request->major ?? 'all',
             'grade_level' => $request->grade_level ?? 'all',
             'week_cycle' => $request->week_cycle ?? $currentCycle,
-            'day' => $request->day ?? $currentDay,
+            'day' => $request->day ? ($mapDay[$request->day] ?? $request->day) : $currentDay,
         ];
 
         $query = RosterSchedule::with([
@@ -74,16 +83,18 @@ class WelcomeController extends Controller
 
     public function scheduleInfo()
     {
-        $dayOrder = ['Senin' => 1, 'Selasa' => 2, 'Rabu' => 3, 'Kamis' => 4, 'Jumat' => 5];
-        $days = \App\Models\MasterDay::all()->sortBy(function ($day) use ($dayOrder) {
-            return $dayOrder[$day->day_name] ?? 99;
-        })->values();
+        $days = \App\Models\MasterDay::with([
+            'timeAllocations' => function ($q) {
+                $q->orderBy('start_time', 'asc');
+            },
+            'masterUniforms'
+        ])->orderByRaw("FIELD(day_name, 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu')")->get();
         
-        $allocations = \App\Models\MasterTimeAllocation::orderBy('start_time')->get()->groupBy('master_day_id');
+        $anyDayUniforms = \App\Models\MasterUniform::where('is_any_day', true)->get();
 
         return Inertia::render('ScheduleInfo', [
             'days' => $days,
-            'allocations' => $allocations,
+            'anyDayUniforms' => $anyDayUniforms,
         ]);
     }
 }
