@@ -16,6 +16,8 @@ class RosterSchedule extends Model
         'day',
         'week_cycle',
         'period_number',
+        'start_time',
+        'end_time',
         'subject_id',
         'user_id',
         'classroom_id',
@@ -47,5 +49,7 @@ class RosterSchedule extends Model
         'week_cycle' => \App\Enums\WeekCycle::class,
         'period_number' => 'integer',
         'period_duration_hours' => 'integer',
+        'start_time' => 'string',
+        'end_time' => 'string',
     ];
 }

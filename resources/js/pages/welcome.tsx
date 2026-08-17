@@ -16,19 +16,20 @@ interface RosterSchedule {
         class_name: string;
         homeroom_teacher?: { teacher_name: string };
     };
+    start_time?: string;
+    end_time?: string;
 }
 
-function formatTime(periodNumber: number, durationHours: number) {
-    const startMinutes = 7 * 60 + (periodNumber - 1) * 45;
-    const endMinutes = startMinutes + (durationHours * 45);
+function formatTime(startTime?: string, endTime?: string) {
+    if (!startTime || !endTime) return '-';
 
-    const formatHour = (mins: number) => {
-        const h = Math.floor(mins / 60);
-        const m = mins % 60;
-        return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
+    // Format HH:MM:SS ke HH:MM
+    const formatStr = (timeStr: string) => {
+        const parts = timeStr.split(':');
+        return parts.length >= 2 ? `${parts[0]}:${parts[1]}` : timeStr;
     };
 
-    return `${formatHour(startMinutes)} - ${formatHour(endMinutes)}`;
+    return `${formatStr(startTime)} - ${formatStr(endTime)}`;
 }
 
 export default function Welcome({ schedules = [], filters = {} }: { schedules: RosterSchedule[], filters: any }) {
@@ -79,7 +80,7 @@ export default function Welcome({ schedules = [], filters = {} }: { schedules: R
                         {schedules.map((schedule) => (
                             <ScheduleCard
                                 key={schedule.id}
-                                time={formatTime(schedule.period_number, schedule.period_duration_hours)}
+                                time={formatTime(schedule.start_time, schedule.end_time)}
                                 status="Active"
                                 title={schedule.subject?.subject_name || 'Belum Ditentukan'}
                                 teacher={schedule.user?.name || '-'}

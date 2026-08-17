@@ -41,6 +41,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/roster-schedules', [\App\Http\Controllers\RosterScheduleController::class, 'store'])->name('roster-schedules.store');
     Route::put('/roster-schedules/{id}', [\App\Http\Controllers\RosterScheduleController::class, 'update'])->name('roster-schedules.update');
     Route::delete('/roster-schedules/{id}', [\App\Http\Controllers\RosterScheduleController::class, 'destroy'])->name('roster-schedules.destroy');
+
+    // Master Days Management
+    Route::get('/master-days', [\App\Http\Controllers\MasterDayController::class, 'index'])->name('master-days.index');
+    Route::post('/master-days', [\App\Http\Controllers\MasterDayController::class, 'store'])->name('master-days.store');
+    Route::put('/master-days/{id}', [\App\Http\Controllers\MasterDayController::class, 'update'])->name('master-days.update');
+    Route::delete('/master-days/{id}', [\App\Http\Controllers\MasterDayController::class, 'destroy'])->name('master-days.destroy');
 });
 
 require __DIR__.'/settings.php';

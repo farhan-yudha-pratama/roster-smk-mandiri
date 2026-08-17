@@ -16,62 +16,73 @@ import {
 import { dashboard } from '@/routes';
 import type { NavItem } from '@/types';
 
-const mainNavItems: NavItem[] = [
+const dashboardItems: NavItem[] = [
     {
         title: 'Dashboard',
         href: dashboard(),
         icon: LayoutGrid,
-    },
-    /* 
-    Contoh penggunaan seperti referensi Anda:
-    Anda bisa menambahkan item lain di sini jika route-nya sudah ada.
-    */
+    }
+];
+
+const masterDataItems: NavItem[] = [
     {
-        title: 'Manajemen Pengguna',
-        href: '/users',
-        icon: Users,
-        roles: ['SUPERADMIN'],
-    },
-    {
-        title: 'Subjects',
+        title: 'Mata Pelajaran',
         href: '/subjects',
         icon: Book,
         roles: ['SUPERADMIN'],
     },
     {
-        title: 'Classes',
+        title: 'Master Hari',
+        href: '/master-days',
+        icon: CalendarDays,
+        roles: ['SUPERADMIN'],
+    },
+    {
+        title: 'Master Kelas',
         href: '/classes',
         icon: LayoutGrid,
         roles: ['SUPERADMIN'],
     },
     {
-        title: 'Classrooms',
+        title: 'Master Ruangan',
         href: '/classrooms',
         icon: DoorOpen,
         roles: ['SUPERADMIN'],
     },
     {
-        title: 'Homeroom Teachers',
+        title: 'Wali Kelas',
         href: '/homeroom-teachers',
         icon: UserCircle,
         roles: ['SUPERADMIN'],
     },
+];
+
+const transaksionalItems: NavItem[] = [
     {
-        title: 'Roster Schedules',
+        title: 'Jadwal Pelajaran',
         href: '/roster-schedules',
         icon: CalendarDays,
         roles: ['SUPERADMIN'],
     },
 ];
 
+const systemItems: NavItem[] = [
+    {
+        title: 'Manajemen Pengguna',
+        href: '/users',
+        icon: Users,
+        roles: ['SUPERADMIN'],
+    },
+];
+
 const footerNavItems: NavItem[] = [
     {
-        title: 'Repository',
+        title: 'Repositori',
         href: 'https://github.com/laravel/react-starter-kit',
         icon: FolderGit2,
     },
     {
-        title: 'Documentation',
+        title: 'Dokumentasi',
         href: 'https://laravel.com/docs/starter-kits#react',
         icon: BookOpen,
     },
@@ -82,15 +93,18 @@ export function AppSidebar() {
     // Ambil array role name dari user yang sedang login
     const userRoleNames = auth?.user?.roles?.map((r: any) => r.name) || [];
 
-    // Filter mainNavItems sesuai role
-    const filteredNavItems = mainNavItems.filter((item) => {
-        // Jika tidak ada 'roles' yang didefinisikan di item, berarti semua orang bisa akses (misal Dashboard)
-        if (!item.roles || item.roles.length === 0) {
-            return true;
-        }
-        // Jika ada 'roles', cek apakah user saat ini memiliki salah satu role yang diizinkan
-        return item.roles.some((role) => userRoleNames.includes(role));
-    });
+    // Filter setiap grup sesuai role
+    const filterByRole = (items: NavItem[]) => {
+        return items.filter((item) => {
+            if (!item.roles || item.roles.length === 0) return true;
+            return item.roles.some((role) => userRoleNames.includes(role));
+        });
+    };
+
+    const filteredDashboardItems = filterByRole(dashboardItems);
+    const filteredMasterItems = filterByRole(masterDataItems);
+    const filteredTransaksiItems = filterByRole(transaksionalItems);
+    const filteredSystemItems = filterByRole(systemItems);
 
     return (
         <Sidebar collapsible="icon" variant="inset">
@@ -107,7 +121,10 @@ export function AppSidebar() {
             </SidebarHeader>
 
             <SidebarContent>
-                <NavMain items={filteredNavItems} />
+                <NavMain items={filteredDashboardItems} label="Utama" />
+                {filteredMasterItems.length > 0 && <NavMain items={filteredMasterItems} label="Master Data" />}
+                {filteredTransaksiItems.length > 0 && <NavMain items={filteredTransaksiItems} label="Transaksional" />}
+                {filteredSystemItems.length > 0 && <NavMain items={filteredSystemItems} label="Sistem" />}
             </SidebarContent>
 
             <SidebarFooter>
