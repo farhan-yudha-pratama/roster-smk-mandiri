@@ -1,0 +1,57 @@
+[
+    {
+        "id": "SCH-001",
+        "class_id": "X-PPL-GIM-1",
+        "day": "Monday",
+        "week_cycle": "GANJIL",
+        "period_number": 1,
+        "period_duration_hours": 4,
+        "subject_id": "MTK",
+        "user_id": "HR-013",
+        "classroom_id": "TEORI-10"
+    },
+    {
+        "id": "SCH-002",
+        "class_id": "X-PPL-GIM-1",
+        "day": "Monday",
+        "week_cycle": "GANJIL",
+        "period_number": 2,
+        "period_duration_hours": 3,
+        "subject_id": "PAI",
+        "user_id": "HR-019",
+        "classroom_id": "TEORI-10"
+    },
+    {
+        "id": "SCH-003",
+        "class_id": "X-PPL-GIM-1",
+        "day": "Monday",
+        "week_cycle": "GANJIL",
+        "period_number": 3,
+        "period_duration_hours": 3,
+        "subject_id": "PJOK",
+        "user_id": "HR-020",
+        "classroom_id": "TEORI-10"
+    },
+    {
+        "id": "SCH-004",
+        "class_id": "X-PPL-GIM-1",
+        "day": "Monday",
+        "week_cycle": "GENAP",
+        "period_number": 1,
+        "period_duration_hours": 10,
+        "subject_id": "DDPK",
+        "user_id": "HR-017",
+        "classroom_id": "LAB-5"
+    },
+    {
+        "id": "SCH-004",
+        "class_id": "X-PPL-GIM-1",
+        "day": "Monday",
+        "week_cycle": "GENAP",
+        "period_number": 1,
+        "period_duration_hours": 10,
+        "subject_id": "DDPK",
+        "user_id": "HR-017",
+        "classroom_id": "LAB-5"
+    }
+]

@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+    db:
+        image: mysql:8.0
+        container_name: roster-smk-mandiri-db
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
+            MYSQL_DATABASE: ${DB_DATABASE:-db_roster_smk_mandiri}
+        ports:
+            - '3306:3306'
+        volumes:
+            - 'D:/program/docker/mysql-data:/var/lib/mysql'
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: roster-smk-mandiri-pma
+        restart: always
+        environment:
+            PMA_HOST: db
+            PMA_PORT: 3306
+            PMA_USER: root
+            PMA_PASSWORD: ${DB_PASSWORD:-root}
+        ports:
+            - '8080:80'
+        depends_on:
+            - db
