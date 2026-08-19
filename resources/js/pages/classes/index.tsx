@@ -3,9 +3,11 @@ import { dashboard } from '@/routes';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { useState } from 'react';
+import { ChevronDown, Plus, Pencil, Trash2, Upload } from 'lucide-react';
 import { CreateModal } from './components/create-modal';
 import { UpdateModal } from './components/update-modal';
 import { DeleteModal } from './components/delete-modal';
+import { CreateBatchClassModal } from './components/create-batch-class-modal';
 
 export interface HomeroomTeacher {
     id: string;
@@ -23,6 +25,7 @@ export interface ClassModel {
 
 export default function ClassIndex({ classes, teachers, gradeLevels, majors }: { classes: ClassModel[], teachers: HomeroomTeacher[], gradeLevels: string[], majors: string[] }) {
     const [isCreateOpen, setIsCreateOpen] = useState(false);
+    const [isImportOpen, setIsImportOpen] = useState(false);
     const [editClass, setEditClass] = useState<ClassModel | null>(null);
     const [isEditOpen, setIsEditOpen] = useState(false);
     const [deleteClass, setDeleteClass] = useState<ClassModel | null>(null);
@@ -49,7 +52,16 @@ export default function ClassIndex({ classes, teachers, gradeLevels, majors }: {
                             Kelola data kelas.
                         </p>
                     </div>
-                    <Button onClick={() => setIsCreateOpen(true)}>Tambah Kelas</Button>
+                    <div className="flex items-center gap-2">
+                        <Button variant="outline" onClick={() => setIsImportOpen(true)} className="gap-2">
+                            <Upload className="h-4 w-4" />
+                            <span className="hidden sm:inline">Import Batch</span>
+                        </Button>
+                        <Button onClick={() => setIsCreateOpen(true)} className="gap-2">
+                            <Plus className="h-4 w-4" />
+                            Tambah Kelas
+                        </Button>
+                    </div>
                 </div>
 
                 {/* Mobile View - Cards */}
@@ -132,6 +144,8 @@ export default function ClassIndex({ classes, teachers, gradeLevels, majors }: {
                     </table>
                 </div>
             </div>
+
+            <CreateBatchClassModal isOpen={isImportOpen} setIsOpen={setIsImportOpen} />
 
             <CreateModal isOpen={isCreateOpen} setIsOpen={setIsCreateOpen} teachers={teachers} gradeLevels={gradeLevels} majors={majors} />
 

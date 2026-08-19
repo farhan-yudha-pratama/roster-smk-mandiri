@@ -19,7 +19,7 @@ return new class extends Migration
 
             $table->foreign('master_day_id')->references('id')->on('master_days')->onDelete('cascade');
             $table->foreign('master_uniform_id')->references('id')->on('master_uniforms')->onDelete('cascade');
-            
+
             $table->unique(['master_day_id', 'master_uniform_id']);
         });
     }

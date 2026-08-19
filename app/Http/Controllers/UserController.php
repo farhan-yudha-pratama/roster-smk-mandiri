@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\Role;
 use App\Enums\RoleType;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Inertia\Inertia;
 
 class UserController extends Controller
 {
@@ -18,7 +18,7 @@ class UserController extends Controller
     private function checkSuperadmin()
     {
         $isSuperadmin = request()->user()->roles()->where('name', RoleType::SUPERADMIN->value)->exists();
-        if (!$isSuperadmin) {
+        if (! $isSuperadmin) {
             abort(403, 'Unauthorized action.');
         }
     }
@@ -33,7 +33,7 @@ class UserController extends Controller
 
         return Inertia::render('users/index', [
             'users' => $users,
-            'roles' => $roles
+            'roles' => $roles,
         ]);
     }
 
@@ -49,8 +49,8 @@ class UserController extends Controller
         ]);
 
         $role = Role::findOrFail($request->role_id);
-        
-        if (!in_array($role->name->value, [RoleType::SUPERADMIN->value, RoleType::GURU->value, RoleType::TEKNISI->value])) {
+
+        if (! in_array($role->name->value, [RoleType::SUPERADMIN->value, RoleType::GURU->value, RoleType::TEKNISI->value])) {
             return back()->withErrors(['role_id' => 'Role tidak valid.']);
         }
 
@@ -72,15 +72,15 @@ class UserController extends Controller
 
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
             'password' => 'nullable|string|min:8',
             'role_id' => 'required|exists:roles,id',
         ]);
 
         $role = Role::findOrFail($request->role_id);
-        
-        if (!in_array($role->name->value, [RoleType::SUPERADMIN->value, RoleType::GURU->value, RoleType::TEKNISI->value])) {
-             return back()->withErrors(['role_id' => 'Role tidak valid.']);
+
+        if (! in_array($role->name->value, [RoleType::SUPERADMIN->value, RoleType::GURU->value, RoleType::TEKNISI->value])) {
+            return back()->withErrors(['role_id' => 'Role tidak valid.']);
         }
 
         $user->update([

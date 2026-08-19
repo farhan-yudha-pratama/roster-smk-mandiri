@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\WeekCycle;
+use App\Models\MasterDay;
+use App\Models\MasterUniform;
+use App\Models\RosterSchedule;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use App\Models\RosterSchedule;
 
 class WelcomeController extends Controller
 {
@@ -17,11 +21,11 @@ class WelcomeController extends Controller
             'Thursday' => 'Kamis',
             'Friday' => 'Jumat',
             'Saturday' => 'Sabtu',
-            'Sunday' => 'Minggu'
+            'Sunday' => 'Minggu',
         ];
-        $currentDay = $mapDay[\Carbon\Carbon::now()->format('l')] ?? 'Senin';
+        $currentDay = $mapDay[Carbon::now()->format('l')] ?? 'Senin';
         // Simple logic for week cycle: odd or even week of the year
-        $currentCycle = \Carbon\Carbon::now()->weekOfYear % 2 == 0 ? \App\Enums\WeekCycle::EVEN->value : \App\Enums\WeekCycle::ODD->value;
+        $currentCycle = Carbon::now()->weekOfYear % 2 == 0 ? WeekCycle::EVEN->value : WeekCycle::ODD->value;
 
         $filters = [
             'search' => $request->search ?? '',
@@ -32,10 +36,10 @@ class WelcomeController extends Controller
         ];
 
         $query = RosterSchedule::with([
-            'masterClass.homeroomTeacher', 
-            'subject', 
-            'user', 
-            'classroom'
+            'masterClass.homeroomTeacher',
+            'subject',
+            'user',
+            'classroom',
         ]);
 
         if ($filters['day'] !== 'all') {
@@ -64,22 +68,22 @@ class WelcomeController extends Controller
                 $q->whereHas('user', function ($u) use ($search) {
                     $u->whereRaw('LOWER(name) LIKE ?', ["%{$search}%"]);
                 })
-                ->orWhereHas('classroom', function ($c) use ($search) {
-                    $c->whereRaw('LOWER(room_name) LIKE ?', ["%{$search}%"]);
-                })
-                ->orWhereHas('subject', function ($s) use ($search) {
-                    $s->whereRaw('LOWER(subject_name) LIKE ?', ["%{$search}%"]);
-                });
+                    ->orWhereHas('classroom', function ($c) use ($search) {
+                        $c->whereRaw('LOWER(room_name) LIKE ?', ["%{$search}%"]);
+                    })
+                    ->orWhereHas('subject', function ($s) use ($search) {
+                        $s->whereRaw('LOWER(subject_name) LIKE ?', ["%{$search}%"]);
+                    });
             });
         }
 
         $schedules = $query->orderBy('period_number')->get();
 
-        $currentTimeStr = \Carbon\Carbon::now('Asia/Jakarta')->format('H:i:s');
-        $currentDayModel = \App\Models\MasterDay::with(['timeAllocations' => function($q) {
+        $currentTimeStr = Carbon::now('Asia/Jakarta')->format('H:i:s');
+        $currentDayModel = MasterDay::with(['timeAllocations' => function ($q) {
             $q->orderBy('start_time', 'asc');
         }])->where('day_name', $currentDay)->first();
-        
+
         $currentScheduleStatus = [
             'status' => 'NO_SCHEDULE',
             'message' => 'Tidak Ada Jadwal Hari Ini',
@@ -143,22 +147,22 @@ class WelcomeController extends Controller
             'schedules' => $schedules,
             'filters' => $filters,
             'currentScheduleStatus' => $currentScheduleStatus,
-            'currentTime' => \Carbon\Carbon::now('Asia/Jakarta')->format('H:i'),
+            'currentTime' => Carbon::now('Asia/Jakarta')->format('H:i'),
         ]);
     }
 
     public function scheduleInfo()
     {
-        $days = \App\Models\MasterDay::with([
+        $days = MasterDay::with([
             'timeAllocations' => function ($q) {
                 $q->orderBy('start_time', 'asc');
             },
-            'masterUniforms'
+            'masterUniforms',
         ])->orderByRaw("FIELD(day_name, 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu')")->get();
-        
-        $anyDayUniforms = \App\Models\MasterUniform::where('is_any_day', true)->get();
 
-        $carbonNow = \Carbon\Carbon::now('Asia/Jakarta');
+        $anyDayUniforms = MasterUniform::where('is_any_day', true)->get();
+
+        $carbonNow = Carbon::now('Asia/Jakarta');
         $mapDays = [
             'Monday' => 'Senin',
             'Tuesday' => 'Selasa',

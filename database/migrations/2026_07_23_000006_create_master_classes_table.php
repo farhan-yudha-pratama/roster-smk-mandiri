@@ -13,11 +13,11 @@ return new class extends Migration
             $table->string('grade_level'); // 'X', 'XI', 'XII'
             $table->string('class_name');
             $table->string('major'); // 'TJK', 'PPL GIM', 'TKJ', 'RPL'
-            
+
             // 1-to-1 relationship with Homeroom Teacher
             $table->string('master_classroom_teacher_id')->nullable()->unique();
             $table->foreign('master_classroom_teacher_id')->references('id')->on('master_homeroom_teachers')->onDelete('cascade');
-            
+
             $table->timestamps();
         });
     }

@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use App\Models\User;
-use App\Models\Role;
 use App\Enums\RoleType;
+use App\Models\Role;
+use App\Models\User;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
 class UserRoleSeeder extends Seeder
 {
@@ -19,17 +18,17 @@ class UserRoleSeeder extends Seeder
         // 1. Create Roles
         $roleSuperadmin = Role::firstOrCreate([
             'name' => RoleType::SUPERADMIN->value,
-            'guard_name' => 'web'
+            'guard_name' => 'web',
         ]);
 
         $roleGuru = Role::firstOrCreate([
             'name' => RoleType::GURU->value,
-            'guard_name' => 'web'
+            'guard_name' => 'web',
         ]);
 
         $roleTeknisi = Role::firstOrCreate([
             'name' => RoleType::TEKNISI->value,
-            'guard_name' => 'web'
+            'guard_name' => 'web',
         ]);
 
         // 2. Create Users (this will trigger User::created event which automatically assigns GURU, but we will sync the correct role afterward)

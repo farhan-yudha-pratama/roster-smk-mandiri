@@ -1,12 +1,13 @@
 import { Head } from '@inertiajs/react';
 import { dashboard } from '@/routes';
 import { Button } from '@/components/ui/button';
-import { PlusIcon, PencilIcon, TrashIcon, ArrowDownAZ, ArrowUpZA, ArrowUpDown } from 'lucide-react';
+import { PlusIcon, ArrowDownAZ, ArrowUpZA, ArrowUpDown, Upload, Download } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { useState, useMemo } from 'react';
 import { CreateModal } from './components/create-modal';
 import { UpdateModal } from './components/update-modal';
 import { DeleteModal } from './components/delete-modal';
+import { CreateBatchRosterScheduleModal } from './components/create-batch-roster-schedule-modal';
 
 interface MasterClass { id: string; class_name: string; }
 interface MasterSubject { id: string; subject_name: string; }
@@ -41,6 +42,7 @@ export default function RosterScheduleIndex({
     weekCycles: string[] 
 }) {
     const [isCreateOpen, setIsCreateOpen] = useState(false);
+    const [isImportOpen, setIsImportOpen] = useState(false);
     const [isUpdateOpen, setIsUpdateOpen] = useState(false);
     const [isDeleteOpen, setIsDeleteOpen] = useState(false);
     
@@ -91,7 +93,11 @@ export default function RosterScheduleIndex({
                             Kelola jadwal induk dan roster kelas.
                         </p>
                     </div>
-                    <div>
+                    <div className="flex flex-col sm:flex-row items-center gap-2">
+                        <Button variant="outline" onClick={() => setIsImportOpen(true)} className="w-full sm:w-auto gap-2">
+                            <Upload className="h-4 w-4" />
+                            <span className="hidden sm:inline">Import Batch</span>
+                        </Button>
                         <Button className="w-full sm:w-auto" onClick={() => setIsCreateOpen(true)}>
                             <PlusIcon className="mr-2 h-4 w-4" />
                             Tambah Jadwal
@@ -210,6 +216,8 @@ export default function RosterScheduleIndex({
                     </table>
                 </div>
             </div>
+
+            <CreateBatchRosterScheduleModal isOpen={isImportOpen} setIsOpen={setIsImportOpen} />
 
             <CreateModal 
                 isOpen={isCreateOpen} 

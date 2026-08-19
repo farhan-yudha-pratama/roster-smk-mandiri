@@ -2,19 +2,16 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use App\Models\MasterClassroom;
-use App\Models\MasterSubject;
-use App\Models\MasterHomeroomTeacher;
-use App\Models\MasterClass;
-use App\Models\RosterSchedule;
-use App\Models\User;
-use App\Enums\RoomType;
 use App\Enums\GradeLevel;
 use App\Enums\Major;
-use App\Enums\Day;
-use App\Enums\WeekCycle;
 use App\Enums\RoleType;
+use App\Enums\RoomType;
+use App\Models\MasterClass;
+use App\Models\MasterClassroom;
+use App\Models\MasterHomeroomTeacher;
+use App\Models\MasterSubject;
+use App\Models\User;
+use Illuminate\Database\Seeder;
 
 class MasterDataSeeder extends Seeder
 {
@@ -62,7 +59,7 @@ class MasterDataSeeder extends Seeder
         }
 
         // Get a Guru user for relation
-        $guruUser = User::whereHas('roles', function($q) {
+        $guruUser = User::whereHas('roles', function ($q) {
             $q->where('name', RoleType::GURU->value);
         })->first();
 

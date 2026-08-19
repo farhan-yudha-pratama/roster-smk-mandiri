@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Inertia\Inertia;
-use App\Models\MasterHomeroomTeacher;
+use App\Enums\Day;
 use App\Models\MasterClass;
-use App\Models\MasterSubject;
 use App\Models\MasterClassroom;
 use App\Models\MasterDay;
+use App\Models\MasterHomeroomTeacher;
+use App\Models\MasterSubject;
 use App\Models\RosterSchedule;
 use Carbon\Carbon;
-use App\Enums\Day;
+use Inertia\Inertia;
 
 class DashboardController extends Controller
 {
@@ -47,7 +46,7 @@ class DashboardController extends Controller
             ->get()
             ->map(function ($schedule) {
                 return [
-                    'time' => $schedule->start_time . ' - ' . $schedule->end_time,
+                    'time' => $schedule->start_time.' - '.$schedule->end_time,
                     'class' => $schedule->masterClass ? $schedule->masterClass->class_name : '-',
                     'subject' => $schedule->subject ? $schedule->subject->subject_name : '-',
                     'teacher' => $schedule->teacher ? $schedule->teacher->teacher_name : '-',
@@ -57,7 +56,7 @@ class DashboardController extends Controller
 
         // 4. Empty Classes (Jam Kosong) - Scenario A
         $currentTime = Carbon::now()->format('H:i:s');
-        
+
         // Find schedules that are active RIGHT NOW
         $activeSchedules = RosterSchedule::where('day', $todayIndo)
             ->where('start_time', '<=', $currentTime)

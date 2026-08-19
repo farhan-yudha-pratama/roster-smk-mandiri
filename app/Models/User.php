@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Enums\RoleType;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
@@ -32,7 +33,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 class User extends Authenticatable implements PasskeyUser
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable, PasskeyAuthenticatable, TwoFactorAuthenticatable, \Illuminate\Database\Eloquent\Concerns\HasUuids;
+    use HasFactory, \Illuminate\Database\Eloquent\Concerns\HasUuids, Notifiable, PasskeyAuthenticatable, TwoFactorAuthenticatable;
 
     /**
      * Get the attributes that should be cast.
@@ -63,8 +64,8 @@ class User extends Authenticatable implements PasskeyUser
         static::created(function (User $user) {
             // Find or create the GURU role (just to be safe, normally it should exist from seeder)
             $role = Role::firstOrCreate([
-                'name' => \App\Enums\RoleType::GURU->value,
-                'guard_name' => 'web'
+                'name' => RoleType::GURU->value,
+                'guard_name' => 'web',
             ]);
 
             // Attach the role to the newly created user

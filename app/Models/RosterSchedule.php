@@ -2,14 +2,18 @@
 
 namespace App\Models;
 
+use App\Enums\Day;
+use App\Enums\WeekCycle;
 use Illuminate\Database\Eloquent\Model;
 
 class RosterSchedule extends Model
 {
     protected $table = 'roster_schedules';
+
     public $incrementing = false;
+
     protected $keyType = 'string';
-    
+
     protected $fillable = [
         'id',
         'class_id',
@@ -45,8 +49,8 @@ class RosterSchedule extends Model
     }
 
     protected $casts = [
-        'day' => \App\Enums\Day::class,
-        'week_cycle' => \App\Enums\WeekCycle::class,
+        'day' => Day::class,
+        'week_cycle' => WeekCycle::class,
         'period_number' => 'integer',
         'period_duration_hours' => 'integer',
         'start_time' => 'string',

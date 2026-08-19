@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\RoomType;
 use App\Models\MasterClassroom;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 
 class ClassroomController extends Controller
@@ -11,8 +13,8 @@ class ClassroomController extends Controller
     public function index()
     {
         $classrooms = MasterClassroom::all();
-        $roomTypes = \App\Enums\RoomType::values();
-        
+        $roomTypes = RoomType::values();
+
         return Inertia::render('classrooms/index', [
             'classrooms' => $classrooms,
             'roomTypes' => $roomTypes,
@@ -24,7 +26,7 @@ class ClassroomController extends Controller
         $request->validate([
             'id' => 'required|string|unique:master_classrooms,id|max:255',
             'room_name' => 'required|string|max:255',
-            'room_type' => ['nullable', \Illuminate\Validation\Rule::in(\App\Enums\RoomType::values())],
+            'room_type' => ['nullable', Rule::in(RoomType::values())],
         ]);
 
         MasterClassroom::create($request->all());
@@ -38,7 +40,7 @@ class ClassroomController extends Controller
 
         $request->validate([
             'room_name' => 'required|string|max:255',
-            'room_type' => ['nullable', \Illuminate\Validation\Rule::in(\App\Enums\RoomType::values())],
+            'room_type' => ['nullable', Rule::in(RoomType::values())],
         ]);
 
         if ($request->id && $request->id !== $id) {

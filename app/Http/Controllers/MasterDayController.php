@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\MasterDay;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Illuminate\Support\Str;
 
 class MasterDayController extends Controller
 {
