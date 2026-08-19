@@ -75,9 +75,75 @@ class WelcomeController extends Controller
 
         $schedules = $query->orderBy('period_number')->get();
 
+        $currentTimeStr = \Carbon\Carbon::now('Asia/Jakarta')->format('H:i:s');
+        $currentDayModel = \App\Models\MasterDay::with(['timeAllocations' => function($q) {
+            $q->orderBy('start_time', 'asc');
+        }])->where('day_name', $currentDay)->first();
+        
+        $currentScheduleStatus = [
+            'status' => 'NO_SCHEDULE',
+            'message' => 'Tidak Ada Jadwal Hari Ini',
+            'allocation' => null,
+            'first_time' => null,
+            'last_time' => null,
+            'all_allocations' => [],
+        ];
+
+        if ($currentDayModel && $currentDayModel->timeAllocations->isNotEmpty()) {
+            $allocations = $currentDayModel->timeAllocations;
+            $firstAllocation = $allocations->first();
+            $lastAllocation = $allocations->last();
+
+            if ($currentTimeStr < $firstAllocation->start_time) {
+                $currentScheduleStatus = [
+                    'status' => 'NOT_STARTED',
+                    'message' => 'JP Belum Dimulai',
+                    'allocation' => null,
+                    'first_time' => $firstAllocation->start_time,
+                    'last_time' => $lastAllocation->end_time,
+                    'all_allocations' => $allocations->values(),
+                ];
+            } elseif ($currentTimeStr > $lastAllocation->end_time) {
+                $currentScheduleStatus = [
+                    'status' => 'ENDED',
+                    'message' => 'JP Sudah Selesai',
+                    'allocation' => null,
+                    'first_time' => $firstAllocation->start_time,
+                    'last_time' => $lastAllocation->end_time,
+                    'all_allocations' => $allocations->values(),
+                ];
+            } else {
+                $active = $allocations->first(function ($alloc) use ($currentTimeStr) {
+                    return $currentTimeStr >= $alloc->start_time && $currentTimeStr <= $alloc->end_time;
+                });
+
+                if ($active) {
+                    $currentScheduleStatus = [
+                        'status' => $active->type === 'break' ? 'BREAK' : 'ACTIVE',
+                        'message' => $active->type === 'break' ? 'Sedang Istirahat' : 'Sedang Berlangsung',
+                        'allocation' => $active,
+                        'first_time' => $firstAllocation->start_time,
+                        'last_time' => $lastAllocation->end_time,
+                        'all_allocations' => $allocations->values(),
+                    ];
+                } else {
+                    $currentScheduleStatus = [
+                        'status' => 'BREAK',
+                        'message' => 'Pergantian Jam',
+                        'allocation' => null,
+                        'first_time' => $firstAllocation->start_time,
+                        'last_time' => $lastAllocation->end_time,
+                        'all_allocations' => $allocations->values(),
+                    ];
+                }
+            }
+        }
+
         return Inertia::render('welcome', [
             'schedules' => $schedules,
             'filters' => $filters,
+            'currentScheduleStatus' => $currentScheduleStatus,
+            'currentTime' => \Carbon\Carbon::now('Asia/Jakarta')->format('H:i'),
         ]);
     }
 
@@ -92,9 +158,24 @@ class WelcomeController extends Controller
         
         $anyDayUniforms = \App\Models\MasterUniform::where('is_any_day', true)->get();
 
+        $carbonNow = \Carbon\Carbon::now('Asia/Jakarta');
+        $mapDays = [
+            'Monday' => 'Senin',
+            'Tuesday' => 'Selasa',
+            'Wednesday' => 'Rabu',
+            'Thursday' => 'Kamis',
+            'Friday' => 'Jumat',
+            'Saturday' => 'Sabtu',
+            'Sunday' => 'Minggu',
+        ];
+        $currentDayNameEn = $carbonNow->format('l');
+        $currentDay = $mapDays[$currentDayNameEn] ?? 'Senin';
+
         return Inertia::render('ScheduleInfo', [
             'days' => $days,
             'anyDayUniforms' => $anyDayUniforms,
+            'currentTime' => $carbonNow->format('H:i:s'),
+            'currentDay' => $currentDay,
         ]);
     }
 }

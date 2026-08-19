@@ -1,7 +1,7 @@
 import { Head, usePage } from '@inertiajs/react';
 import { WelcomeHeader } from './Welcome/components/WelcomeHeader';
 import { Shirt, AlertCircle, Clock, CalendarDays } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface MasterUniform {
     id: string;
@@ -27,10 +27,44 @@ interface MasterTimeAllocation {
     description: string | null;
 }
 
-export default function ScheduleInfo({ days, anyDayUniforms }: { days: MasterDay[], anyDayUniforms: MasterUniform[] }) {
+export default function ScheduleInfo({ 
+    days, 
+    anyDayUniforms,
+    currentTime,
+    currentDay
+}: { 
+    days: MasterDay[], 
+    anyDayUniforms: MasterUniform[],
+    currentTime?: string,
+    currentDay?: string
+}) {
     const { auth } = usePage().props;
-    const [activeTab, setActiveTab] = useState<'uniforms' | 'time'>('uniforms');
-    const [activeDayId, setActiveDayId] = useState<string>(days[0]?.id || '');
+    
+    // Temukan hari yang sesuai dengan hari ini, jika tidak ada fallback ke hari pertama
+    const initialDay = days.find(d => d.day_name === currentDay) || days[0];
+
+    // Jika diakses, langsung buka tab waktu dan pilih hari ini
+    const [activeTab, setActiveTab] = useState<'uniforms' | 'time'>('time');
+    const [activeDayId, setActiveDayId] = useState<string>(initialDay?.id || '');
+
+    // Auto-scroll ke jam aktif
+    useEffect(() => {
+        if (activeTab === 'time' && activeDayId === initialDay?.id && currentTime) {
+            const activeAlloc = initialDay?.time_allocations.find(
+                a => currentTime >= a.start_time && currentTime <= a.end_time
+            );
+            
+            if (activeAlloc) {
+                // Beri sedikit delay agar DOM selesai dirender
+                setTimeout(() => {
+                    const el = document.getElementById(`alloc-${activeAlloc.id}`);
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }, 100);
+            }
+        }
+    }, [activeTab, activeDayId, currentTime, initialDay]);
 
     const formatTime = (time: string) => {
         return time.substring(0, 5); // "08:00:00" -> "08:00"
@@ -166,8 +200,26 @@ export default function ScheduleInfo({ days, anyDayUniforms }: { days: MasterDay
                                 <div className="divide-y divide-border/50">
                                     {activeAllocations.map((alloc) => {
                                         const isBreak = alloc.type === 'break' || alloc.type === 'ceremony';
+                                        
+                                        // Cek apakah ini jam yang sedang aktif
+                                        const isActiveNow = currentTime && 
+                                                          activeDayId === initialDay?.id && 
+                                                          currentTime >= alloc.start_time && 
+                                                          currentTime <= alloc.end_time;
+
                                         return (
-                                            <div key={alloc.id} className={`flex items-center justify-between p-3 sm:p-4 sm:px-6 hover:bg-muted/50 transition-colors ${isBreak ? 'bg-amber-500/5' : ''}`}>
+                                            <div 
+                                                id={`alloc-${alloc.id}`} 
+                                                key={alloc.id} 
+                                                className={`flex items-center justify-between p-3 sm:p-4 sm:px-6 hover:bg-muted/50 transition-colors 
+                                                ${isBreak ? 'bg-amber-500/5' : ''} 
+                                                ${isActiveNow ? 'bg-primary/10 border-l-4 border-l-primary relative' : 'border-l-4 border-l-transparent'}`}
+                                            >
+                                                {isActiveNow && (
+                                                    <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-[10px] font-bold px-2 py-0.5 rounded-bl-lg rounded-tr-sm">
+                                                        SEKARANG
+                                                    </div>
+                                                )}
                                                 <div className="flex items-center gap-3 sm:gap-6 w-full">
                                                     <div className="w-[100px] sm:w-32 shrink-0 text-[11px] sm:text-sm font-bold text-foreground tabular-nums bg-background/50 px-2 sm:px-3 py-1 sm:py-1.5 rounded-md border border-border/50 text-center">
                                                         {formatTime(alloc.start_time)} - {formatTime(alloc.end_time)}

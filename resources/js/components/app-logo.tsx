@@ -1,20 +1,20 @@
-import { usePage } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
+import { forwardRef } from 'react';
 
-import AppLogoIcon from '@/components/app-logo-icon';
-
-export default function AppLogo() {
-    const { name } = usePage().props;
-
+const AppLogo = forwardRef<HTMLAnchorElement, React.ComponentPropsWithoutRef<typeof Link>>((props, ref) => {
     return (
-        <>
-            <div className="flex aspect-square size-8 items-center justify-center rounded-md bg-sidebar-primary text-sidebar-primary-foreground">
-                <AppLogoIcon className="size-5 fill-current text-white dark:text-black" />
+        <Link ref={ref} href="/" className="flex items-center gap-2 group w-full" {...props}>
+            <div className="flex aspect-square size-10 items-center justify-center rounded-md bg-transparent shrink-0">
+                <img src="/ypsm.png" alt="Logo" className="w-full h-full object-contain group-hover:scale-105 transition-transform" />
             </div>
             <div className="ml-1 grid flex-1 text-left text-sm">
-                <span className="mb-0.5 truncate leading-tight font-semibold">
-                    {name}
+                <span className="mb-0.5 truncate leading-tight font-bold text-[15px]">
+                    Roster SMK Mandiri
                 </span>
             </div>
-        </>
+        </Link>
     );
-}
+});
+
+AppLogo.displayName = 'AppLogo';
+export default AppLogo;
