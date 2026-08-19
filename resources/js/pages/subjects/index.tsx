@@ -1,17 +1,12 @@
-import { Head, router, useForm } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 import { dashboard } from '@/routes';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import {
-    Dialog,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from '@/components/ui/dialog';
-import { useState } from 'react';
-import { toast } from 'sonner';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { useState, useMemo } from 'react';
+import { CreateSubjectModal } from './components/create-subject-modal';
+import { UpdateSubjectModal } from './components/update-subject-modal';
+import { DeleteSubjectModal } from './components/delete-subject-modal';
+import { ArrowDownAZ, ArrowUpZA, ArrowUpDown } from 'lucide-react';
 
 interface Subject {
     id: string;
@@ -22,134 +17,116 @@ export default function SubjectIndex({ subjects }: { subjects: Subject[] }) {
     const [isCreateOpen, setIsCreateOpen] = useState(false);
     const [editSubject, setEditSubject] = useState<Subject | null>(null);
     const [isEditOpen, setIsEditOpen] = useState(false);
-
-    const { data: createData, setData: setCreateData, post: createPost, processing: createProcessing, errors: createErrors, reset: createReset } = useForm({
-        id: '',
-        subject_name: '',
-    });
-
-    const { data: editData, setData: setEditData, put: editPut, processing: editProcessing, errors: editErrors, reset: editReset } = useForm({
-        id: '',
-        subject_name: '',
-    });
-
-    const handleCreateSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        createPost('/subjects', {
-            onSuccess: () => {
-                toast.success('Subject added successfully.');
-                setIsCreateOpen(false);
-                createReset();
-            },
-        });
-    };
-
-    const handleEditSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!editSubject) return;
-        editPut(`/subjects/${editSubject.id}`, {
-            onSuccess: () => {
-                toast.success('Subject updated successfully.');
-                setIsEditOpen(false);
-                setEditSubject(null);
-                editReset();
-            },
-        });
-    };
-
-    const handleDelete = (id: string) => {
-        if (confirm('Are you sure you want to delete this subject?')) {
-            router.delete(`/subjects/${id}`, {
-                onSuccess: () => {
-                    toast.success('Subject deleted successfully.');
-                },
-            });
-        }
-    };
+    const [deleteSubject, setDeleteSubject] = useState<Subject | null>(null);
+    const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+    const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | null>(null);
 
     const openEdit = (subject: Subject) => {
         setEditSubject(subject);
-        setEditData({
-            id: subject.id,
-            subject_name: subject.subject_name,
-        });
         setIsEditOpen(true);
     };
 
+    const openDelete = (subject: Subject) => {
+        setDeleteSubject(subject);
+        setIsDeleteOpen(true);
+    };
+
+    const handleSort = () => {
+        if (sortOrder === null || sortOrder === 'desc') {
+            setSortOrder('asc');
+        } else {
+            setSortOrder('desc');
+        }
+    };
+
+    const sortedSubjects = useMemo(() => {
+        if (!sortOrder) return subjects;
+        return [...subjects].sort((a, b) => {
+            if (sortOrder === 'asc') {
+                return a.subject_name.localeCompare(b.subject_name);
+            } else {
+                return b.subject_name.localeCompare(a.subject_name);
+            }
+        });
+    }, [subjects, sortOrder]);
+
+    const SortIcon = sortOrder === 'asc' ? ArrowDownAZ : sortOrder === 'desc' ? ArrowUpZA : ArrowUpDown;
+
     return (
         <>
-            <Head title="Subjects Management" />
+            <Head title="Manajemen Mata Pelajaran" />
             <div className="flex h-full flex-1 flex-col gap-4 p-4 lg:p-8">
                 <div className="flex items-center justify-between space-y-2">
                     <div>
-                        <h2 className="text-2xl font-bold tracking-tight">Subjects</h2>
+                        <h2 className="text-2xl font-bold tracking-tight">Mata Pelajaran</h2>
                         <p className="text-muted-foreground">
-                            Manage subject data.
+                            Kelola data mata pelajaran.
                         </p>
                     </div>
-                    <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
-                        <DialogTrigger asChild>
-                            <Button>Add Subject</Button>
-                        </DialogTrigger>
-                        <DialogContent>
-                            <DialogHeader>
-                                <DialogTitle>Add Subject</DialogTitle>
-                            </DialogHeader>
-                            <form onSubmit={handleCreateSubmit} className="space-y-4">
-                                <div className="space-y-2">
-                                    <Label htmlFor="create_id">Subject ID</Label>
-                                    <Input
-                                        id="create_id"
-                                        value={createData.id}
-                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCreateData('id', e.target.value)}
-                                        placeholder="e.g. MTK"
-                                    />
-                                    {createErrors.id && <p className="text-sm text-red-500">{createErrors.id}</p>}
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="create_subject_name">Subject Name</Label>
-                                    <Input
-                                        id="create_subject_name"
-                                        value={createData.subject_name}
-                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCreateData('subject_name', e.target.value)}
-                                        placeholder="e.g. Mathematics"
-                                    />
-                                    {createErrors.subject_name && <p className="text-sm text-red-500">{createErrors.subject_name}</p>}
-                                </div>
-                                <div className="flex justify-end gap-2">
-                                    <Button type="button" variant="outline" onClick={() => setIsCreateOpen(false)}>Cancel</Button>
-                                    <Button type="submit" disabled={createProcessing}>Save</Button>
-                                </div>
-                            </form>
-                        </DialogContent>
-                    </Dialog>
+                    <Button onClick={() => setIsCreateOpen(true)}>Tambah Mata Pelajaran</Button>
                 </div>
 
-                <div className="rounded-md border">
+                <div className="flex justify-end md:hidden">
+                    <Button variant="outline" size="sm" onClick={handleSort} className="gap-2">
+                        <SortIcon className="h-4 w-4" />
+                        Urutkan
+                    </Button>
+                </div>
+
+                {/* Mobile View - Cards */}
+                <div className="grid grid-cols-1 gap-4 md:hidden">
+                    {sortedSubjects.length === 0 && (
+                        <div className="text-center p-4 text-muted-foreground border rounded-xl bg-card">
+                            Tidak ada mata pelajaran.
+                        </div>
+                    )}
+                    {sortedSubjects.map((subject) => (
+                        <Card key={subject.id} className="py-4">
+                            <CardContent className="pb-2">
+                                <div className="flex flex-col gap-1">
+                                    <span className="text-sm text-muted-foreground font-medium">ID: {subject.id}</span>
+                                    <span className="text-lg font-semibold">{subject.subject_name}</span>
+                                </div>
+                            </CardContent>
+                            <CardFooter className="pt-2 flex gap-2 justify-end">
+                                <Button variant="outline" size="sm" onClick={() => openEdit(subject)}>Edit</Button>
+                                <Button variant="destructive" size="sm" onClick={() => openDelete(subject)}>Hapus</Button>
+                            </CardFooter>
+                        </Card>
+                    ))}
+                </div>
+
+                {/* Desktop View - Table */}
+                <div className="hidden rounded-md border md:block">
                     <table className="w-full text-sm">
                         <thead className="border-b bg-muted/50">
                             <tr className="text-left">
-                                <th className="p-4 font-medium">Subject ID</th>
-                                <th className="p-4 font-medium">Subject Name</th>
-                                <th className="p-4 font-medium text-right">Actions</th>
+                                <th className="p-4 font-medium">ID Mata Pelajaran</th>
+                                <th className="p-4 font-medium cursor-pointer hover:bg-muted/80 transition-colors" onClick={handleSort}>
+                                    <div className="flex items-center gap-2">
+                                        Nama Mata Pelajaran
+                                        <SortIcon className="h-4 w-4" />
+                                    </div>
+                                </th>
+                                <th className="p-4 font-medium text-right">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {subjects.map((subject) => (
+                            {sortedSubjects.map((subject) => (
                                 <tr key={subject.id} className="border-b transition-colors hover:bg-muted/50">
                                     <td className="p-4 font-medium">{subject.id}</td>
                                     <td className="p-4">{subject.subject_name}</td>
                                     <td className="p-4 text-right space-x-2">
                                         <Button variant="outline" size="sm" onClick={() => openEdit(subject)}>Edit</Button>
-                                        <Button variant="destructive" size="sm" onClick={() => handleDelete(subject.id)}>Delete</Button>
+                                        <Button variant="destructive" size="sm" onClick={() => openDelete(subject)}>Hapus</Button>
                                     </td>
                                 </tr>
                             ))}
                             
-                            {subjects.length === 0 && (
+                            {sortedSubjects.length === 0 && (
                                 <tr>
                                     <td colSpan={3} className="p-4 text-center text-muted-foreground">
-                                        No subjects found.
+                                        Tidak ada mata pelajaran.
                                     </td>
                                 </tr>
                             )}
@@ -158,37 +135,11 @@ export default function SubjectIndex({ subjects }: { subjects: Subject[] }) {
                 </div>
             </div>
 
-            <Dialog open={isEditOpen} onOpenChange={setIsEditOpen}>
-                <DialogContent>
-                    <DialogHeader>
-                        <DialogTitle>Edit Subject</DialogTitle>
-                    </DialogHeader>
-                    <form onSubmit={handleEditSubmit} className="space-y-4">
-                        <div className="space-y-2">
-                            <Label htmlFor="edit_id">Subject ID</Label>
-                            <Input
-                                id="edit_id"
-                                value={editData.id}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEditData('id', e.target.value)}
-                            />
-                            {editErrors.id && <p className="text-sm text-red-500">{editErrors.id}</p>}
-                        </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="edit_subject_name">Subject Name</Label>
-                            <Input
-                                id="edit_subject_name"
-                                value={editData.subject_name}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEditData('subject_name', e.target.value)}
-                            />
-                            {editErrors.subject_name && <p className="text-sm text-red-500">{editErrors.subject_name}</p>}
-                        </div>
-                        <div className="flex justify-end gap-2">
-                            <Button type="button" variant="outline" onClick={() => setIsEditOpen(false)}>Cancel</Button>
-                            <Button type="submit" disabled={editProcessing}>Save Changes</Button>
-                        </div>
-                    </form>
-                </DialogContent>
-            </Dialog>
+            <CreateSubjectModal isOpen={isCreateOpen} setIsOpen={setIsCreateOpen} />
+            
+            <UpdateSubjectModal isOpen={isEditOpen} setIsOpen={setIsEditOpen} subject={editSubject} />
+            
+            <DeleteSubjectModal isOpen={isDeleteOpen} setIsOpen={setIsDeleteOpen} subject={deleteSubject} />
         </>
     );
 }
@@ -200,7 +151,7 @@ SubjectIndex.layout = {
             href: dashboard(),
         },
         {
-            title: 'Subjects',
+            title: 'Mata Pelajaran',
             href: '/subjects',
         },
     ],

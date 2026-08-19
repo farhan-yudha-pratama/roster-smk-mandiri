@@ -19,7 +19,7 @@ class RosterSchedule extends Model
         'start_time',
         'end_time',
         'subject_id',
-        'user_id',
+        'teacher_id',
         'classroom_id',
         'period_duration_hours',
     ];
@@ -34,9 +34,9 @@ class RosterSchedule extends Model
         return $this->belongsTo(MasterSubject::class, 'subject_id', 'id');
     }
 
-    public function user()
+    public function teacher()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(MasterHomeroomTeacher::class, 'teacher_id');
     }
 
     public function classroom()

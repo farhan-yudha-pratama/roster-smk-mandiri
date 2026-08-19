@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('subject_id')->nullable();
             $table->foreign('subject_id')->references('id')->on('master_subjects')->onDelete('cascade');
             
-            $table->uuid('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+            $table->string('teacher_id')->nullable();
+            $table->foreign('teacher_id')->references('id')->on('master_homeroom_teachers')->onDelete('set null');
             
             $table->string('classroom_id')->nullable();
             $table->foreign('classroom_id')->references('id')->on('master_classrooms')->onDelete('cascade');

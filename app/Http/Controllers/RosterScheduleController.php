@@ -6,11 +6,10 @@ use App\Models\RosterSchedule;
 use App\Models\MasterClass;
 use App\Models\MasterSubject;
 use App\Models\MasterTimeAllocation;
-use App\Models\User;
+use App\Models\MasterHomeroomTeacher;
 use App\Models\MasterClassroom;
 use App\Enums\Day;
 use App\Enums\WeekCycle;
-use App\Enums\RoleType;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Validation\Rule;
@@ -107,7 +106,7 @@ class RosterScheduleController extends Controller
             'week_cycle'            => ['required', Rule::in(WeekCycle::values())],
             'period_number'         => ['required', 'integer', 'min:1', "max:{$maxPeriod}"],
             'subject_id'            => 'nullable|string|exists:master_subjects,id',
-            'user_id'               => 'nullable|exists:users,id',
+            'teacher_id'            => 'nullable|string|exists:master_homeroom_teachers,id',
             'classroom_id'          => 'nullable|string|exists:master_classrooms,id',
             'period_duration_hours' => [
                 'required', 
@@ -130,15 +129,13 @@ class RosterScheduleController extends Controller
 
     public function index()
     {
-        $schedules = RosterSchedule::with(['masterClass', 'subject', 'user', 'classroom'])->get();
+        $schedules = RosterSchedule::with(['masterClass', 'subject', 'teacher', 'classroom'])->get();
 
         $classes    = MasterClass::all();
         $subjects   = MasterSubject::all();
         $classrooms = MasterClassroom::all();
 
-        $teachers = User::whereHas('roles', function ($q) {
-            $q->where('name', RoleType::GURU->value);
-        })->get();
+        $teachers = MasterHomeroomTeacher::all();
 
         $days       = Day::values();
         $weekCycles = WeekCycle::values();
@@ -181,7 +178,7 @@ class RosterScheduleController extends Controller
             'start_time'            => $times['start_time'],
             'end_time'              => $times['end_time'],
             'subject_id'            => $validated['subject_id'] ?? null,
-            'user_id'               => $validated['user_id'] ?? null,
+            'teacher_id'            => $validated['teacher_id'] ?? null,
             'classroom_id'          => $validated['classroom_id'] ?? null,
             'period_duration_hours' => $validated['period_duration_hours'],
         ]);
@@ -209,7 +206,7 @@ class RosterScheduleController extends Controller
         $schedule->start_time            = $times['start_time'];
         $schedule->end_time              = $times['end_time'];
         $schedule->subject_id            = $validated['subject_id'] ?? null;
-        $schedule->user_id               = $validated['user_id'] ?? null;
+        $schedule->teacher_id            = $validated['teacher_id'] ?? null;
         $schedule->classroom_id          = $validated['classroom_id'] ?? null;
         $schedule->period_duration_hours = $validated['period_duration_hours'];
 

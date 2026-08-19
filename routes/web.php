@@ -10,7 +10,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     
     // User Management (Role check handled in Controller)
     Route::get('/users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
-    Route::post('/users/{user}/role', [\App\Http\Controllers\UserController::class, 'updateRole'])->name('users.update-role');
+    Route::post('/users', [\App\Http\Controllers\UserController::class, 'store'])->name('users.store');
+    Route::put('/users/{user}', [\App\Http\Controllers\UserController::class, 'update'])->name('users.update');
+    Route::delete('/users/{user}', [\App\Http\Controllers\UserController::class, 'destroy'])->name('users.destroy');
 
     // Subjects Management
     Route::get('/subjects', [\App\Http\Controllers\SubjectController::class, 'index'])->name('subjects.index');
