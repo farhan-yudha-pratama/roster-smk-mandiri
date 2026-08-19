@@ -1,25 +1,19 @@
-import { Head, router, useForm } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 import { dashboard } from '@/routes';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import {
-    Dialog,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from '@/components/ui/dialog';
-import React, { useState } from 'react';
-import { toast } from 'sonner';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import React, { useState, useMemo } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
+import { CreateModal } from './components/create-modal';
+import { UpdateModal } from './components/update-modal';
+import { DeleteModal } from './components/delete-modal';
 
-interface MasterDay {
+export interface MasterDay {
     id: string;
     day_name: string;
 }
 
-interface MasterTimeAllocation {
+export interface MasterTimeAllocation {
     id: string;
     name: string;
     type: string;
@@ -34,6 +28,8 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
     const [isCreateOpen, setIsCreateOpen] = useState(false);
     const [editAllocation, setEditAllocation] = useState<MasterTimeAllocation | null>(null);
     const [isEditOpen, setIsEditOpen] = useState(false);
+    const [deleteAllocation, setDeleteAllocation] = useState<MasterTimeAllocation | null>(null);
+    const [isDeleteOpen, setIsDeleteOpen] = useState(false);
 
     // Group allocations by day
     const dayOrder = ['DAY-SENIN', 'DAY-SELASA', 'DAY-RABU', 'DAY-KAMIS', 'DAY-JUMAT', 'DAY-SABTU', 'DAY-MINGGU'];
@@ -72,72 +68,14 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
         setExpandedDays(prev => ({ ...prev, [dayId]: !prev[dayId] }));
     };
 
-    const { data: createData, setData: setCreateData, post: createPost, processing: createProcessing, errors: createErrors, reset: createReset } = useForm({
-        name: '',
-        master_day_ids: [] as string[],
-        type: 'period',
-        period_number: '',
-        start_time: '',
-        end_time: '',
-        description: '',
-    });
-
-    const { data: editData, setData: setEditData, put: editPut, processing: editProcessing, errors: editErrors, reset: editReset } = useForm({
-        name: '',
-        master_day_ids: [] as string[],
-        type: 'period',
-        period_number: '',
-        start_time: '',
-        end_time: '',
-        description: '',
-    });
-
-    const handleCreateSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        createPost('/time-allocations', {
-            onSuccess: () => {
-                toast.success('Alokasi Waktu berhasil ditambahkan.');
-                setIsCreateOpen(false);
-                createReset();
-            },
-        });
-    };
-
-    const handleEditSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!editAllocation) return;
-        editPut(`/time-allocations/${editAllocation.id}`, {
-            onSuccess: () => {
-                toast.success('Alokasi Waktu berhasil diperbarui.');
-                setIsEditOpen(false);
-                setEditAllocation(null);
-                editReset();
-            },
-        });
-    };
-
-    const handleDelete = (id: string) => {
-        if (confirm('Apakah Anda yakin ingin menghapus alokasi waktu ini?')) {
-            router.delete(`/time-allocations/${id}`, {
-                onSuccess: () => {
-                    toast.success('Alokasi Waktu berhasil dihapus.');
-                },
-            });
-        }
-    };
-
     const openEdit = (allocation: MasterTimeAllocation) => {
         setEditAllocation(allocation);
-        setEditData({
-            name: allocation.name,
-            master_day_ids: allocation.master_days?.map(d => d.id) || [],
-            type: allocation.type,
-            period_number: allocation.period_number?.toString() || '',
-            start_time: allocation.start_time.substring(0, 5),
-            end_time: allocation.end_time.substring(0, 5),
-            description: allocation.description || '',
-        });
         setIsEditOpen(true);
+    };
+
+    const openDelete = (allocation: MasterTimeAllocation) => {
+        setDeleteAllocation(allocation);
+        setIsDeleteOpen(true);
     };
 
     const formatType = (type: string) => {
@@ -160,127 +98,84 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                             Kelola jadwal per hari (Jam Pelajaran, Istirahat, Upacara).
                         </p>
                     </div>
-                    <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
-                        <DialogTrigger asChild>
-                            <Button>Tambah Waktu</Button>
-                        </DialogTrigger>
-                        <DialogContent>
-                            <DialogHeader>
-                                <DialogTitle>Tambah Alokasi Waktu</DialogTitle>
-                            </DialogHeader>
-                            <form onSubmit={handleCreateSubmit} className="space-y-4">
-                                <div className="space-y-2">
-                                    <Label htmlFor="create_name">Nama Jadwal <span className="text-red-500">*</span></Label>
-                                    <Input
-                                        id="create_name"
-                                        value={createData.name}
-                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCreateData('name', e.target.value)}
-                                        placeholder="Misal: Jadwal Reguler JP 1"
-                                        required
-                                    />
-                                    {createErrors.name && <p className="text-sm text-red-500">{createErrors.name}</p>}
-                                </div>
-                                <div className="space-y-2">
-                                    <Label>Berlaku pada Hari <span className="text-red-500">*</span></Label>
-                                    <div className="grid grid-cols-2 md:grid-cols-3 gap-2 border border-input rounded-md p-3 bg-background">
-                                        {days.map((day) => (
-                                            <div key={`create_day_${day.id}`} className="flex items-center space-x-2">
-                                                <input
-                                                    type="checkbox"
-                                                    id={`create_day_${day.id}`}
-                                                    value={day.id}
-                                                    checked={createData.master_day_ids.includes(day.id)}
-                                                    onChange={(e) => {
-                                                        const current = [...createData.master_day_ids];
-                                                        if (e.target.checked) {
-                                                            current.push(day.id);
-                                                        } else {
-                                                            const idx = current.indexOf(day.id);
-                                                            if (idx > -1) current.splice(idx, 1);
-                                                        }
-                                                        setCreateData('master_day_ids', current);
-                                                    }}
-                                                    className="rounded border-gray-300 text-primary shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"
-                                                />
-                                                <Label htmlFor={`create_day_${day.id}`} className="font-normal cursor-pointer">{day.day_name}</Label>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    {createErrors.master_day_ids && <p className="text-sm text-red-500">{createErrors.master_day_ids}</p>}
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="create_type">Tipe <span className="text-red-500">*</span></Label>
-                                    <select
-                                        id="create_type"
-                                        className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                        value={createData.type}
-                                        onChange={(e) => setCreateData('type', e.target.value)}
-                                        required
-                                    >
-                                        <option value="period">Pelajaran</option>
-                                        <option value="break">Istirahat</option>
-                                        <option value="ceremony">Upacara</option>
-                                    </select>
-                                    {createErrors.type && <p className="text-sm text-red-500">{createErrors.type}</p>}
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="create_period_number">JP Ke- (Isi jika Tipe = Pelajaran)</Label>
-                                    <Input
-                                        id="create_period_number"
-                                        type="number"
-                                        min="1"
-                                        value={createData.period_number}
-                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCreateData('period_number', e.target.value)}
-                                        disabled={createData.type !== 'period'}
-                                        placeholder="Misal: 1"
-                                    />
-                                    {createErrors.period_number && <p className="text-sm text-red-500">{createErrors.period_number}</p>}
-                                </div>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="space-y-2">
-                                        <Label htmlFor="create_start_time">Waktu Mulai <span className="text-red-500">*</span></Label>
-                                        <Input
-                                            id="create_start_time"
-                                            type="time"
-                                            value={createData.start_time}
-                                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCreateData('start_time', e.target.value)}
-                                            required
-                                        />
-                                        {createErrors.start_time && <p className="text-sm text-red-500">{createErrors.start_time}</p>}
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label htmlFor="create_end_time">Waktu Selesai <span className="text-red-500">*</span></Label>
-                                        <Input
-                                            id="create_end_time"
-                                            type="time"
-                                            value={createData.end_time}
-                                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCreateData('end_time', e.target.value)}
-                                            required
-                                        />
-                                        {createErrors.end_time && <p className="text-sm text-red-500">{createErrors.end_time}</p>}
-                                    </div>
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="create_description">Deskripsi Tambahan</Label>
-                                    <textarea
-                                        id="create_description"
-                                        value={createData.description}
-                                        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setCreateData('description', e.target.value)}
-                                        placeholder="Opsional (Misal: Istirahat Pertama)"
-                                        className="flex min-h-[80px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                    />
-                                    {createErrors.description && <p className="text-sm text-red-500">{createErrors.description}</p>}
-                                </div>
-                                <div className="flex justify-end gap-2">
-                                    <Button type="button" variant="outline" onClick={() => setIsCreateOpen(false)}>Batal</Button>
-                                    <Button type="submit" disabled={createProcessing}>Simpan</Button>
-                                </div>
-                            </form>
-                        </DialogContent>
-                    </Dialog>
+                    <Button onClick={() => setIsCreateOpen(true)}>Tambah Waktu</Button>
                 </div>
 
-                <div className="rounded-md border">
+                {/* Mobile View - Cards grouped by day */}
+                <div className="flex flex-col gap-4 md:hidden">
+                    {sortedDayKeys.length === 0 && (
+                        <div className="text-center p-4 text-muted-foreground border rounded-xl bg-card">
+                            Tidak ada data alokasi waktu.
+                        </div>
+                    )}
+                    
+                    {sortedDayKeys.map(dayId => {
+                        const isExpanded = expandedDays[dayId];
+                        const allocationsForDay = groupedAllocations[dayId];
+                        const dayName = days.find(d => d.id === dayId)?.day_name || dayId;
+                        const sessionCount = allocationsForDay.length;
+
+                        return (
+                            <div key={`mobile_${dayId}`} className="border rounded-xl bg-card overflow-hidden">
+                                <div 
+                                    className="p-4 bg-muted/30 flex items-center justify-between cursor-pointer active:bg-muted/50 transition-colors"
+                                    onClick={() => toggleDay(dayId)}
+                                >
+                                    <div className="flex items-center gap-2 font-semibold text-primary">
+                                        {isExpanded ? <ChevronDown className="h-5 w-5" /> : <ChevronRight className="h-5 w-5" />}
+                                        <span className="text-lg">{dayName}</span>
+                                    </div>
+                                    <span className="text-xs font-medium bg-primary/10 text-primary px-2 py-1 rounded-full">
+                                        {sessionCount} Sesi
+                                    </span>
+                                </div>
+                                
+                                {isExpanded && (
+                                    <div className="p-3 flex flex-col gap-3 bg-background">
+                                        {allocationsForDay.map((alloc) => (
+                                            <Card key={`mobile_card_${alloc.id}`} className="shadow-sm">
+                                                <CardContent className="p-4 flex flex-col gap-2">
+                                                    <div className="flex justify-between items-start">
+                                                        <span className="font-semibold text-base leading-tight">{alloc.name}</span>
+                                                        <span className={`shrink-0 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium uppercase tracking-wider ${alloc.type === 'period' ? 'bg-blue-100 text-blue-800' : alloc.type === 'break' ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'}`}>
+                                                            {formatType(alloc.type)}
+                                                        </span>
+                                                    </div>
+                                                    
+                                                    <div className="grid grid-cols-2 gap-2 text-sm mt-1">
+                                                        <div className="flex flex-col">
+                                                            <span className="text-muted-foreground text-xs">Waktu</span>
+                                                            <span className="font-medium">{alloc.start_time.substring(0, 5)} - {alloc.end_time.substring(0, 5)}</span>
+                                                        </div>
+                                                        {alloc.type === 'period' && (
+                                                            <div className="flex flex-col">
+                                                                <span className="text-muted-foreground text-xs">JP Ke-</span>
+                                                                <span className="font-medium">{alloc.period_number || '-'}</span>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                    
+                                                    {alloc.description && (
+                                                        <div className="mt-1 text-sm text-muted-foreground line-clamp-2 bg-muted/50 p-2 rounded-md">
+                                                            {alloc.description}
+                                                        </div>
+                                                    )}
+                                                </CardContent>
+                                                <CardFooter className="p-3 pt-0 flex gap-2 justify-end border-t border-border/50 mt-2">
+                                                    <Button variant="outline" size="sm" onClick={() => openEdit(alloc)} className="h-8 text-xs">Edit</Button>
+                                                    <Button variant="destructive" size="sm" onClick={() => openDelete(alloc)} className="h-8 text-xs">Hapus</Button>
+                                                </CardFooter>
+                                            </Card>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
+                </div>
+
+                {/* Desktop View - Table */}
+                <div className="hidden rounded-md border md:block overflow-hidden">
                     <table className="w-full text-sm">
                         <thead className="border-b bg-muted/50">
                             <tr className="text-left">
@@ -296,7 +191,7 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                         <tbody>
                             {sortedDayKeys.length === 0 && (
                                 <tr>
-                                    <td colSpan={6} className="p-8 text-center text-muted-foreground">
+                                    <td colSpan={7} className="p-8 text-center text-muted-foreground bg-background">
                                         Tidak ada data alokasi waktu.
                                     </td>
                                 </tr>
@@ -314,7 +209,7 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                                             className="border-b bg-muted/20 cursor-pointer hover:bg-muted/40 transition-colors"
                                             onClick={() => toggleDay(dayId)}
                                         >
-                                            <td colSpan={6} className="p-3">
+                                            <td colSpan={7} className="p-3">
                                                 <div className="flex items-center gap-2 font-semibold text-primary">
                                                     {isExpanded ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
                                                     {dayName}
@@ -325,7 +220,7 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                                             </td>
                                         </tr>
                                         {isExpanded && allocationsForDay.map((alloc) => (
-                                            <tr key={alloc.id} className="border-b transition-colors hover:bg-muted/10 last:border-b-0">
+                                            <tr key={alloc.id} className="border-b transition-colors bg-background hover:bg-muted/10 last:border-b-0">
                                                 <td className="p-4 pl-10 text-muted-foreground relative">
                                                     {/* Visual tree line indicator */}
                                                     <div className="absolute left-5 top-0 bottom-0 w-px bg-border"></div>
@@ -338,11 +233,11 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                                                     </span>
                                                 </td>
                                                 <td className="p-4">{alloc.period_number || '-'}</td>
-                                                <td className="p-4">{alloc.start_time.substring(0, 5)} - {alloc.end_time.substring(0, 5)}</td>
+                                                <td className="p-4 whitespace-nowrap">{alloc.start_time.substring(0, 5)} - {alloc.end_time.substring(0, 5)}</td>
                                                 <td className="p-4">{alloc.description || '-'}</td>
-                                                <td className="p-4 text-right space-x-2">
+                                                <td className="p-4 text-right space-x-2 whitespace-nowrap">
                                                     <Button variant="outline" size="sm" onClick={() => openEdit(alloc)}>Edit</Button>
-                                                    <Button variant="destructive" size="sm" onClick={() => handleDelete(alloc.id)}>Hapus</Button>
+                                                    <Button variant="destructive" size="sm" onClick={() => openDelete(alloc)}>Hapus</Button>
                                                 </td>
                                             </tr>
                                         ))}
@@ -354,124 +249,11 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                 </div>
             </div>
 
-            <Dialog open={isEditOpen} onOpenChange={setIsEditOpen}>
-                <DialogContent>
-                    <DialogHeader>
-                        <DialogTitle>Edit Alokasi Waktu</DialogTitle>
-                    </DialogHeader>
-                    <form onSubmit={handleEditSubmit} className="space-y-4">
-                        <div className="space-y-2">
-                            <Label htmlFor="edit_name">Nama Jadwal <span className="text-red-500">*</span></Label>
-                            <Input
-                                id="edit_name"
-                                value={editData.name}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEditData('name', e.target.value)}
-                                placeholder="Misal: Jadwal Reguler JP 1"
-                                required
-                            />
-                            {editErrors.name && <p className="text-sm text-red-500">{editErrors.name}</p>}
-                        </div>
-                        <div className="space-y-2">
-                            <Label>Berlaku pada Hari <span className="text-red-500">*</span></Label>
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 border border-input rounded-md p-3 bg-background">
-                                {days.map((day) => (
-                                    <div key={`edit_day_${day.id}`} className="flex items-center space-x-2">
-                                        <input
-                                            type="checkbox"
-                                            id={`edit_day_${day.id}`}
-                                            value={day.id}
-                                            checked={editData.master_day_ids.includes(day.id)}
-                                            onChange={(e) => {
-                                                const current = [...editData.master_day_ids];
-                                                if (e.target.checked) {
-                                                    current.push(day.id);
-                                                } else {
-                                                    const idx = current.indexOf(day.id);
-                                                    if (idx > -1) current.splice(idx, 1);
-                                                }
-                                                setEditData('master_day_ids', current);
-                                            }}
-                                            className="rounded border-gray-300 text-primary shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"
-                                        />
-                                        <Label htmlFor={`edit_day_${day.id}`} className="font-normal cursor-pointer">{day.day_name}</Label>
-                                    </div>
-                                ))}
-                            </div>
-                            {editErrors.master_day_ids && <p className="text-sm text-red-500">{editErrors.master_day_ids}</p>}
-                        </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="edit_type">Tipe <span className="text-red-500">*</span></Label>
-                            <select
-                                id="edit_type"
-                                className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                value={editData.type}
-                                onChange={(e) => {
-                                    setEditData('type', e.target.value);
-                                    if (e.target.value !== 'period') {
-                                        setEditData('period_number', '');
-                                    }
-                                }}
-                                required
-                            >
-                                <option value="period">Pelajaran</option>
-                                <option value="break">Istirahat</option>
-                                <option value="ceremony">Upacara</option>
-                            </select>
-                            {editErrors.type && <p className="text-sm text-red-500">{editErrors.type}</p>}
-                        </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="edit_period_number">JP Ke- (Isi jika Tipe = Pelajaran)</Label>
-                            <Input
-                                id="edit_period_number"
-                                type="number"
-                                min="1"
-                                value={editData.period_number}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEditData('period_number', e.target.value)}
-                                disabled={editData.type !== 'period'}
-                            />
-                            {editErrors.period_number && <p className="text-sm text-red-500">{editErrors.period_number}</p>}
-                        </div>
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="space-y-2">
-                                <Label htmlFor="edit_start_time">Waktu Mulai <span className="text-red-500">*</span></Label>
-                                <Input
-                                    id="edit_start_time"
-                                    type="time"
-                                    value={editData.start_time}
-                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEditData('start_time', e.target.value)}
-                                    required
-                                />
-                                {editErrors.start_time && <p className="text-sm text-red-500">{editErrors.start_time}</p>}
-                            </div>
-                            <div className="space-y-2">
-                                <Label htmlFor="edit_end_time">Waktu Selesai <span className="text-red-500">*</span></Label>
-                                <Input
-                                    id="edit_end_time"
-                                    type="time"
-                                    value={editData.end_time}
-                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEditData('end_time', e.target.value)}
-                                    required
-                                />
-                                {editErrors.end_time && <p className="text-sm text-red-500">{editErrors.end_time}</p>}
-                            </div>
-                        </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="edit_description">Deskripsi Tambahan</Label>
-                            <textarea
-                                id="edit_description"
-                                value={editData.description}
-                                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setEditData('description', e.target.value)}
-                                className="flex min-h-[80px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                            />
-                            {editErrors.description && <p className="text-sm text-red-500">{editErrors.description}</p>}
-                        </div>
-                        <div className="flex justify-end gap-2">
-                            <Button type="button" variant="outline" onClick={() => setIsEditOpen(false)}>Batal</Button>
-                            <Button type="submit" disabled={editProcessing}>Simpan Perubahan</Button>
-                        </div>
-                    </form>
-                </DialogContent>
-            </Dialog>
+            <CreateModal isOpen={isCreateOpen} setIsOpen={setIsCreateOpen} days={days} />
+            
+            <UpdateModal isOpen={isEditOpen} setIsOpen={setIsEditOpen} allocation={editAllocation} days={days} />
+            
+            <DeleteModal isOpen={isDeleteOpen} setIsOpen={setIsDeleteOpen} allocation={deleteAllocation} />
         </>
     );
 }

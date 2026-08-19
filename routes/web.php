@@ -6,7 +6,7 @@ Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index'])->name
 Route::get('/informasi-jadwal', [\App\Http\Controllers\WelcomeController::class, 'scheduleInfo'])->name('schedule.info');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::inertia('dashboard', 'dashboard')->name('dashboard');
+    Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     
     // User Management (Role check handled in Controller)
     Route::get('/users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');

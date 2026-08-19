@@ -53,7 +53,7 @@ class MasterDataSeeder extends Seeder
             ['id' => 'DDPK', 'subject_name' => 'Dasar Dasar Program Keahlian'],
             ['id' => 'INFORMATIKA', 'subject_name' => 'Informatika'],
             ['id' => 'KIK', 'subject_name' => 'KIK'],
-            ['id' => 'KEJUJURAN', 'subject_name' => 'Kejujuran'],
+            ['id' => 'KEJURUAN', 'subject_name' => 'Kejuruan'],
             ['id' => 'PILIHAN', 'subject_name' => 'Pilihan'],
         ];
 

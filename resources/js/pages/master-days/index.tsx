@@ -1,19 +1,14 @@
-import { Head, router, useForm } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 import { dashboard } from '@/routes';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import {
-    Dialog,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from '@/components/ui/dialog';
-import { useState } from 'react';
-import { toast } from 'sonner';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { useState, useMemo } from 'react';
+import { CreateModal } from './components/create-modal';
+import { UpdateModal } from './components/update-modal';
+import { DeleteModal } from './components/delete-modal';
+import { ArrowDownAZ, ArrowUpZA, ArrowUpDown } from 'lucide-react';
 
-interface MasterDay {
+export interface MasterDay {
     id: string;
     day_name: string;
     notes?: string;
@@ -23,60 +18,40 @@ export default function MasterDayIndex({ days }: { days: MasterDay[] }) {
     const [isCreateOpen, setIsCreateOpen] = useState(false);
     const [editDay, setEditDay] = useState<MasterDay | null>(null);
     const [isEditOpen, setIsEditOpen] = useState(false);
-
-    const { data: createData, setData: setCreateData, post: createPost, processing: createProcessing, errors: createErrors, reset: createReset } = useForm({
-        id: '',
-        day_name: '',
-        notes: '',
-    });
-
-    const { data: editData, setData: setEditData, put: editPut, processing: editProcessing, errors: editErrors, reset: editReset } = useForm({
-        day_name: '',
-        notes: '',
-    });
-
-    const handleCreateSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        createPost('/master-days', {
-            onSuccess: () => {
-                toast.success('Master Hari berhasil ditambahkan.');
-                setIsCreateOpen(false);
-                createReset();
-            },
-        });
-    };
-
-    const handleEditSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!editDay) return;
-        editPut(`/master-days/${editDay.id}`, {
-            onSuccess: () => {
-                toast.success('Master Hari berhasil diperbarui.');
-                setIsEditOpen(false);
-                setEditDay(null);
-                editReset();
-            },
-        });
-    };
-
-    const handleDelete = (id: string) => {
-        if (confirm('Apakah Anda yakin ingin menghapus data hari ini?')) {
-            router.delete(`/master-days/${id}`, {
-                onSuccess: () => {
-                    toast.success('Master Hari berhasil dihapus.');
-                },
-            });
-        }
-    };
+    const [deleteDay, setDeleteDay] = useState<MasterDay | null>(null);
+    const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+    const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | null>(null);
 
     const openEdit = (day: MasterDay) => {
         setEditDay(day);
-        setEditData({
-            day_name: day.day_name,
-            notes: day.notes || '',
-        });
         setIsEditOpen(true);
     };
+
+    const openDelete = (day: MasterDay) => {
+        setDeleteDay(day);
+        setIsDeleteOpen(true);
+    };
+
+    const handleSort = () => {
+        if (sortOrder === null || sortOrder === 'desc') {
+            setSortOrder('asc');
+        } else {
+            setSortOrder('desc');
+        }
+    };
+
+    const sortedDays = useMemo(() => {
+        if (!sortOrder) return days;
+        return [...days].sort((a, b) => {
+            if (sortOrder === 'asc') {
+                return a.day_name.localeCompare(b.day_name);
+            } else {
+                return b.day_name.localeCompare(a.day_name);
+            }
+        });
+    }, [days, sortOrder]);
+
+    const SortIcon = sortOrder === 'asc' ? ArrowDownAZ : sortOrder === 'desc' ? ArrowUpZA : ArrowUpDown;
 
     return (
         <>
@@ -89,81 +64,72 @@ export default function MasterDayIndex({ days }: { days: MasterDay[] }) {
                             Kelola data hari, seragam, dan catatan terkait.
                         </p>
                     </div>
-                    <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
-                        <DialogTrigger asChild>
-                            <Button>Tambah Hari</Button>
-                        </DialogTrigger>
-                        <DialogContent>
-                            <DialogHeader>
-                                <DialogTitle>Tambah Master Hari</DialogTitle>
-                            </DialogHeader>
-                            <form onSubmit={handleCreateSubmit} className="space-y-4">
-                                <div className="space-y-2">
-                                    <Label htmlFor="create_id">ID Hari <span className="text-red-500">*</span></Label>
-                                    <Input
-                                        id="create_id"
-                                        value={createData.id}
-                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCreateData('id', e.target.value)}
-                                        placeholder="Misal: DAY-SENIN"
-                                        required
-                                    />
-                                    {createErrors.id && <p className="text-sm text-red-500">{createErrors.id}</p>}
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="create_day_name">Nama Hari <span className="text-red-500">*</span></Label>
-                                    <Input
-                                        id="create_day_name"
-                                        value={createData.day_name}
-                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCreateData('day_name', e.target.value)}
-                                        placeholder="Misal: Senin"
-                                        required
-                                    />
-                                    {createErrors.day_name && <p className="text-sm text-red-500">{createErrors.day_name}</p>}
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="create_notes">Catatan Tambahan</Label>
-                                    <textarea
-                                        id="create_notes"
-                                        value={createData.notes}
-                                        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setCreateData('notes', e.target.value)}
-                                        placeholder="Catatan tambahan (opsional)"
-                                        className="flex min-h-[80px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                    />
-                                    {createErrors.notes && <p className="text-sm text-red-500">{createErrors.notes}</p>}
-                                </div>
-                                <div className="flex justify-end gap-2">
-                                    <Button type="button" variant="outline" onClick={() => setIsCreateOpen(false)}>Batal</Button>
-                                    <Button type="submit" disabled={createProcessing}>Simpan</Button>
-                                </div>
-                            </form>
-                        </DialogContent>
-                    </Dialog>
+                    <Button onClick={() => setIsCreateOpen(true)}>Tambah Hari</Button>
                 </div>
 
-                <div className="rounded-md border">
+                <div className="flex justify-end md:hidden">
+                    <Button variant="outline" size="sm" onClick={handleSort} className="gap-2">
+                        <SortIcon className="h-4 w-4" />
+                        Urutkan
+                    </Button>
+                </div>
+
+                {/* Mobile View - Cards */}
+                <div className="grid grid-cols-1 gap-4 md:hidden">
+                    {sortedDays.length === 0 && (
+                        <div className="text-center p-4 text-muted-foreground border rounded-xl bg-card">
+                            Tidak ada data master hari.
+                        </div>
+                    )}
+                    {sortedDays.map((day) => (
+                        <Card key={day.id} className="py-4">
+                            <CardContent className="pb-2">
+                                <div className="flex flex-col gap-1">
+                                    <span className="text-sm text-muted-foreground font-medium">ID: {day.id}</span>
+                                    <span className="text-lg font-semibold">{day.day_name}</span>
+                                    {day.notes && (
+                                        <span className="text-sm text-muted-foreground mt-1 line-clamp-2">Catatan: {day.notes}</span>
+                                    )}
+                                </div>
+                            </CardContent>
+                            <CardFooter className="pt-2 flex gap-2 justify-end">
+                                <Button variant="outline" size="sm" onClick={() => openEdit(day)}>Edit</Button>
+                                <Button variant="destructive" size="sm" onClick={() => openDelete(day)}>Hapus</Button>
+                            </CardFooter>
+                        </Card>
+                    ))}
+                </div>
+
+                {/* Desktop View - Table */}
+                <div className="hidden rounded-md border md:block">
                     <table className="w-full text-sm">
                         <thead className="border-b bg-muted/50">
                             <tr className="text-left">
                                 <th className="p-4 font-medium">ID</th>
-                                <th className="p-4 font-medium">Nama Hari</th>
+                                <th className="p-4 font-medium cursor-pointer hover:bg-muted/80 transition-colors" onClick={handleSort}>
+                                    <div className="flex items-center gap-2">
+                                        Nama Hari
+                                        <SortIcon className="h-4 w-4" />
+                                    </div>
+                                </th>
                                 <th className="p-4 font-medium">Catatan</th>
                                 <th className="p-4 font-medium text-right">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {days.map((day) => (
+                            {sortedDays.map((day) => (
                                 <tr key={day.id} className="border-b transition-colors hover:bg-muted/50">
                                     <td className="p-4 font-medium">{day.id}</td>
                                     <td className="p-4">{day.day_name}</td>
                                     <td className="p-4">{day.notes || '-'}</td>
                                     <td className="p-4 text-right space-x-2">
                                         <Button variant="outline" size="sm" onClick={() => openEdit(day)}>Edit</Button>
-                                        <Button variant="destructive" size="sm" onClick={() => handleDelete(day.id)}>Hapus</Button>
+                                        <Button variant="destructive" size="sm" onClick={() => openDelete(day)}>Hapus</Button>
                                     </td>
                                 </tr>
                             ))}
                             
-                            {days.length === 0 && (
+                            {sortedDays.length === 0 && (
                                 <tr>
                                     <td colSpan={4} className="p-4 text-center text-muted-foreground">
                                         Tidak ada data master hari.
@@ -175,39 +141,11 @@ export default function MasterDayIndex({ days }: { days: MasterDay[] }) {
                 </div>
             </div>
 
-            <Dialog open={isEditOpen} onOpenChange={setIsEditOpen}>
-                <DialogContent>
-                    <DialogHeader>
-                        <DialogTitle>Edit Master Hari</DialogTitle>
-                    </DialogHeader>
-                    <form onSubmit={handleEditSubmit} className="space-y-4">
-                        <div className="space-y-2">
-                            <Label htmlFor="edit_day_name">Nama Hari <span className="text-red-500">*</span></Label>
-                            <Input
-                                id="edit_day_name"
-                                value={editData.day_name}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEditData('day_name', e.target.value)}
-                                required
-                            />
-                            {editErrors.day_name && <p className="text-sm text-red-500">{editErrors.day_name}</p>}
-                        </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="edit_notes">Catatan Tambahan</Label>
-                            <textarea
-                                id="edit_notes"
-                                value={editData.notes}
-                                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setEditData('notes', e.target.value)}
-                                className="flex min-h-[80px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                            />
-                            {editErrors.notes && <p className="text-sm text-red-500">{editErrors.notes}</p>}
-                        </div>
-                        <div className="flex justify-end gap-2">
-                            <Button type="button" variant="outline" onClick={() => setIsEditOpen(false)}>Batal</Button>
-                            <Button type="submit" disabled={editProcessing}>Simpan Perubahan</Button>
-                        </div>
-                    </form>
-                </DialogContent>
-            </Dialog>
+            <CreateModal isOpen={isCreateOpen} setIsOpen={setIsCreateOpen} />
+            
+            <UpdateModal isOpen={isEditOpen} setIsOpen={setIsEditOpen} day={editDay} />
+            
+            <DeleteModal isOpen={isDeleteOpen} setIsOpen={setIsDeleteOpen} day={deleteDay} />
         </>
     );
 }

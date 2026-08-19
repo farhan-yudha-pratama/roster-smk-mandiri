@@ -1,5 +1,5 @@
 import { Link, usePage } from '@inertiajs/react';
-import { BookOpen, FolderGit2, LayoutGrid, Users, Book, DoorOpen, UserCircle, CalendarDays, Clock, Shirt } from 'lucide-react';
+import { BookOpen, FolderGit2, LayoutGrid, Users, Book, DoorOpen, UserCircle, CalendarDays, Clock, Shirt, PanelLeft } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
@@ -12,6 +12,7 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
+    useSidebar,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
 import type { NavItem } from '@/types';
@@ -62,7 +63,7 @@ const masterDataItems: NavItem[] = [
         roles: ['SUPERADMIN'],
     },
     {
-        title: 'Wali Kelas',
+        title: 'Guru',
         href: '/homeroom-teachers',
         icon: UserCircle,
         roles: ['SUPERADMIN'],
@@ -89,6 +90,7 @@ const systemItems: NavItem[] = [
 
 export function AppSidebar() {
     const { auth } = usePage<any>().props;
+    const { toggleSidebar } = useSidebar();
     // Ambil array role name dari user yang sedang login
     const userRoleNames = auth?.user?.roles?.map((r: any) => r.name) || [];
 
@@ -109,10 +111,17 @@ export function AppSidebar() {
         <Sidebar collapsible="icon" variant="inset">
             <SidebarHeader>
                 <SidebarMenu>
-                    <SidebarMenuItem>
-                        <SidebarMenuButton size="lg" asChild>
+                    <SidebarMenuItem className="flex items-center justify-between group/toggle relative">
+                        <SidebarMenuButton size="lg" asChild className="w-full">
                             <AppLogo />
                         </SidebarMenuButton>
+                        <button 
+                            onClick={toggleSidebar} 
+                            className="absolute right-2 opacity-100 md:opacity-0 md:group-hover/toggle:opacity-100 transition-opacity p-1.5 hover:bg-sidebar-accent rounded-md text-sidebar-foreground"
+                            title="Toggle Sidebar"
+                        >
+                            <PanelLeft className="h-4 w-4" />
+                        </button>
                     </SidebarMenuItem>
                 </SidebarMenu>
             </SidebarHeader>
