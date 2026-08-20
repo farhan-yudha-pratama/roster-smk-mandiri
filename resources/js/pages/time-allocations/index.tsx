@@ -7,6 +7,7 @@ import { ChevronDown, ChevronRight, Upload } from 'lucide-react';
 import { CreateModal } from './components/create-modal';
 import { UpdateModal } from './components/update-modal';
 import { DeleteModal } from './components/delete-modal';
+import { DeleteBatchModal } from './components/delete-batch-modal';
 import { CreateBatchTimeAllocationModal } from './components/create-batch-time-allocation-modal';
 
 export interface MasterDay {
@@ -32,6 +33,9 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
     const [isEditOpen, setIsEditOpen] = useState(false);
     const [deleteAllocation, setDeleteAllocation] = useState<MasterTimeAllocation | null>(null);
     const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+    
+    const [selectedIds, setSelectedIds] = useState<string[]>([]);
+    const [isDeleteBatchOpen, setIsDeleteBatchOpen] = useState(false);
 
     // Group allocations by day
     const dayOrder = ['DAY-SENIN', 'DAY-SELASA', 'DAY-RABU', 'DAY-KAMIS', 'DAY-JUMAT', 'DAY-SABTU', 'DAY-MINGGU'];
@@ -89,6 +93,35 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
         }
     };
 
+    const handleSelectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.checked) {
+            // Because one allocation can be in multiple days, we use unique ids
+            const uniqueIds = Array.from(new Set(allocations.map(a => a.id)));
+            setSelectedIds(uniqueIds);
+        } else {
+            setSelectedIds([]);
+        }
+    };
+
+    const handleSelectDay = (dayId: string, e: React.ChangeEvent<HTMLInputElement>) => {
+        const dayAllocIds = groupedAllocations[dayId].map(a => a.id);
+        if (e.target.checked) {
+            setSelectedIds(prev => Array.from(new Set([...prev, ...dayAllocIds])));
+        } else {
+            setSelectedIds(prev => prev.filter(id => !dayAllocIds.includes(id)));
+        }
+    };
+
+    const handleSelect = (id: string, e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.checked) {
+            setSelectedIds(prev => Array.from(new Set([...prev, id])));
+        } else {
+            setSelectedIds(prev => prev.filter(i => i !== id));
+        }
+    };
+
+    const allSelected = allocations.length > 0 && selectedIds.length === new Set(allocations.map(a => a.id)).size;
+
     return (
         <>
             <Head title="Alokasi Waktu" />
@@ -101,6 +134,11 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                         </p>
                     </div>
                     <div className="flex items-center gap-2">
+                        {selectedIds.length > 0 && (
+                            <Button variant="destructive" onClick={() => setIsDeleteBatchOpen(true)}>
+                                Hapus Terpilih ({selectedIds.length})
+                            </Button>
+                        )}
                         <Button variant="outline" onClick={() => setIsImportOpen(true)} className="gap-2">
                             <Upload className="h-4 w-4" />
                             <span className="hidden sm:inline">Import Batch</span>
@@ -126,12 +164,19 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                         return (
                             <div key={`mobile_${dayId}`} className="border rounded-xl bg-card overflow-hidden">
                                 <div 
-                                    className="p-4 bg-muted/30 flex items-center justify-between cursor-pointer active:bg-muted/50 transition-colors"
-                                    onClick={() => toggleDay(dayId)}
+                                    className="p-4 bg-muted/30 flex items-center justify-between transition-colors"
                                 >
                                     <div className="flex items-center gap-2 font-semibold text-primary">
-                                        {isExpanded ? <ChevronDown className="h-5 w-5" /> : <ChevronRight className="h-5 w-5" />}
-                                        <span className="text-lg">{dayName}</span>
+                                        <input 
+                                            type="checkbox" 
+                                            className="w-4 h-4 rounded border-gray-300 mr-2"
+                                            checked={allocationsForDay.length > 0 && allocationsForDay.every(a => selectedIds.includes(a.id))}
+                                            onChange={(e) => handleSelectDay(dayId, e)}
+                                        />
+                                        <div onClick={() => toggleDay(dayId)} className="flex items-center cursor-pointer">
+                                            {isExpanded ? <ChevronDown className="h-5 w-5" /> : <ChevronRight className="h-5 w-5" />}
+                                            <span className="text-lg">{dayName}</span>
+                                        </div>
                                     </div>
                                     <span className="text-xs font-medium bg-primary/10 text-primary px-2 py-1 rounded-full">
                                         {sessionCount} Sesi
@@ -144,7 +189,15 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                                             <Card key={`mobile_card_${alloc.id}`} className="shadow-sm">
                                                 <CardContent className="p-4 flex flex-col gap-2">
                                                     <div className="flex justify-between items-start">
-                                                        <span className="font-semibold text-base leading-tight">{alloc.name}</span>
+                                                        <div className="flex items-center gap-3">
+                                                            <input 
+                                                                type="checkbox" 
+                                                                className="w-4 h-4 rounded border-gray-300"
+                                                                checked={selectedIds.includes(alloc.id)}
+                                                                onChange={(e) => handleSelect(alloc.id, e)}
+                                                            />
+                                                            <span className="font-semibold text-base leading-tight">{alloc.name}</span>
+                                                        </div>
                                                         <span className={`shrink-0 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium uppercase tracking-wider ${alloc.type === 'period' ? 'bg-blue-100 text-blue-800' : alloc.type === 'break' ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'}`}>
                                                             {formatType(alloc.type)}
                                                         </span>
@@ -187,6 +240,14 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                     <table className="w-full text-sm">
                         <thead className="border-b bg-muted/50">
                             <tr className="text-left">
+                                <th className="p-4 w-12 text-center">
+                                    <input 
+                                        type="checkbox" 
+                                        className="w-4 h-4 rounded border-gray-300"
+                                        checked={allSelected && allocations.length > 0}
+                                        onChange={handleSelectAll}
+                                    />
+                                </th>
                                 <th className="p-4 font-medium w-48">Hari</th>
                                 <th className="p-4 font-medium">Nama Jadwal</th>
                                 <th className="p-4 font-medium">Tipe</th>
@@ -199,7 +260,7 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                         <tbody>
                             {sortedDayKeys.length === 0 && (
                                 <tr>
-                                    <td colSpan={7} className="p-8 text-center text-muted-foreground bg-background">
+                                    <td colSpan={8} className="p-8 text-center text-muted-foreground bg-background">
                                         Tidak ada data alokasi waktu.
                                     </td>
                                 </tr>
@@ -214,11 +275,21 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                                 return (
                                     <React.Fragment key={dayId}>
                                         <tr 
-                                            className="border-b bg-muted/20 cursor-pointer hover:bg-muted/40 transition-colors"
-                                            onClick={() => toggleDay(dayId)}
+                                            className="border-b bg-muted/20 transition-colors"
                                         >
+                                            <td className="p-3 text-center">
+                                                <input 
+                                                    type="checkbox" 
+                                                    className="w-4 h-4 rounded border-gray-300"
+                                                    checked={allocationsForDay.length > 0 && allocationsForDay.every(a => selectedIds.includes(a.id))}
+                                                    onChange={(e) => handleSelectDay(dayId, e)}
+                                                />
+                                            </td>
                                             <td colSpan={7} className="p-3">
-                                                <div className="flex items-center gap-2 font-semibold text-primary">
+                                                <div 
+                                                    className="flex items-center gap-2 font-semibold text-primary cursor-pointer w-fit"
+                                                    onClick={() => toggleDay(dayId)}
+                                                >
                                                     {isExpanded ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
                                                     {dayName}
                                                     <span className="ml-2 text-xs font-normal text-muted-foreground">
@@ -229,6 +300,14 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                                         </tr>
                                         {isExpanded && allocationsForDay.map((alloc) => (
                                             <tr key={alloc.id} className="border-b transition-colors bg-background hover:bg-muted/10 last:border-b-0">
+                                                <td className="p-4 text-center">
+                                                    <input 
+                                                        type="checkbox" 
+                                                        className="w-4 h-4 rounded border-gray-300 relative z-10"
+                                                        checked={selectedIds.includes(alloc.id)}
+                                                        onChange={(e) => handleSelect(alloc.id, e)}
+                                                    />
+                                                </td>
                                                 <td className="p-4 pl-10 text-muted-foreground relative">
                                                     {/* Visual tree line indicator */}
                                                     <div className="absolute left-5 top-0 bottom-0 w-px bg-border"></div>
@@ -262,8 +341,14 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
             <CreateModal isOpen={isCreateOpen} setIsOpen={setIsCreateOpen} days={days} />
             
             <UpdateModal isOpen={isEditOpen} setIsOpen={setIsEditOpen} allocation={editAllocation} days={days} />
-            
             <DeleteModal isOpen={isDeleteOpen} setIsOpen={setIsDeleteOpen} allocation={deleteAllocation} />
+
+            <DeleteBatchModal 
+                isOpen={isDeleteBatchOpen} 
+                setIsOpen={setIsDeleteBatchOpen} 
+                selectedIds={selectedIds} 
+                onSuccess={() => setSelectedIds([])}
+            />
         </>
     );
 }

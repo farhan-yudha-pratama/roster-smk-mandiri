@@ -129,6 +129,18 @@ class MasterTimeAllocationController extends Controller
         return redirect()->route('time-allocations.index')->with('success', 'Jadwal waktu berhasil dihapus.');
     }
 
+    public function destroyBatch(Request $request)
+    {
+        $request->validate([
+            'ids' => 'required|array|min:1',
+            'ids.*' => 'exists:master_time_allocations,id',
+        ]);
+
+        MasterTimeAllocation::whereIn('id', $request->ids)->delete();
+
+        return redirect()->route('time-allocations.index')->with('success', count($request->ids) . ' jadwal waktu berhasil dihapus.');
+    }
+
     public function downloadTemplate()
     {
         $spreadsheet = new Spreadsheet();
