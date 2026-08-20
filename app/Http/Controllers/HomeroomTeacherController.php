@@ -138,17 +138,11 @@ class HomeroomTeacherController extends Controller
         ]);
 
         try {
-            // Save file to storage first for shared hosting compatibility
-            $file = $request->file('file');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $path = $file->storeAs('public/imports', $filename);
-            
-            $spreadsheet = IOFactory::load(storage_path('app/' . $path));
+            $spreadsheet = IOFactory::load($request->file('file')->getPathname());
             $sheet = $spreadsheet->getActiveSheet();
             $rows = $sheet->toArray();
             
             if (count($rows) <= 1) {
-                \Illuminate\Support\Facades\Storage::delete($path);
                 return back()->withErrors(['file' => 'File Excel kosong atau tidak memiliki data.']);
             }
 
@@ -204,14 +198,8 @@ class HomeroomTeacherController extends Controller
                 }
             }
             
-            // Delete file after processing
-            \Illuminate\Support\Facades\Storage::delete($path);
-            
             return redirect()->route('homeroom-teachers.index')->with('success', $inserted . ' guru berhasil diimport.');
         } catch (\Exception $e) {
-            if (isset($path)) {
-                \Illuminate\Support\Facades\Storage::delete($path);
-            }
             return back()->withErrors(['file' => 'Gagal mengimport data: ' . $e->getMessage()]);
         }
     }
