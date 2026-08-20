@@ -23,7 +23,7 @@ class MasterScheduleSeeder extends Seeder
         ];
 
         foreach ($uniforms as $uniform) {
-            MasterUniform::create($uniform);
+            MasterUniform::updateOrCreate(['id' => $uniform['id']], $uniform);
         }
 
         // 2. Create Days
@@ -36,7 +36,7 @@ class MasterScheduleSeeder extends Seeder
         ];
 
         foreach ($days as $day) {
-            MasterDay::create($day);
+            MasterDay::updateOrCreate(['id' => $day['id']], $day);
         }
 
         // Attach uniforms to days
@@ -122,7 +122,7 @@ class MasterScheduleSeeder extends Seeder
 
         // Insert Time Allocations
         foreach (array_chunk($allocations, 100) as $chunk) {
-            MasterTimeAllocation::insert($chunk);
+            MasterTimeAllocation::upsert($chunk, ['id'], ['name', 'type', 'period_number', 'start_time', 'end_time', 'description']);
         }
 
         // 4. Attach Allocations to Days via Pivot

@@ -37,12 +37,11 @@ export function CreateModal({ isOpen, onClose, classes, subjects, teachers, clas
     transform((data) => {
         const durationStr = String(data.period_duration_hours);
         let durationNum = parseInt(durationStr.replace(/\D/g, '') || '0', 10);
-        if (durationNum > 5) durationNum = 5;
         
         return {
             ...data,
             period_number: Number(data.period_number),
-            period_duration_hours: durationNum * 2,
+            period_duration_hours: durationNum,
         };
     });
 
@@ -75,7 +74,7 @@ export function CreateModal({ isOpen, onClose, classes, subjects, teachers, clas
                 <DialogHeader>
                     <DialogTitle className="text-lg sm:text-xl font-bold">Tambah Jadwal Mengajar</DialogTitle>
                     <div className="text-xs sm:text-sm text-blue-800 bg-blue-50/80 p-3 rounded-lg border border-blue-200 mt-2 leading-relaxed">
-                        ℹ️ <strong>Informasi:</strong> Dalam 1 hari terdapat 5 les. Setiap 1 les setara dengan 2 Jam Pelajaran (JP), dan 1 JP berdurasi 45 menit.
+                        ℹ️ <strong>Informasi:</strong> Masukkan jumlah Jam Pelajaran (JP). Umumnya 1 JP berdurasi 45 menit.
                     </div>
                 </DialogHeader>
                 <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 mt-2">
@@ -131,7 +130,7 @@ export function CreateModal({ isOpen, onClose, classes, subjects, teachers, clas
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="create_period_duration_hours" className="text-sm font-medium">Durasi (Banyak Les)</Label>
+                            <Label htmlFor="create_period_duration_hours" className="text-sm font-medium">Durasi (Banyak JP)</Label>
                             <Input
                                 id="create_period_duration_hours"
                                 className="h-10"
