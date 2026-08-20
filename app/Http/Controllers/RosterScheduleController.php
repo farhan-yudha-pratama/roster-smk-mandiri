@@ -298,10 +298,16 @@ class RosterScheduleController extends Controller
         $writer = new Xlsx($spreadsheet);
         $fileName = 'Template_Jadwal_Mengajar.xlsx';
         
-        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment; filename="'. urlencode($fileName).'"');
-        $writer->save('php://output');
-        exit;
+        // Save to storage instead of outputting directly to avoid shared hosting issues
+        $path = storage_path('app/public/templates');
+        if (!file_exists($path)) {
+            mkdir($path, 0755, true);
+        }
+        
+        $filePath = $path . '/' . $fileName;
+        $writer->save($filePath);
+        
+        return response()->download($filePath, $fileName)->deleteFileAfterSend(false);
     }
 
     public function importBatch(Request $request)
@@ -315,11 +321,17 @@ class RosterScheduleController extends Controller
         ]);
 
         try {
-            $spreadsheet = IOFactory::load($request->file('file')->getPathname());
+            // Save file to storage first for shared hosting compatibility
+            $file = $request->file('file');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $path = $file->storeAs('public/imports', $filename);
+            
+            $spreadsheet = IOFactory::load(storage_path('app/' . $path));
             $sheet = $spreadsheet->getActiveSheet();
             $rows = $sheet->toArray();
             
             if (count($rows) <= 1) {
+                \Illuminate\Support\Facades\Storage::delete($path);
                 return back()->withErrors(['file' => 'File Excel kosong atau tidak memiliki data.']);
             }
 
@@ -378,8 +390,14 @@ class RosterScheduleController extends Controller
                 }
             }
             
+            // Delete file after processing
+            \Illuminate\Support\Facades\Storage::delete($path);
+            
             return redirect()->route('roster-schedules.index')->with('success', $inserted . ' jadwal berhasil diimport.');
         } catch (\Exception $e) {
+            if (isset($path)) {
+                \Illuminate\Support\Facades\Storage::delete($path);
+            }
             return back()->withErrors(['file' => 'Gagal mengimport data: ' . $e->getMessage()]);
         }
     }
