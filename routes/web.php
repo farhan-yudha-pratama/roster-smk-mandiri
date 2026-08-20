@@ -72,6 +72,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/time-allocations', [\App\Http\Controllers\MasterTimeAllocationController::class, 'index'])->name('time-allocations.index');
     Route::post('/time-allocations', [\App\Http\Controllers\MasterTimeAllocationController::class, 'store'])->name('time-allocations.store');
     Route::put('/time-allocations/{id}', [MasterTimeAllocationController::class, 'update'])->name('time-allocations.update');
+    Route::delete('/time-allocations', [\App\Http\Controllers\MasterTimeAllocationController::class, 'destroyBatch'])->name('time-allocations.destroyBatch');
     Route::delete('/time-allocations/{id}', [MasterTimeAllocationController::class, 'destroy'])->name('time-allocations.destroy');
 });
 
