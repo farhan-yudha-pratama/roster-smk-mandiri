@@ -2,14 +2,18 @@
 
 namespace App\Models;
 
+use App\Enums\GradeLevel;
+use App\Enums\Major;
 use Illuminate\Database\Eloquent\Model;
 
 class MasterClass extends Model
 {
     protected $table = 'master_classes';
+
     public $incrementing = false;
+
     protected $keyType = 'string';
-    
+
     protected $fillable = [
         'id',
         'grade_level',
@@ -24,7 +28,7 @@ class MasterClass extends Model
     }
 
     protected $casts = [
-        'grade_level' => \App\Enums\GradeLevel::class,
-        'major' => \App\Enums\Major::class,
+        'grade_level' => GradeLevel::class,
+        'major' => Major::class,
     ];
 }

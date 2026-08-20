@@ -3,10 +3,11 @@ import { dashboard } from '@/routes';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import React, { useState, useMemo } from 'react';
-import { ChevronDown, ChevronRight } from 'lucide-react';
+import { ChevronDown, ChevronRight, Upload } from 'lucide-react';
 import { CreateModal } from './components/create-modal';
 import { UpdateModal } from './components/update-modal';
 import { DeleteModal } from './components/delete-modal';
+import { CreateBatchTimeAllocationModal } from './components/create-batch-time-allocation-modal';
 
 export interface MasterDay {
     id: string;
@@ -26,6 +27,7 @@ export interface MasterTimeAllocation {
 
 export default function TimeAllocationIndex({ allocations, days }: { allocations: MasterTimeAllocation[], days: MasterDay[] }) {
     const [isCreateOpen, setIsCreateOpen] = useState(false);
+    const [isImportOpen, setIsImportOpen] = useState(false);
     const [editAllocation, setEditAllocation] = useState<MasterTimeAllocation | null>(null);
     const [isEditOpen, setIsEditOpen] = useState(false);
     const [deleteAllocation, setDeleteAllocation] = useState<MasterTimeAllocation | null>(null);
@@ -98,7 +100,13 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                             Kelola jadwal per hari (Jam Pelajaran, Istirahat, Upacara).
                         </p>
                     </div>
-                    <Button onClick={() => setIsCreateOpen(true)}>Tambah Waktu</Button>
+                    <div className="flex items-center gap-2">
+                        <Button variant="outline" onClick={() => setIsImportOpen(true)} className="gap-2">
+                            <Upload className="h-4 w-4" />
+                            <span className="hidden sm:inline">Import Batch</span>
+                        </Button>
+                        <Button onClick={() => setIsCreateOpen(true)}>Tambah Waktu</Button>
+                    </div>
                 </div>
 
                 {/* Mobile View - Cards grouped by day */}
@@ -248,6 +256,8 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                     </table>
                 </div>
             </div>
+
+            <CreateBatchTimeAllocationModal isOpen={isImportOpen} setIsOpen={setIsImportOpen} />
 
             <CreateModal isOpen={isCreateOpen} setIsOpen={setIsCreateOpen} days={days} />
             

@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\MasterDay;
-use App\Models\MasterUniform;
 use App\Models\MasterTimeAllocation;
+use App\Models\MasterUniform;
+use Illuminate\Database\Seeder;
 
 class MasterScheduleSeeder extends Seeder
 {
@@ -38,14 +38,14 @@ class MasterScheduleSeeder extends Seeder
         foreach ($days as $day) {
             MasterDay::create($day);
         }
-        
+
         // Attach uniforms to days
         $uniformSeninKamis = MasterUniform::find('UNI-PUTIH-ABU');
         $uniformSeninKamis->masterDays()->sync(['DAY-SENIN', 'DAY-KAMIS']);
-        
+
         $uniformSelasaRabu = MasterUniform::find('UNI-BATIK');
         $uniformSelasaRabu->masterDays()->sync(['DAY-SELASA', 'DAY-RABU']);
-        
+
         $uniformJumat = MasterUniform::find('UNI-PRAMUKA');
         $uniformJumat->masterDays()->sync(['DAY-JUMAT']);
 
@@ -72,7 +72,7 @@ class MasterScheduleSeeder extends Seeder
 
         $seninIds = [];
         foreach ($seninAllocations as $alloc) {
-            $alloc['id'] = 'TIME-SENIN-' . str_pad($idCounter++, 4, '0', STR_PAD_LEFT);
+            $alloc['id'] = 'TIME-SENIN-'.str_pad($idCounter++, 4, '0', STR_PAD_LEFT);
             $seninIds[] = $alloc['id'];
             $allocations[] = $alloc;
         }
@@ -96,7 +96,7 @@ class MasterScheduleSeeder extends Seeder
         $midWeekIds = [];
         $idCounter = 1;
         foreach ($midWeekAllocations as $alloc) {
-            $alloc['id'] = 'TIME-REG-' . str_pad($idCounter++, 4, '0', STR_PAD_LEFT);
+            $alloc['id'] = 'TIME-REG-'.str_pad($idCounter++, 4, '0', STR_PAD_LEFT);
             $midWeekIds[] = $alloc['id'];
             $allocations[] = $alloc;
         }
@@ -115,7 +115,7 @@ class MasterScheduleSeeder extends Seeder
         $jumatIds = [];
         $idCounter = 1;
         foreach ($jumatAllocations as $alloc) {
-            $alloc['id'] = 'TIME-JUMAT-' . str_pad($idCounter++, 4, '0', STR_PAD_LEFT);
+            $alloc['id'] = 'TIME-JUMAT-'.str_pad($idCounter++, 4, '0', STR_PAD_LEFT);
             $jumatIds[] = $alloc['id'];
             $allocations[] = $alloc;
         }

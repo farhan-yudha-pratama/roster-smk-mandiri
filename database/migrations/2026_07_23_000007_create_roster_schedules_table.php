@@ -10,25 +10,25 @@ return new class extends Migration
     {
         Schema::create('roster_schedules', function (Blueprint $table) {
             $table->string('id')->primary();
-            
+
             $table->string('class_id')->nullable();
             $table->foreign('class_id')->references('id')->on('master_classes')->onDelete('cascade');
-            
+
             $table->string('day'); // 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat'
             $table->string('week_cycle'); // 'Odd' or 'Even'
             $table->string('period_number'); // Sessional slot sequence per day (1 to 5)
-            
+
             $table->string('subject_id')->nullable();
             $table->foreign('subject_id')->references('id')->on('master_subjects')->onDelete('cascade');
-            
+
             $table->string('teacher_id')->nullable();
             $table->foreign('teacher_id')->references('id')->on('master_homeroom_teachers')->onDelete('set null');
-            
+
             $table->string('classroom_id')->nullable();
             $table->foreign('classroom_id')->references('id')->on('master_classrooms')->onDelete('cascade');
-            
+
             $table->string('period_duration_hours'); // Total duration counts (e.g., 2, 3, 4, or 10 periods)
-            
+
             $table->timestamps();
         });
     }

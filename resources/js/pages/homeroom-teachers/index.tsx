@@ -1,12 +1,13 @@
 import { Head } from '@inertiajs/react';
 import { dashboard } from '@/routes';
 import { Button } from '@/components/ui/button';
-import { PlusIcon, PencilIcon, TrashIcon } from 'lucide-react';
+import { PlusIcon, PencilIcon, TrashIcon, Upload } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { useState } from 'react';
 import { CreateModal } from './components/create-modal';
 import { UpdateModal } from './components/update-modal';
 import { DeleteModal } from './components/delete-modal';
+import { CreateBatchHomeroomTeacherModal } from './components/create-batch-homeroom-teacher-modal';
 
 interface User {
     id: string;
@@ -22,6 +23,7 @@ interface HomeroomTeacherModel {
 
 export default function HomeroomTeacherIndex({ teachers, users }: { teachers: HomeroomTeacherModel[], users: User[] }) {
     const [isCreateOpen, setIsCreateOpen] = useState(false);
+    const [isImportOpen, setIsImportOpen] = useState(false);
     const [isUpdateOpen, setIsUpdateOpen] = useState(false);
     const [isDeleteOpen, setIsDeleteOpen] = useState(false);
     
@@ -48,9 +50,13 @@ export default function HomeroomTeacherIndex({ teachers, users }: { teachers: Ho
                             Kelola data guru dan tautkan dengan akun pengguna.
                         </p>
                     </div>
-                    <div>
-                        <Button className="w-full sm:w-auto" onClick={() => setIsCreateOpen(true)}>
-                            <PlusIcon className="mr-2 h-4 w-4" />
+                    <div className="flex items-center gap-2">
+                        <Button variant="outline" onClick={() => setIsImportOpen(true)} className="gap-2">
+                            <Upload className="h-4 w-4" />
+                            <span className="hidden sm:inline">Import Batch</span>
+                        </Button>
+                        <Button onClick={() => setIsCreateOpen(true)} className="gap-2">
+                            <PlusIcon className="h-4 w-4" />
                             Tambah Guru
                         </Button>
                     </div>
@@ -134,6 +140,8 @@ export default function HomeroomTeacherIndex({ teachers, users }: { teachers: Ho
                     </table>
                 </div>
             </div>
+
+            <CreateBatchHomeroomTeacherModal isOpen={isImportOpen} setIsOpen={setIsImportOpen} />
 
             <CreateModal 
                 isOpen={isCreateOpen} 

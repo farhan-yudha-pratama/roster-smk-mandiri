@@ -6,7 +6,8 @@ import { useState, useMemo } from 'react';
 import { CreateSubjectModal } from './components/create-subject-modal';
 import { UpdateSubjectModal } from './components/update-subject-modal';
 import { DeleteSubjectModal } from './components/delete-subject-modal';
-import { ArrowDownAZ, ArrowUpZA, ArrowUpDown } from 'lucide-react';
+import { CreateBatchSubjectModal } from './components/create-batch-subject-modal';
+import { ArrowDownAZ, ArrowUpZA, ArrowUpDown, Upload } from 'lucide-react';
 
 interface Subject {
     id: string;
@@ -19,6 +20,7 @@ export default function SubjectIndex({ subjects }: { subjects: Subject[] }) {
     const [isEditOpen, setIsEditOpen] = useState(false);
     const [deleteSubject, setDeleteSubject] = useState<Subject | null>(null);
     const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+    const [isImportOpen, setIsImportOpen] = useState(false);
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | null>(null);
 
     const openEdit = (subject: Subject) => {
@@ -63,7 +65,13 @@ export default function SubjectIndex({ subjects }: { subjects: Subject[] }) {
                             Kelola data mata pelajaran.
                         </p>
                     </div>
-                    <Button onClick={() => setIsCreateOpen(true)}>Tambah Mata Pelajaran</Button>
+                    <div className="flex items-center gap-2">
+                        <Button variant="outline" onClick={() => setIsImportOpen(true)} className="gap-2">
+                            <Upload className="h-4 w-4" />
+                            <span className="hidden sm:inline">Import Batch</span>
+                        </Button>
+                        <Button onClick={() => setIsCreateOpen(true)}>Tambah Mata Pelajaran</Button>
+                    </div>
                 </div>
 
                 <div className="flex justify-end md:hidden">
@@ -136,6 +144,8 @@ export default function SubjectIndex({ subjects }: { subjects: Subject[] }) {
             </div>
 
             <CreateSubjectModal isOpen={isCreateOpen} setIsOpen={setIsCreateOpen} />
+            
+            <CreateBatchSubjectModal isOpen={isImportOpen} setIsOpen={setIsImportOpen} />
             
             <UpdateSubjectModal isOpen={isEditOpen} setIsOpen={setIsEditOpen} subject={editSubject} />
             

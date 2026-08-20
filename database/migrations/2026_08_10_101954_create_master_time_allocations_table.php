@@ -15,13 +15,13 @@ return new class extends Migration
             $table->string('id')->primary();
             $table->string('master_day_id');
             $table->foreign('master_day_id')->references('id')->on('master_days')->onDelete('cascade');
-            
+
             $table->string('type'); // 'ceremony', 'period', 'break'
             $table->integer('period_number')->nullable();
             $table->time('start_time');
             $table->time('end_time');
             $table->string('description')->nullable();
-            
+
             $table->timestamps();
         });
     }

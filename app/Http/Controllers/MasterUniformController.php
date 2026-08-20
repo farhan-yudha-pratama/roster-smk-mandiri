@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MasterUniform;
 use App\Models\MasterDay;
+use App\Models\MasterUniform;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 use Illuminate\Support\Str;
+use Inertia\Inertia;
 
 class MasterUniformController extends Controller
 {
@@ -14,7 +14,7 @@ class MasterUniformController extends Controller
     {
         $uniforms = MasterUniform::with('masterDays')->orderBy('id')->get();
         $days = MasterDay::orderByRaw("FIELD(day_name, 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu')")->get();
-        
+
         return Inertia::render('master-uniforms/index', [
             'uniforms' => $uniforms,
             'days' => $days,
@@ -35,7 +35,7 @@ class MasterUniformController extends Controller
             'master_day_ids.required_if' => 'Pilih setidaknya satu hari atau centang "Berlaku di Semua Hari".',
         ]);
 
-        $id = 'UNI-' . strtoupper(Str::random(6));
+        $id = 'UNI-'.strtoupper(Str::random(6));
 
         $uniform = MasterUniform::create([
             'id' => $id,
@@ -44,7 +44,7 @@ class MasterUniformController extends Controller
             'is_any_day' => $request->boolean('is_any_day'),
         ]);
 
-        if (!$request->boolean('is_any_day') && !empty($validated['master_day_ids'])) {
+        if (! $request->boolean('is_any_day') && ! empty($validated['master_day_ids'])) {
             $uniform->masterDays()->sync($validated['master_day_ids']);
         }
 
@@ -56,7 +56,7 @@ class MasterUniformController extends Controller
         $uniform = MasterUniform::findOrFail($id);
 
         $validated = $request->validate([
-            'uniform_name' => 'required|string|max:255|unique:master_uniforms,uniform_name,' . $id,
+            'uniform_name' => 'required|string|max:255|unique:master_uniforms,uniform_name,'.$id,
             'description' => 'nullable|string|max:255',
             'is_any_day' => 'boolean',
             'master_day_ids' => 'required_if:is_any_day,false|array',

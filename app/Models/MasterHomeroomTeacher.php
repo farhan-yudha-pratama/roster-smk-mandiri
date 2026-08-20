@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class MasterHomeroomTeacher extends Model
 {
     protected $table = 'master_homeroom_teachers';
+
     public $incrementing = false;
+
     protected $keyType = 'string';
-    
+
     protected $fillable = [
         'id',
         'teacher_name',

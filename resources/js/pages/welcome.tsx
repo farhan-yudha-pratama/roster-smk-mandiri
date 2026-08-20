@@ -10,7 +10,7 @@ interface RosterSchedule {
     period_number: number;
     period_duration_hours: number;
     subject?: { subject_name: string };
-    user?: { name: string };
+    teacher?: { teacher_name: string };
     classroom?: { room_name: string };
     master_class?: {
         class_name: string;
@@ -301,7 +301,7 @@ export default function Welcome({
                                     time={formatTime(schedule.start_time, schedule.end_time)}
                                     status={scheduleStatus}
                                     title={schedule.subject?.subject_name || 'Belum Ditentukan'}
-                                    teacher={schedule.user?.name || '-'}
+                                    teacher={schedule.teacher?.teacher_name || '-'}
                                     location={schedule.classroom?.room_name || '-'}
                                     LocationIcon={MapPin}
                                     className={schedule.master_class?.class_name || '-'}
