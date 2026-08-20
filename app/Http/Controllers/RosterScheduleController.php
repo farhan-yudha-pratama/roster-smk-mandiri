@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\Day;
+
 use App\Enums\WeekCycle;
 use App\Models\MasterClass;
 use App\Models\MasterClassroom;
@@ -21,22 +21,6 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class RosterScheduleController extends Controller
 {
     /**
-     * Mapping nama hari (Enum value) ke master_day_id di tabel master_days.
-     */
-    private function getDayId(string $day): string
-    {
-        $map = [
-            'Senin' => 'DAY-SENIN',
-            'Selasa' => 'DAY-SELASA',
-            'Rabu' => 'DAY-RABU',
-            'Kamis' => 'DAY-KAMIS',
-            'Jumat' => 'DAY-JUMAT',
-        ];
-
-        return $map[$day] ?? 'DAY-'.strtoupper($day);
-    }
-
-    /**
      * Resolve start_time dan end_time dari tabel master_time_allocations
      * berdasarkan hari, JP mulai, dan jumlah JP.
      *
@@ -46,20 +30,19 @@ class RosterScheduleController extends Controller
      */
     private function resolveTimeFromAllocation(string $day, int $periodNumber, int $periodDuration): array
     {
-        $dayId = $this->getDayId($day);
         $lastPeriod = $periodNumber + $periodDuration - 1;
 
         // Ambil start_time dari JP pertama
-        $firstSlot = MasterTimeAllocation::whereHas('masterDays', function ($q) use ($dayId) {
-            $q->where('master_days.id', $dayId);
+        $firstSlot = MasterTimeAllocation::whereHas('masterDays', function ($q) use ($day) {
+            $q->where('master_days.day_name', $day);
         })
             ->where('type', 'period')
             ->where('period_number', $periodNumber)
             ->first();
 
         // Ambil end_time dari JP terakhir
-        $lastSlot = MasterTimeAllocation::whereHas('masterDays', function ($q) use ($dayId) {
-            $q->where('master_days.id', $dayId);
+        $lastSlot = MasterTimeAllocation::whereHas('masterDays', function ($q) use ($day) {
+            $q->where('master_days.day_name', $day);
         })
             ->where('type', 'period')
             ->where('period_number', $lastPeriod)
@@ -84,10 +67,8 @@ class RosterScheduleController extends Controller
      */
     private function getMaxPeriodForDay(string $day): int
     {
-        $dayId = $this->getDayId($day);
-
-        return MasterTimeAllocation::whereHas('masterDays', function ($q) use ($dayId) {
-            $q->where('master_days.id', $dayId);
+        return MasterTimeAllocation::whereHas('masterDays', function ($q) use ($day) {
+            $q->where('master_days.day_name', $day);
         })
             ->where('type', 'period')
             ->max('period_number') ?? 10;
@@ -100,13 +81,13 @@ class RosterScheduleController extends Controller
     {
         $day = $request->input('day');
         $maxPeriod = 10; // Default fallback
-        if ($day && in_array($day, Day::values())) {
+        if ($day) {
             $maxPeriod = $this->getMaxPeriodForDay($day);
         }
 
         return $request->validate([
             'class_id' => 'nullable|string|exists:master_classes,id',
-            'day' => ['required', Rule::in(Day::values())],
+            'day' => ['required', 'string', 'exists:master_days,day_name'],
             'week_cycle' => ['required', Rule::in(WeekCycle::values())],
             'period_number' => ['required', 'integer', 'min:1', "max:{$maxPeriod}"],
             'subject_id' => 'nullable|string|exists:master_subjects,id',
@@ -128,6 +109,23 @@ class RosterScheduleController extends Controller
                     }
                 },
             ],
+        ], [
+            'class_id.exists' => 'Kelas yang dipilih tidak valid atau tidak ditemukan.',
+            'day.required' => 'Hari wajib dipilih.',
+            'day.exists' => 'Hari yang dipilih tidak ditemukan di database.',
+            'week_cycle.required' => 'Siklus minggu wajib dipilih.',
+            'week_cycle.in' => 'Siklus minggu tidak valid.',
+            'period_number.required' => 'Jam ke- (JP) wajib diisi.',
+            'period_number.integer' => 'Jam ke- (JP) harus berupa angka.',
+            'period_number.min' => 'Jam ke- (JP) minimal bernilai 1.',
+            'period_number.max' => "Jam ke- (JP) maksimal bernilai {$maxPeriod}.",
+            'subject_id.exists' => 'Mata pelajaran yang dipilih tidak valid.',
+            'teacher_id.exists' => 'Guru yang dipilih tidak valid.',
+            'classroom_id.exists' => 'Ruangan yang dipilih tidak valid.',
+            'period_duration_hours.required' => 'Durasi (Banyak JP) wajib diisi.',
+            'period_duration_hours.integer' => 'Durasi (Banyak JP) harus berupa angka.',
+            'period_duration_hours.min' => 'Durasi (Banyak JP) minimal bernilai 1.',
+            'period_duration_hours.max' => "Durasi (Banyak JP) maksimal bernilai {$maxPeriod}.",
         ]);
     }
 
@@ -141,7 +139,7 @@ class RosterScheduleController extends Controller
 
         $teachers = MasterHomeroomTeacher::all();
 
-        $days = Day::values();
+        $days = \App\Models\MasterDay::pluck('day_name')->toArray();
         $weekCycles = WeekCycle::values();
 
         // Kirim data alokasi waktu agar frontend bisa menampilkan info JP per hari
@@ -268,7 +266,8 @@ class RosterScheduleController extends Controller
         }
 
         // Dropdown for Hari
-        $days = implode(',', Day::values());
+        $validDays = \App\Models\MasterDay::pluck('day_name')->toArray();
+        $days = implode(',', $validDays);
         for ($i = 2; $i <= 100; $i++) {
             $validation = $sheet->getCell('C' . $i)->getDataValidation();
             $validation->setType(\PhpOffice\PhpSpreadsheet\Cell\DataValidation::TYPE_LIST);
@@ -344,7 +343,8 @@ class RosterScheduleController extends Controller
                 if (!empty($classId) && !empty($day) && !empty($weekCycle) && !empty($periodNumber) && !empty($duration)) {
                     
                     // Validate basic requirements
-                    if (!in_array($day, Day::values()) || !in_array($weekCycle, WeekCycle::values())) {
+                    $validDays = \App\Models\MasterDay::pluck('day_name')->toArray();
+                    if (!in_array($day, $validDays) || !in_array($weekCycle, WeekCycle::values())) {
                         continue; // skip invalid enum values
                     }
 
