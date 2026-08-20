@@ -38,7 +38,7 @@ class WelcomeController extends Controller
         $query = RosterSchedule::with([
             'masterClass.homeroomTeacher',
             'subject',
-            'user',
+            'teacher',
             'classroom',
         ]);
 
@@ -65,8 +65,8 @@ class WelcomeController extends Controller
         if ($filters['search']) {
             $search = strtolower($filters['search']);
             $query->where(function ($q) use ($search) {
-                $q->whereHas('user', function ($u) use ($search) {
-                    $u->whereRaw('LOWER(name) LIKE ?', ["%{$search}%"]);
+                $q->whereHas('teacher', function ($t) use ($search) {
+                    $t->whereRaw('LOWER(teacher_name) LIKE ?', ["%{$search}%"]);
                 })
                     ->orWhereHas('classroom', function ($c) use ($search) {
                         $c->whereRaw('LOWER(room_name) LIKE ?', ["%{$search}%"]);
