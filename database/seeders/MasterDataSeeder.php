@@ -117,7 +117,5 @@ class MasterDataSeeder extends Seeder
             MasterClass::updateOrCreate(['id' => $cls['id']], $cls);
         }
 
-        // 5. Call Dummy Schedule Seeder
-        $this->call(DummyScheduleSeeder::class);
     }
 }

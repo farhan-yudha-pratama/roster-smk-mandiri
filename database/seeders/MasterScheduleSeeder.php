@@ -28,11 +28,11 @@ class MasterScheduleSeeder extends Seeder
 
         // 2. Create Days
         $days = [
-            ['id' => 'DAY-SENIN', 'day_name' => 'Senin', 'notes' => ''],
-            ['id' => 'DAY-SELASA', 'day_name' => 'Selasa', 'notes' => null],
-            ['id' => 'DAY-RABU', 'day_name' => 'Rabu', 'notes' => null],
-            ['id' => 'DAY-KAMIS', 'day_name' => 'Kamis', 'notes' => null],
-            ['id' => 'DAY-JUMAT', 'day_name' => 'Jumat', 'notes' => null],
+            ['id' => 'DAY-SENIN', 'day_name' => 'Senin', 'master_uniform_id' => 'UNI-PUTIH-ABU', 'notes' => ''],
+            ['id' => 'DAY-SELASA', 'day_name' => 'Selasa', 'master_uniform_id' => 'UNI-BATIK', 'notes' => null],
+            ['id' => 'DAY-RABU', 'day_name' => 'Rabu', 'master_uniform_id' => 'UNI-BATIK', 'notes' => null],
+            ['id' => 'DAY-KAMIS', 'day_name' => 'Kamis', 'master_uniform_id' => 'UNI-PUTIH-ABU', 'notes' => null],
+            ['id' => 'DAY-JUMAT', 'day_name' => 'Jumat', 'master_uniform_id' => 'UNI-PRAMUKA', 'notes' => null],
         ];
 
         foreach ($days as $day) {
