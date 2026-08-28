@@ -129,9 +129,44 @@ class RosterScheduleController extends Controller
         ]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $schedules = RosterSchedule::with(['masterClass', 'subject', 'teacher', 'classroom'])->get();
+        if ($request->has('resetFilter')) {
+            $request->session()->forget(['roster_gradeFilter', 'roster_dayFilter', 'roster_teacherFilter']);
+            return redirect()->route('roster-schedules.index');
+        }
+
+        if ($request->has('gradeFilter')) {
+            $request->session()->put('roster_gradeFilter', $request->gradeFilter);
+        }
+        if ($request->has('dayFilter')) {
+            $request->session()->put('roster_dayFilter', $request->dayFilter);
+        }
+        if ($request->has('teacherFilter')) {
+            $request->session()->put('roster_teacherFilter', $request->teacherFilter);
+        }
+
+        $gradeFilter = $request->session()->get('roster_gradeFilter', 'all');
+        $dayFilter = $request->session()->get('roster_dayFilter', 'all');
+        $teacherFilter = $request->session()->get('roster_teacherFilter', 'all');
+
+        $query = RosterSchedule::with(['masterClass', 'subject', 'teacher', 'classroom']);
+
+        if ($gradeFilter !== 'all') {
+            $query->whereHas('masterClass', function ($q) use ($gradeFilter) {
+                $q->where('class_name', 'LIKE', $gradeFilter . ' %');
+            });
+        }
+
+        if ($dayFilter !== 'all') {
+            $query->where('day', $dayFilter);
+        }
+
+        if ($teacherFilter !== 'all') {
+            $query->where('teacher_id', $teacherFilter);
+        }
+
+        $schedules = $query->get();
 
         $classes = MasterClass::all();
         $subjects = MasterSubject::all();
@@ -157,6 +192,11 @@ class RosterScheduleController extends Controller
             'days' => $days,
             'weekCycles' => $weekCycles,
             'timeAllocations' => $timeAllocations,
+            'filters' => [
+                'gradeFilter' => $gradeFilter,
+                'dayFilter' => $dayFilter,
+                'teacherFilter' => $teacherFilter,
+            ],
         ]);
     }
 

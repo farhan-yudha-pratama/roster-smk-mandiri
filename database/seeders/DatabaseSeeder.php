@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             UserRoleSeeder::class,
             MasterDataSeeder::class,
             MasterScheduleSeeder::class,
+            RosterScheduleSeeder::class,
         ]);
     }
 }
