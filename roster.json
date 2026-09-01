@@ -1,0 +1,7358 @@
+{
+  "sekolah": "SMK SWASTA MANDIRI",
+  "tahun_pelajaran": "2026-2027",
+  "kelas": [
+    {
+      "tingkat": "X",
+      "nama": "X TO-1",
+      "wali_kelas": "Nur Syahfitriani",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "MAULANA",
+              "ruang": "BKL TEORI TKR 1"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "MAULANA",
+              "ruang": "BKL TEORI TKR 1"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "DDPK",
+              "guru": "MAULANA",
+              "ruang": "R. TEORI 1"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 10,
+              "mapel": "PIPAS",
+              "guru": "RAMSI",
+              "ruang": "R. TEORI 1"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "INFORMATIKA",
+              "guru": "ENNI",
+              "ruang": "R. TEORI 1"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 10,
+              "mapel": "PIPAS",
+              "guru": "RAMSI",
+              "ruang": "R. TEORI 1"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 1"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 1"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 1"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKI",
+              "ruang": "R. TEORI 1"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "AGUSTINA",
+              "ruang": "R. TEORI 1"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 1"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 1"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 1"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "SENI",
+              "guru": "LILY",
+              "ruang": "R. TEORI 1"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKI",
+              "ruang": "R. TEORI 1"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "AGUSTINA",
+              "ruang": "R. TEORI 1"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 1"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 1"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "INFORMATIKA",
+              "guru": "ENNI",
+              "ruang": "R. TEORI 1"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 1"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "X",
+      "nama": "X TO-2",
+      "wali_kelas": "Enni Nuriati Saragih",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 1"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKI",
+              "ruang": "R. TEORI 1"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "AGUSTINA",
+              "ruang": "R. TEORI 1"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 1"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 1"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 1"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "SENI",
+              "guru": "LILY",
+              "ruang": "R. TEORI 2"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKI",
+              "ruang": "R. TEORI 2"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "AGUSTINA",
+              "ruang": "R. TEORI 2"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 2"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 2"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "INFORMATIKA",
+              "guru": "ENNI",
+              "ruang": "R. TEORI 2"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 2"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 2"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "SUBRATA",
+              "ruang": "BKL TEORI TKR 1"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "SUBRATA",
+              "ruang": "BKL TEORI TKR 1"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "DDPK",
+              "guru": "SUBRATA",
+              "ruang": "R. TEORI 2"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 10,
+              "mapel": "PIPAS",
+              "guru": "RAMSI",
+              "ruang": "R. TEORI 2"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "INFORMATIKA",
+              "guru": "ENNI",
+              "ruang": "R. TEORI 2"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 10,
+              "mapel": "PIPAS",
+              "guru": "RAMSI",
+              "ruang": "R. TEORI 2"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 2"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 2"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "X",
+      "nama": "X TO-3",
+      "wali_kelas": "Ramsi",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKI",
+              "ruang": "R. TEORI 2"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "AGUSTINA",
+              "ruang": "R. TEORI 2"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "INFORMATIKA",
+              "guru": "ENNI",
+              "ruang": "R. TEORI 2"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 2"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 8,
+              "mapel": "SENI",
+              "guru": "LILY",
+              "ruang": "R. TEORI 2"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 2"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKI",
+              "ruang": "R. TEORI 3"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "AGUSTINA",
+              "ruang": "R. TEORI 3"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "ICA",
+              "ruang": "R. TEORI 3"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 3"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "BING",
+              "guru": "ICA",
+              "ruang": "R. TEORI 3"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 3"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 3"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 3"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "INFORMATIKA",
+              "guru": "ENNI",
+              "ruang": "LAB INFOR"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 10,
+              "mapel": "PIPAS",
+              "guru": "RAMSI",
+              "ruang": "LAB INFOR"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "RAMSI",
+              "ruang": "R. TEORI 2"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "IMAM",
+              "ruang": "R. TEORI 2"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "IMAM",
+              "ruang": "BKL TEORI TBKR"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "IMAM",
+              "ruang": "BKL TEORI TKR 1"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. MUSHOLLAH"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. MUSHOLLAH"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "X",
+      "nama": "X TO-4",
+      "wali_kelas": "Atikah Fadhilah",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "INFORMATIKA",
+              "guru": "ENNI",
+              "ruang": "LAB INFOR"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 10,
+              "mapel": "PIPAS",
+              "guru": "RAMSI",
+              "ruang": "LAB INFOR"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "RAMSI",
+              "ruang": "R. TEORI 3"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "RIVALDI",
+              "ruang": "R. TEORI 3"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "RIVALDI",
+              "ruang": "BKL TEORI TBKR"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "RIVALDI",
+              "ruang": "BKL TEORI TKR 1"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. MUSHOLLAH"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. MUSHOLLAH"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKI",
+              "ruang": "R. TEORI 2"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "AGUSTINA",
+              "ruang": "R. TEORI 2"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "INFORMATIKA",
+              "guru": "ENNI",
+              "ruang": "R. TEORI 2"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 3"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 8,
+              "mapel": "SENI",
+              "guru": "LILY",
+              "ruang": "R. TEORI 3"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 3"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKI",
+              "ruang": "R. TEORI 3"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "AGUSTINA",
+              "ruang": "R. TEORI 3"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "ICA",
+              "ruang": "R. TEORI 3"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 3"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "BING",
+              "guru": "ICA",
+              "ruang": "R. TEORI 3"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 3"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 3"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 3"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "X",
+      "nama": "X TO-5",
+      "wali_kelas": "Wiwik Susanti",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 3"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 3"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "RIVALDI",
+              "guru": "BUALA",
+              "ruang": "R. TEORI 3"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "MISRIANI",
+              "ruang": "R. TEORI 4"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "BUALA",
+              "ruang": "BKL TEORI TKR 1"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "ULFA",
+              "ruang": "LAB INFOR"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "INFORMATIKA",
+              "guru": "FARIDA",
+              "ruang": "LAB INFOR"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "ULFA",
+              "ruang": "R. TEORI 4"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 3"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 8,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 3"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKI",
+              "ruang": "R. TEORI 3"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "MTK",
+              "guru": "YASMIN",
+              "ruang": "R. TEORI 4"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 4"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 4"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "MTK",
+              "guru": "YASMIN",
+              "ruang": "R. TEORI 4"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 8,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 4"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKI",
+              "ruang": "R. TEORI 4"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "INFORMATIKA",
+              "guru": "FARIDA",
+              "ruang": "R. TEORI 4"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 8,
+              "mapel": "SENI",
+              "guru": "LILY",
+              "ruang": "R. TEORI 4"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 4"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 4"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 4"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "X",
+      "nama": "X TO-6",
+      "wali_kelas": "Misriani",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 4"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 4"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "RIVALDI",
+              "guru": "BUALA",
+              "ruang": "R. TEORI 4"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "MISRIANI",
+              "ruang": "R. TEORI 5"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "BUALA",
+              "ruang": "BKL TEORI TKR 1"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "ULFA",
+              "ruang": "LAB INFOR"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "INFORMATIKA",
+              "guru": "FARIDA",
+              "ruang": "LAB INFOR"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "ULFA",
+              "ruang": "R. TEORI 5"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 4"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 8,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 4"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKI",
+              "ruang": "R. TEORI 4"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "MTK",
+              "guru": "YASMIN",
+              "ruang": "R. TEORI 5"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 5"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 5"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "MTK",
+              "guru": "YASMIN",
+              "ruang": "R. TEORI 5"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 8,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 5"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKI",
+              "ruang": "R. TEORI 5"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "INFORMATIKA",
+              "guru": "FARIDA",
+              "ruang": "R. TEORI 4"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 8,
+              "mapel": "SENI",
+              "guru": "LILY",
+              "ruang": "R. TEORI 4"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 4"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 5"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "X",
+      "nama": "X TO-7",
+      "wali_kelas": "Rodiatun Adawiyah Siregar",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "RAHMADANI",
+              "ruang": "R. TEORI 5"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "IMAM",
+              "ruang": "R. TEORI 5"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "IMAM",
+              "ruang": "BKL TEORI TBKR"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "ICA",
+              "ruang": "R. TEORI 6"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 6"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "INFORMATIKA",
+              "guru": "ENNI",
+              "ruang": "R. TEORI 6"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "IMAM",
+              "ruang": "R. TEORI 6"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "RAHMADANI",
+              "ruang": "R. TEORI 6"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 5"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 5"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BIND",
+              "guru": "RODIATUN",
+              "ruang": "R. TEORI 5"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 6"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 6"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "YASMIN",
+              "ruang": "R. TEORI 6"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "INFORMATIKA",
+              "guru": "ENNI",
+              "ruang": "LAB INFOR"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 8,
+              "mapel": "MTK",
+              "guru": "YASMIN",
+              "ruang": "LAB INFOR"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "LAB INFOR"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "SENI",
+              "guru": "LILY",
+              "ruang": "R. TEORI 5"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "R. TEORI 5"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "ICA",
+              "ruang": "R. TEORI 5"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BIND",
+              "guru": "RODIATUN",
+              "ruang": "R. TEORI 6"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 6"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "X",
+      "nama": "X TO-8",
+      "wali_kelas": "Yasmin Aulia Pulungan",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 6"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 6"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BIND",
+              "guru": "RODIATUN",
+              "ruang": "R. TEORI 6"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 6"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 6"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "YASMIN",
+              "ruang": "R. TEORI 6"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "INFORMATIKA",
+              "guru": "ENNI",
+              "ruang": "LAB INFOR"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 8,
+              "mapel": "MTK",
+              "guru": "YASMIN",
+              "ruang": "LAB INFOR"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "LAB INFOR"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "SENI",
+              "guru": "LILY",
+              "ruang": "R. TEORI 5"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "R. TEORI 5"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "ICA",
+              "ruang": "R. TEORI 5"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BIND",
+              "guru": "RODIATUN",
+              "ruang": "R. TEORI 11"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 11"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "RAHMADANI",
+              "ruang": "R. TEORI 6"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "CHOIRI",
+              "ruang": "R. TEORI 6"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "BUALA",
+              "ruang": "BKL TEORI TBKR"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "ICA",
+              "ruang": "R. TEORI 6"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 6"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "INFORMATIKA",
+              "guru": "ENNI",
+              "ruang": "R. TEORI 6"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "BUALA",
+              "ruang": "R. TEORI 6"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "RAHMADANI",
+              "ruang": "R. TEORI 11"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "X",
+      "nama": "X TJK TELEKOMUNIKASI-1",
+      "wali_kelas": "Henny Puspita",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "LAB 2"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 10,
+              "mapel": "INFORMATIKA",
+              "guru": "SUHENDRA",
+              "ruang": "LAB 2"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "RIDHO",
+              "ruang": "LAB 2"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "AGRI",
+              "ruang": "LAB 2"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "DDPK",
+              "guru": "FARHAN",
+              "ruang": "R. AXIOO"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. AXIOO"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. AXIOO"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "HENNY",
+              "ruang": "R. TEORI 12"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "QORI",
+              "ruang": "R. TEORI 7"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 8,
+              "mapel": "SENI",
+              "guru": "LILY",
+              "ruang": "R. TEORI 7"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "R. TEORI 7"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 7"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "DEWI",
+              "ruang": "R. TEORI 7"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BIND",
+              "guru": "RODIATUN",
+              "ruang": "R. TEORI 7"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "R. TEORI 7"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "BING",
+              "guru": "QORI",
+              "ruang": "R. TEORI 7"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BIND",
+              "guru": "RODIATUN",
+              "ruang": "R. TEORI 7"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "MTK",
+              "guru": "DEWI",
+              "ruang": "R. TEORI 7"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 7"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 7"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "HENNY",
+              "ruang": "R. TEORI 7"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "X",
+      "nama": "X TJK TELEKOMUNIKASI-2",
+      "wali_kelas": "Lily Novelina Cahyani",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "QORI",
+              "ruang": "R. TEORI 7"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 8,
+              "mapel": "SENI",
+              "guru": "LILY",
+              "ruang": "R. TEORI 7"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "R. TEORI 7"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 7"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "DEWI",
+              "ruang": "R. TEORI 7"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 7"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "R. TEORI 7"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "BING",
+              "guru": "QORI",
+              "ruang": "R. TEORI 7"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 7"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "MTK",
+              "guru": "DEWI",
+              "ruang": "R. TEORI 7"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 7"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 7"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "RAMSI",
+              "ruang": "R. TEORI 7"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "LAB 2"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 10,
+              "mapel": "INFORMATIKA",
+              "guru": "SUHENDRA",
+              "ruang": "LAB 2"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "RIDHO",
+              "ruang": "LAB 2"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "AGRI",
+              "ruang": "LAB 2"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "DDPK",
+              "guru": "FARHAN",
+              "ruang": "R. AXIOO"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. AXIOO"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. AXIOO"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "RAMSI",
+              "ruang": "R. TEORI 12"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "X",
+      "nama": "X TJK TELEKOMUNIKASI-3",
+      "wali_kelas": "Fatimah Dewi",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 8"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 8"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "NURHAYATI",
+              "ruang": "R. TEORI 8"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BIND",
+              "guru": "FITRIANI",
+              "ruang": "R. TEORI 8"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 10,
+              "mapel": "PIPAS",
+              "guru": "ULFA",
+              "ruang": "R. TEORI 8"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "PANDI",
+              "ruang": "LAB 3"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "AGRI",
+              "ruang": "LAB 3"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "INFORMATIKA",
+              "guru": "SUHENDRA",
+              "ruang": "LAB 2"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "LAB 2"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "SENI",
+              "guru": "LILY",
+              "ruang": "R. TEORI 8"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "R. TEORI 8"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "QORI",
+              "ruang": "R. TEORI 8"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "ULFA",
+              "ruang": "R. TEORI 8"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "DEWI",
+              "ruang": "R. TEORI 8"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BIND",
+              "guru": "FITRIANI",
+              "ruang": "R. TEORI 8"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "R. TEORI 8"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "QORI",
+              "ruang": "R. TEORI 8"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 8"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 8"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "DEWI",
+              "ruang": "R. TEORI 8"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "INFORMATIKA",
+              "guru": "SUHENDRA",
+              "ruang": "LAB 2"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "LAB 2"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "X",
+      "nama": "X TJK TELEKOMUNIKASI-4",
+      "wali_kelas": "Saharani Gibran Simatupang",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "SENI",
+              "guru": "LILY",
+              "ruang": "R. TEORI 11"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "R. TEORI 11"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "QORI",
+              "ruang": "R. TEORI 11"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "RAHMADANI",
+              "ruang": "R. TEORI 11"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "DEWI",
+              "ruang": "R. TEORI 11"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BIND",
+              "guru": "FITRIANI",
+              "ruang": "R. TEORI 8"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "R. TEORI 8"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "QORI",
+              "ruang": "R. TEORI 8"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 8"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 8"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "DEWI",
+              "ruang": "R. TEORI 8"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "LAB 3"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "INFORMATIKA",
+              "guru": "ENNI",
+              "ruang": "LAB 3"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 11"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 11"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "NURHAYATI",
+              "ruang": "R. TEORI 11"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BIND",
+              "guru": "FITRIANI",
+              "ruang": "R. TEORI 11"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 10,
+              "mapel": "PIPAS",
+              "guru": "RAHMADANI",
+              "ruang": "R. TEORI 11"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "PANDI",
+              "ruang": "LAB 3"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "AGRI",
+              "ruang": "LAB 3"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "LAB 3"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "INFORMATIKA",
+              "guru": "ENNI",
+              "ruang": "LAB 3"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "X",
+      "nama": "X PPL GIM-1",
+      "wali_kelas": "Maya Sari Dasopang",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 10"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PAI",
+              "guru": "ZAMIAT",
+              "ruang": "R. TEORI 10"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 10"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "ICA",
+              "ruang": "R. TEORI 10"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 8,
+              "mapel": "BIND",
+              "guru": "PURNAMA",
+              "ruang": "R. TEORI 10"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 10"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "ULFA",
+              "ruang": "R. TEORI 10"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "SENI",
+              "guru": "LILY",
+              "ruang": "R. TEORI 10"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 10"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PAI",
+              "guru": "ZAMIAT",
+              "ruang": "R. TEORI 10"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 10"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "ICA",
+              "ruang": "R. TEORI 10"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKY",
+              "ruang": "R. TEORI 10"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "AL-HABIB",
+              "ruang": "LAB 5"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "AL-HABIB",
+              "ruang": "LAB 5"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "ULFA",
+              "ruang": "R. TEORI 11"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BIND",
+              "guru": "PURNAMA",
+              "ruang": "R. TEORI 11"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 8,
+              "mapel": "INFORMATIKA",
+              "guru": "SUHENDRA",
+              "ruang": "LAB 4"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "LAB 4"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKY",
+              "ruang": "LAB 4"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "DDPK",
+              "guru": "AL-HABIB",
+              "ruang": "LAB 4"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "X",
+      "nama": "X PPL GIM-2",
+      "wali_kelas": "Wiwi Rahmadani",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "FARHAN",
+              "ruang": "LAB 5"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "ZAHRA",
+              "ruang": "LAB 5"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "RAHMADANI",
+              "ruang": "R. TEORI 11"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BIND",
+              "guru": "PURNAMA",
+              "ruang": "R. TEORI 11"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 8,
+              "mapel": "INFORMATIKA",
+              "guru": "SUHENDRA",
+              "ruang": "LAB 4"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "LAB 4"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKY",
+              "ruang": "LAB 4"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "DDPK",
+              "guru": "ZAHRA",
+              "ruang": "LAB 4"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 10"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "ZAMIAT",
+              "ruang": "R. TEORI 10"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 10"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "ICA",
+              "ruang": "R. TEORI 10"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 8,
+              "mapel": "BIND",
+              "guru": "PURNAMA",
+              "ruang": "R. TEORI 10"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 10"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PIPAS",
+              "guru": "RAHMADANI",
+              "ruang": "R. TEORI 10"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "SENI",
+              "guru": "LILY",
+              "ruang": "R. TEORI 10"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 10"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PAI",
+              "guru": "ZAMIAT",
+              "ruang": "R. TEORI 10"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 10"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "ICA",
+              "ruang": "R. TEORI 10"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKY",
+              "ruang": "R. TEORI 10"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "X",
+      "nama": "X TO-9",
+      "wali_kelas": "Putri Aulia Octaviansyah",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "ICA",
+              "ruang": "R. TEORI 12"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 10,
+              "mapel": "PIPAS",
+              "guru": "ULFA",
+              "ruang": "R. TEORI 12"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKY",
+              "ruang": "LAB INFOR"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "INFORMATIKA",
+              "guru": "ENNI",
+              "ruang": "LAB INFOR"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "LAB INFOR"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 12"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 12"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 12"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "HABIB",
+              "ruang": "R. TEORI 12"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "PKn",
+              "guru": "ENNI",
+              "ruang": "BKL TEORI TKR"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "SENI",
+              "guru": "LILY",
+              "ruang": "BKL TEORI TKR"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "ICA",
+              "ruang": "R. TEORI 12"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 10,
+              "mapel": "PIPAS",
+              "guru": "ULFA",
+              "ruang": "R. TEORI 12"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKY",
+              "ruang": "LAB INFOR"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "INFORMATIKA",
+              "guru": "ENNI",
+              "ruang": "LAB INFOR"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "LAB INFOR"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 12"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 12"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 12"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "DDPK",
+              "guru": "HABIB",
+              "ruang": "R. TEORI 12"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "PKn",
+              "guru": "ENNI",
+              "ruang": "BKL TEORI TKR"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "DDPK",
+              "guru": "IMAM",
+              "ruang": "BKL TEORI TKR"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XI",
+      "nama": "XI TKR-1",
+      "wali_kelas": "Subrata",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "DODY",
+              "ruang": "BKL TEORI TKR 2"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "SUBRATA",
+              "ruang": "BKL TKR"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "SUBRATA",
+              "ruang": "BKL TEORI TKR 2"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "SUBRATA",
+              "ruang": "BKL TKR"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "SUBRATA",
+              "ruang": "BKL TKR"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "FITRIANI",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "DIANI",
+              "ruang": "R. TEORI 13"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "DIANI",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "AMI",
+              "ruang": "R. TEORI 13"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PILIHAN",
+              "guru": "AMI",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 13"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKY",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "MTK",
+              "guru": "AGUSTINA",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 13"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "AGUSTINA",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "FITRIANI",
+              "ruang": "R. TEORI 13"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XI",
+      "nama": "XI TKR-2",
+      "wali_kelas": "Rivaldi Caniago",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "FITRIANI",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "DIANI",
+              "ruang": "R. TEORI 13"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "DIANI",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "LUPPI",
+              "ruang": "R. TEORI 13"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PILIHAN",
+              "guru": "LUPPI",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 13"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKY",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "MTK",
+              "guru": "AGUSTINA",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 13"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "AGUSTINA",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "FITRIANI",
+              "ruang": "R. TEORI 13"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "DODY",
+              "ruang": "BKL TEORI TKR 2"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "RIVALDI",
+              "ruang": "BKL TKR"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "RIVALDI",
+              "ruang": "BKL TEORI TKR 2"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "RIVALDI",
+              "ruang": "BKL TKR"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "RIVALDI",
+              "ruang": "BKL TEORI TKR 1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XI",
+      "nama": "XI TKR-3",
+      "wali_kelas": "Siti Nurseha",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PILIHAN",
+              "guru": "ASNAWI",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 14"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "SITI NURSEHA",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "WAY",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKY",
+              "ruang": "R. TEORI 14"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "BING",
+              "guru": "FENY",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "ASNAWI",
+              "ruang": "R. TEORI 14"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "SITI NURSEHA",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "FENY",
+              "ruang": "R. TEORI 14"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "WAY",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 14"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "MAULANA",
+              "ruang": "BKL TKR"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "MAULANA",
+              "ruang": "BKL TEORI TKR 2"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "MAULANA",
+              "ruang": "BKL TKR"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "CHOIRI",
+              "ruang": "BKL TEORI TKR 2"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "SUBRATA",
+              "ruang": "BKL TKR"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XI",
+      "nama": "XI T-TEP",
+      "wali_kelas": "M. Fadil Tistiyanto",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "FADHIL",
+              "ruang": "BKL TKR"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "FADHIL",
+              "ruang": "BKL TEORI TKR 2"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "FADHIL",
+              "ruang": "BKL TKR"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "DODY",
+              "ruang": "BKL TEORI TKR 2"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "FADHIL",
+              "ruang": "BKL TEORI TKR 1"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PILIHAN",
+              "guru": "DENI",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 14"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "SITI NURSEHA",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "WAY",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKY",
+              "ruang": "R. TEORI 14"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "BING",
+              "guru": "FENY",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "DENI",
+              "ruang": "R. TEORI 14"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "SITI NURSEHA",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "FENY",
+              "ruang": "R. TEORI 14"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "WAY",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 14"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XI",
+      "nama": "XI TSM-1",
+      "wali_kelas": "M. Nanda Ardiansyah",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "HIDAYAT",
+              "ruang": "BKL TEORI TSM"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "HIDAYAT",
+              "ruang": "BKL TSM"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "DODY",
+              "ruang": "BKL TEORI TSM"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "HIDAYAT",
+              "ruang": "BKL TSM"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "RAEL",
+              "ruang": "BKL TSM"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "LUPPI",
+              "ruang": "R. TEORI 15"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "WAY",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "RODIATUN",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 15"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "LUPPI",
+              "ruang": "R. TEORI 15"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "BIND",
+              "guru": "RODIATUN",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 15"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "WAY",
+              "ruang": "R. TEORI 15"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XI",
+      "nama": "XI TSM-2",
+      "wali_kelas": "Muhammad Ripai Lubis",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "GINTING",
+              "ruang": "R. TEORI 15"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "WAY",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "RODIATUN",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 15"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "GINTING",
+              "ruang": "R. TEORI 15"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "BIND",
+              "guru": "RODIATUN",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 15"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "WAY",
+              "ruang": "R. TEORI 15"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "RAEL",
+              "ruang": "BKL TEORI TSM"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "RAEL",
+              "ruang": "BKL TSM"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "DODY",
+              "ruang": "BKL TEORI TSM"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "RAEL",
+              "ruang": "BKL TSM"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "RAEL",
+              "ruang": "BKL TSM"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XI",
+      "nama": "XI TSM-3",
+      "wali_kelas": "Habib Alwi",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "FENY",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 16"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "PKn",
+              "guru": "SIGIT",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "BING",
+              "guru": "FENY",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 16"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "LUPPI",
+              "ruang": "R. TEORI 16"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PILIHAN",
+              "guru": "LUPPI",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "SIGIT",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKY",
+              "ruang": "R. TEORI 16"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 16"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "HABIB",
+              "ruang": "BKL TSM"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "HABIB",
+              "ruang": "BKL TEORI TSM"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "HABIB",
+              "ruang": "BKL TSM"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "DODY",
+              "ruang": "BKL TEORI TSM"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "HABIB",
+              "ruang": "BKL TEORI TSM"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XI",
+      "nama": "XI TSM-4",
+      "wali_kelas": "Imam",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "HABIB",
+              "ruang": "BKL TSM"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "HABIB",
+              "ruang": "BKL TEORI TSM"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "IMAM",
+              "ruang": "BKL TSM"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "MAULANA",
+              "ruang": "BKL TEORI TSM"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "BUALA",
+              "ruang": "BKL TEORI TSM"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "FENY",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 16"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "PKn",
+              "guru": "SIGIT",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "BING",
+              "guru": "FENY",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 16"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "GINTING",
+              "ruang": "R. TEORI 16"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PILIHAN",
+              "guru": "GINTING",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "SIGIT",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKY",
+              "ruang": "R. TEORI 16"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 16"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XI",
+      "nama": "XI TKJ-1",
+      "wali_kelas": "Fitriyani Rambe",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "AMEL",
+              "ruang": "LAB 1"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "PANDI",
+              "ruang": "LAB 1"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "NURHAYATI",
+              "ruang": "LAB 1"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "PANDI",
+              "ruang": "LAB 1"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "PANDI",
+              "ruang": "R. AXIOO"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PILIHAN",
+              "guru": "ASNAWI",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 8,
+              "mapel": "BING",
+              "guru": "ICA",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 17"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "ICA",
+              "ruang": "R. TEORI 17"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "BIND",
+              "guru": "FIRIANI",
+              "ruang": "R. TEORI 17"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "ASNAWI",
+              "ruang": "R. TEORI 17"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "FIRIANI",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 17"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XI",
+      "nama": "XI TKJ-2",
+      "wali_kelas": "Alfandy Dachlan NST",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PILIHAN",
+              "guru": "LUPPI",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 8,
+              "mapel": "BING",
+              "guru": "FENY",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 17"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "FENY",
+              "ruang": "R. TEORI 17"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "BIND",
+              "guru": "FITRIANI",
+              "ruang": "R. TEORI 17"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "LUPPI",
+              "ruang": "R. TEORI 17"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "FITRIANI",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 17"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "AMEL",
+              "ruang": "LAB 1"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "PANDI",
+              "ruang": "LAB 1"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "NURHAYATI",
+              "ruang": "LAB 1"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "PANDI",
+              "ruang": "LAB 1"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "PANDI",
+              "ruang": "R. AXIOO"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XI",
+      "nama": "XI TKJ-3",
+      "wali_kelas": "Sri Rizky Ananda",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AGRI",
+              "ruang": "LAB 3"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "AMEL",
+              "ruang": "LAB 3"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "RIDHO",
+              "ruang": "LAB 4"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "NURHAYATI",
+              "ruang": "LAB 2"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "JABBAR",
+              "ruang": "LAB 1"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "AMI",
+              "ruang": "R. TEORI 18"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKY",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "DIANI",
+              "ruang": "R. TEORI 18"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 8,
+              "mapel": "BING",
+              "guru": "DIANI",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 18"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PILIHAN",
+              "guru": "AMI",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "YASMIN",
+              "ruang": "R. TEORI 18"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "YASMIN",
+              "ruang": "R. TEORI 18"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XI",
+      "nama": "XI TKJ-4",
+      "wali_kelas": "M. Agri Febriansyah",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "DENI",
+              "ruang": "R. TEORI 18"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 2,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 3,
+              "jp_selesai": 6,
+              "mapel": "SEJARAH",
+              "guru": "SRI RIZKY",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "DIANI",
+              "ruang": "R. TEORI 18"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 8,
+              "mapel": "BING",
+              "guru": "DIANI",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 9,
+              "jp_selesai": 10,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 18"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PILIHAN",
+              "guru": "DENI",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "YASMIN",
+              "ruang": "R. TEORI 18"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "YASMIN",
+              "ruang": "R. TEORI 18"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AGRI",
+              "ruang": "LAB 3"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "AMEL",
+              "ruang": "LAB 3"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "RIDHO",
+              "ruang": "LAB 4"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "NURHAYATI",
+              "ruang": "LAB 2"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "JABBAR",
+              "ruang": "LAB 1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XI",
+      "nama": "XI RPL-1",
+      "wali_kelas": "Ridho Alfarizi Tanjung",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AL-HABIB",
+              "ruang": "LAB 4"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AL-HABIB",
+              "ruang": "LAB 4"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "FARHAN",
+              "ruang": "LAB 5"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ZAHRA",
+              "ruang": "LAB 5"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "ZAKIR",
+              "ruang": "LAB 5"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "DIANI",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 19"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "ENNI",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "ASNAWI",
+              "ruang": "R. TEORI 19"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "DIANI",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "ENNI",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "ASNAWI",
+              "ruang": "R. TEORI 19"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "YASMIN",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "R. TEORI 19"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "YASMIN",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 19"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XI",
+      "nama": "XI RPL-2",
+      "wali_kelas": "Farhan Yudha Pratama",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "DIANI",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 19"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PJOK",
+              "guru": "WIWITONO",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "ENNI",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "AMI",
+              "ruang": "R. TEORI 19"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "DIANI",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "ENNI",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "AMI",
+              "ruang": "R. TEORI 19"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "YASMIN",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "R. TEORI 19"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "YASMIN",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 19"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "FARHAN",
+              "ruang": "LAB 4"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "FARHAN",
+              "ruang": "LAB 4"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "FARHAN",
+              "ruang": "LAB 5"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ZAHRA",
+              "ruang": "LAB 5"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "ZAHRA",
+              "ruang": "LAB 5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XI",
+      "nama": "XI TBKR",
+      "wali_kelas": "Ariansyah Hidayat",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ARIANSYAH",
+              "ruang": "BKL TBKR"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "DODY",
+              "ruang": "BKL TBKR"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ARIANSYAH",
+              "ruang": "BKL TBKR"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ARIANSYAH",
+              "ruang": "BKL TBKR"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "CHOIRI",
+              "ruang": "BKL TBKR"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "BKL TBKR"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "BKL TBKR"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "GINTING",
+              "ruang": "BKL TBKR"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "QORI",
+              "ruang": "BKL TBKR"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "SIGIT",
+              "ruang": "BKL TBKR"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "SEJARAH",
+              "guru": "RANI",
+              "ruang": "BKL TBKR"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "BKL TBKR"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "BKL TBKR"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PJOK",
+              "guru": "NANDA",
+              "ruang": "BKL TBKR"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "QORI",
+              "ruang": "BKL TBKR"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "BKL TBKR"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "BKL TBKR"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PILIHAN",
+              "guru": "GINTING",
+              "ruang": "BKL TBKR"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 6,
+              "mapel": "PKn",
+              "guru": "SIGIT",
+              "ruang": "BKL TBKR"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XII",
+      "nama": "XII TKR 1",
+      "wali_kelas": "Diani Pratiwi",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ANDI",
+              "ruang": "BKL TEORI TKR 2"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ANDI",
+              "ruang": "BKL TKR"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ANDI",
+              "ruang": "BKL TEORI TKR 2"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ANDI",
+              "ruang": "BKL TKR"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "ANDI",
+              "ruang": "BKL TKR"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "BIND",
+              "guru": "FITRIANI",
+              "ruang": "R. TEORI 13"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "DIANI",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "WAY",
+              "ruang": "R. TEORI 13"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "DODY",
+              "ruang": "R. TEORI 13"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PILIHAN",
+              "guru": "GINTING",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "DIANI",
+              "ruang": "R. TEORI 13"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "WAY",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "FITRIANI",
+              "ruang": "R. TEORI 13"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XII",
+      "nama": "XII TKR 2",
+      "wali_kelas": "Dona Yulia Muchti",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "BIND",
+              "guru": "FITRIANI",
+              "ruang": "R. TEORI 13"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "DIANI",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "WAY",
+              "ruang": "R. TEORI 13"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "HABIB",
+              "ruang": "R. TEORI 13"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PILIHAN",
+              "guru": "LUPPI",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "DIANI",
+              "ruang": "R. TEORI 13"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "WAY",
+              "ruang": "R. TEORI 13"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "FITRIANI",
+              "ruang": "R. TEORI 13"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ANDI",
+              "ruang": "BKL TEORI TKR 2"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ANDI",
+              "ruang": "BKL TKR"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ANDI",
+              "ruang": "BKL TEORI TKR 2"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ANDI",
+              "ruang": "BKL TKR"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "SUBRATA",
+              "ruang": "BKL TEORI TKR 1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XII",
+      "nama": "XII TKR 3",
+      "wali_kelas": "Khairul Anwar",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "FITRIANI",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 14"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "WAY",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 14"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "IMAM",
+              "ruang": "R. TEORI 14"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PILIHAN",
+              "guru": "ASNAWI",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 14"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "FITRIANI",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "WAY",
+              "ruang": "R. TEORI 14"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "FADHIL",
+              "ruang": "BKL TKR"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "FADHIL",
+              "ruang": "BKL TEORI TKR 2"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "FADHIL",
+              "ruang": "BKL TKR"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "FADHIL",
+              "ruang": "BKL TEORI TKR 2"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "RIVALDI",
+              "ruang": "BKL TKR"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XII",
+      "nama": "XII T-TEP",
+      "wali_kelas": "Mhd. Harris Zuhud",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ZUHUD",
+              "ruang": "BKL TKR"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ZUHUD",
+              "ruang": "BKL TEORI TKR 2"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ZUHUD",
+              "ruang": "BKL TKR"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ZUHUD",
+              "ruang": "BKL TEORI TKR 2"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "ZUHUD",
+              "ruang": "BKL TEORI TKR 1"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "FITRIANI",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 14"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "WAY",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 14"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "HABIB",
+              "ruang": "R. TEORI 14"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PILIHAN",
+              "guru": "DENI",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 14"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "FITRIANI",
+              "ruang": "R. TEORI 14"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "WAY",
+              "ruang": "R. TEORI 14"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XII",
+      "nama": "XII TSM 1",
+      "wali_kelas": "Muhammad Maulana Syahputra",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "RIVALDI",
+              "ruang": "R. TEORI 15"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PILIHAN",
+              "guru": "LUPPI",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "FENY",
+              "ruang": "R. TEORI 15"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "DEWI",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 15"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "FENY",
+              "ruang": "R. TEORI 15"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "DEWI",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 15"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "CHOIRI",
+              "ruang": "BKL TEORI TSM"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "CHOIRI",
+              "ruang": "BKL TSM"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "MAULANA",
+              "ruang": "BKL TEORI TSM"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "MAULANA",
+              "ruang": "BKL TSM"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "MAULANA",
+              "ruang": "BKL TSM"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XII",
+      "nama": "XII TSM 2",
+      "wali_kelas": "Feny Irmayami",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "RIVALDI",
+              "ruang": "R. TEORI 15"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PILIHAN",
+              "guru": "AMI",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "FENY",
+              "ruang": "R. TEORI 15"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "DEWI",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 15"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "FENY",
+              "ruang": "R. TEORI 15"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "DEWI",
+              "ruang": "R. TEORI 15"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 15"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "RAEL",
+              "ruang": "BKL TEORI TSM"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "RAEL",
+              "ruang": "BKL TSM"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "RAEL",
+              "ruang": "BKL TEORI TSM"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "RAEL",
+              "ruang": "BKL TSM"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "RAEL",
+              "ruang": "BKL TSM"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XII",
+      "nama": "XII TSM 3",
+      "wali_kelas": "Qori Muzanah",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "IMAM",
+              "ruang": "R. TEORI 16"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "QORI",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "DENI",
+              "ruang": "R. TEORI 16"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "DEWI",
+              "ruang": "R. TEORI 16"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "QORI",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 16"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "DEWI",
+              "ruang": "R. TEORI 16"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ZUHUD",
+              "ruang": "BKL TSM"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ZUHUD",
+              "ruang": "BKL TEORI TSM"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ZUHUD",
+              "ruang": "BKL TSM"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "CHOIRI",
+              "ruang": "BKL TEORI TSM"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "CHOIRI",
+              "ruang": "BKL TEORI TSM"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XII",
+      "nama": "XII TSM 4",
+      "wali_kelas": "Hidayat",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "HIDAYAT",
+              "ruang": "BKL TSM"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "HIDAYAT",
+              "ruang": "BKL TEORI TSM"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "HIDAYAT",
+              "ruang": "BKL TSM"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "HIDAYAT",
+              "ruang": "BKL TEORI TSM"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "HIDAYAT",
+              "ruang": "BKL TEORI TSM"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "IMAM",
+              "ruang": "R. TEORI 16"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "QORI",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "ASNAWI",
+              "ruang": "R. TEORI 16"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "DEWI",
+              "ruang": "R. TEORI 16"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "QORI",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 16"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 16"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "DEWI",
+              "ruang": "R. TEORI 16"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XII",
+      "nama": "XII TKJ 1",
+      "wali_kelas": "Isna Nur Inda",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AGRI",
+              "ruang": "LAB 3"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AGRI",
+              "ruang": "R. AXIOO"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "RIDHO",
+              "ruang": "LAB 2"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "RIDHO",
+              "ruang": "LAB 2"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "JABBAR",
+              "ruang": "LAB 1"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 7,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 17"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "QORI",
+              "ruang": "R. TEORI 17"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "AMEL",
+              "ruang": "LAB 4"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PILIHAN",
+              "guru": "GINTING",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "QORI",
+              "ruang": "R. TEORI 17"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 17"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XII",
+      "nama": "XII TKJ 2",
+      "wali_kelas": "Agung Dani Setiawan",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 7,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 17"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "QORI",
+              "ruang": "R. TEORI 17"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "FARHAN",
+              "ruang": "R. AXIOO"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "PILIHAN",
+              "guru": "ASNAWI",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "QORI",
+              "ruang": "R. TEORI 17"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "PUTRI",
+              "ruang": "R. TEORI 17"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 17"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AGUNG",
+              "ruang": "LAB 1"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AGUNG",
+              "ruang": "LAB 1"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AGUNG",
+              "ruang": "LAB 1"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AGUNG",
+              "ruang": "LAB 1"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "PANDI",
+              "ruang": "R. AXIOO"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XII",
+      "nama": "XII TKJ 3",
+      "wali_kelas": "Nurhayati Lubis",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "RODIATUN",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "FENY",
+              "ruang": "R. TEORI 18"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "AMEL",
+              "ruang": "LAB 3"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "LUPPI",
+              "ruang": "R. TEORI 18"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "FENY",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "BIND",
+              "guru": "RODIATUN",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 18"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 18"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AGRI",
+              "ruang": "LAB 3"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "NURHAYATI",
+              "ruang": "R. AXIOO"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "RIDHO",
+              "ruang": "R. AXIOO"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "RIDHO",
+              "ruang": "LAB 2"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "JABBAR",
+              "ruang": "LAB 1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XII",
+      "nama": "XII TKJ 4",
+      "wali_kelas": "Rizka Amelia NST",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AGUNG",
+              "ruang": "LAB 1"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AGUNG",
+              "ruang": "LAB 1"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AGUNG",
+              "ruang": "LAB 1"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AGUNG",
+              "ruang": "LAB 1"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "PANDI",
+              "ruang": "R. AXIOO"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "RODIATUN",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "DIANI",
+              "ruang": "R. TEORI 18"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "AMEL",
+              "ruang": "LAB 4"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "DENI",
+              "ruang": "R. TEORI 18"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "DIANI",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "BIND",
+              "guru": "RODIATUN",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 18"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "ISNA",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "PAI",
+              "guru": "RIPAI",
+              "ruang": "R. TEORI 18"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XII",
+      "nama": "XII RPL 1",
+      "wali_kelas": "Muhammad Al Habib Putra Erlangga",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AL-HABIB",
+              "ruang": "LAB 4"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AL-HABIB",
+              "ruang": "LAB 4"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AL-HABIB",
+              "ruang": "LAB 5"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "AL-HABIB",
+              "ruang": "LAB 5"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "ZAKIR",
+              "ruang": "LAB 5"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "AMEL",
+              "ruang": "R. AXIOO"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "DENI",
+              "ruang": "R. TEORI 19"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 19"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "MTK",
+              "guru": "AGUSTINA",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 19"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "AGUSTINA",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 19"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XII",
+      "nama": "XII RPL 2",
+      "wali_kelas": "Fatinah Zahra",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "AMEL",
+              "ruang": "R. AXIOO"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "PKn",
+              "guru": "WIWIK",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "GINTING",
+              "ruang": "R. TEORI 19"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 7,
+              "jp_selesai": 10,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 19"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "KHAIRUL",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "MTK",
+              "guru": "AGUSTINA",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "PAI",
+              "guru": "DONA",
+              "ruang": "R. TEORI 19"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "MTK",
+              "guru": "AGUSTINA",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "BIND",
+              "guru": "SYAHFITRI",
+              "ruang": "R. TEORI 19"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "FARHAN",
+              "ruang": "LAB 4"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ZAHRA",
+              "ruang": "LAB 4"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "FARHAN",
+              "ruang": "LAB 5"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ZAHRA",
+              "ruang": "LAB 5"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "ZAHRA",
+              "ruang": "LAB 5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "tingkat": "XII",
+      "nama": "XII TBKR",
+      "wali_kelas": "Agustina LRP",
+      "jadwal": {
+        "minggu_ganjil": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ARIANSYAH",
+              "ruang": "BKL TBKR"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ARIANSYAH",
+              "ruang": "BKL TBKR"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ARIANSYAH",
+              "ruang": "BKL TBKR"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KEJURUAN",
+              "guru": "ARIANSYAH",
+              "ruang": "BKL TBKR"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 6,
+              "mapel": "KEJURUAN",
+              "guru": "ARIANSYAH",
+              "ruang": "BKL TBKR"
+            }
+          ]
+        },
+        "minggu_genap": {
+          "SENIN": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "FENY",
+              "ruang": "R. TEORI 19"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 10,
+              "mapel": "PILIHAN",
+              "guru": "AMI",
+              "ruang": "R. TEORI 19"
+            }
+          ],
+          "SELASA": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 7,
+              "mapel": "PKn",
+              "guru": "MAYA",
+              "ruang": "R. TEORI 18"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "BIND",
+              "guru": "PURNAMA",
+              "ruang": "R. TEORI 18"
+            }
+          ],
+          "RABU": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 10,
+              "mapel": "KIK",
+              "guru": "CHOIRI",
+              "ruang": "BKL TBKR"
+            }
+          ],
+          "KAMIS": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 4,
+              "mapel": "BING",
+              "guru": "FENY",
+              "ruang": "R. TEORI 11"
+            },
+            {
+              "jp_mulai": 5,
+              "jp_selesai": 7,
+              "mapel": "PAI",
+              "guru": "TIKA",
+              "ruang": "R. TEORI 11"
+            },
+            {
+              "jp_mulai": 8,
+              "jp_selesai": 10,
+              "mapel": "MTK",
+              "guru": "AGUSTINA",
+              "ruang": "R. TEORI 11"
+            }
+          ],
+          "JUM'AT": [
+            {
+              "jp_mulai": 1,
+              "jp_selesai": 3,
+              "mapel": "BIND",
+              "guru": "PURNAMA",
+              "ruang": "BKL TBKR"
+            },
+            {
+              "jp_mulai": 4,
+              "jp_selesai": 6,
+              "mapel": "MTK",
+              "guru": "AGUSTINA",
+              "ruang": "BKL TBKR"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

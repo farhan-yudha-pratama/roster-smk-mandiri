@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { useState } from 'react';
 import { CreateModal } from './components/create-modal';
+import { Download } from 'lucide-react';
 import { UpdateModal } from './components/update-modal';
 import { DeleteModal } from './components/delete-modal';
 
@@ -41,7 +42,15 @@ export default function ClassroomIndex({ classrooms, roomTypes }: { classrooms: 
                             Kelola data ruangan kelas atau laboratorium.
                         </p>
                     </div>
-                    <Button onClick={() => setIsCreateOpen(true)}>Tambah Ruangan</Button>
+                    <div className="flex flex-wrap items-center gap-2">
+                        <a href="/classrooms/export">
+                            <Button variant="outline" className="gap-2">
+                                <Download className="h-4 w-4" />
+                                <span className="hidden sm:inline">Export Batch</span>
+                            </Button>
+                        </a>
+                        <Button onClick={() => setIsCreateOpen(true)}>Tambah Ruangan</Button>
+                    </div>
                 </div>
 
                 {/* Mobile View - Cards */}

@@ -11,6 +11,9 @@ enum Major: string
     case RPL = 'RPL';
     case PPL_GIM = 'PPL-GIM';
     case TJK_TELEKOMUNIKASI = 'TJK-TELEKOMUNIKASI';
+    case TO = 'TO';
+    case T_TEP = 'T-TEP';
+    case UMUM = 'UMUM';
 
     public static function values(): array
     {

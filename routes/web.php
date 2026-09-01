@@ -28,6 +28,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Subjects Management
     Route::get('/subjects/template', [SubjectController::class, 'downloadTemplate'])->name('subjects.template');
     Route::post('/subjects/import', [SubjectController::class, 'importBatch'])->name('subjects.import');
+    Route::get('/subjects/export', [SubjectController::class, 'export'])->name('subjects.export');
     Route::get('/subjects', [SubjectController::class, 'index'])->name('subjects.index');
     Route::post('/subjects', [SubjectController::class, 'store'])->name('subjects.store');
     Route::put('/subjects/{id}', [SubjectController::class, 'update'])->name('subjects.update');
@@ -36,10 +37,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Master Classes Management
     Route::get('/classes/template', [\App\Http\Controllers\ClassController::class, 'downloadTemplate'])->name('classes.template');
     Route::post('/classes/import', [\App\Http\Controllers\ClassController::class, 'importBatch'])->name('classes.import');
+    Route::get('/classes/export', [\App\Http\Controllers\ClassController::class, 'export'])->name('classes.export');
     Route::resource('classes', ClassController::class);
 
     // Classrooms Management
     Route::get('/classrooms', [ClassroomController::class, 'index'])->name('classrooms.index');
+    Route::get('/classrooms/export', [ClassroomController::class, 'export'])->name('classrooms.export');
     Route::post('/classrooms', [ClassroomController::class, 'store'])->name('classrooms.store');
     Route::put('/classrooms/{id}', [ClassroomController::class, 'update'])->name('classrooms.update');
     Route::delete('/classrooms/{id}', [ClassroomController::class, 'destroy'])->name('classrooms.destroy');
@@ -47,6 +50,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Master Homeroom Teachers Management
     Route::get('/homeroom-teachers/template', [\App\Http\Controllers\HomeroomTeacherController::class, 'downloadTemplate'])->name('homeroom-teachers.template');
     Route::post('/homeroom-teachers/import', [\App\Http\Controllers\HomeroomTeacherController::class, 'importBatch'])->name('homeroom-teachers.import');
+    Route::get('/homeroom-teachers/export', [\App\Http\Controllers\HomeroomTeacherController::class, 'export'])->name('homeroom-teachers.export');
     Route::get('/homeroom-teachers', [HomeroomTeacherController::class, 'index'])->name('homeroom-teachers.index');
     Route::post('/homeroom-teachers', [HomeroomTeacherController::class, 'store'])->name('homeroom-teachers.store');
     Route::put('/homeroom-teachers/{id}', [HomeroomTeacherController::class, 'update'])->name('homeroom-teachers.update');
@@ -55,20 +59,23 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Roster Schedules Management
     Route::get('/roster-schedules/template', [\App\Http\Controllers\RosterScheduleController::class, 'downloadTemplate'])->name('roster-schedules.template');
     Route::post('/roster-schedules/import', [\App\Http\Controllers\RosterScheduleController::class, 'importBatch'])->name('roster-schedules.import');
+    Route::get('/roster-schedules/export', [\App\Http\Controllers\RosterScheduleController::class, 'export'])->name('roster-schedules.export');
     Route::get('/roster-schedules', [RosterScheduleController::class, 'index'])->name('roster-schedules.index');
     Route::post('/roster-schedules', [RosterScheduleController::class, 'store'])->name('roster-schedules.store');
     Route::put('/roster-schedules/{id}', [RosterScheduleController::class, 'update'])->name('roster-schedules.update');
     Route::delete('/roster-schedules/{id}', [RosterScheduleController::class, 'destroy'])->name('roster-schedules.destroy');
 
-    // Master Days Management
     Route::get('/master-days', [MasterDayController::class, 'index'])->name('master-days.index');
+    Route::get('/master-days/export', [MasterDayController::class, 'export'])->name('master-days.export');
     Route::post('/master-days', [MasterDayController::class, 'store'])->name('master-days.store');
     Route::put('/master-days/{id}', [MasterDayController::class, 'update'])->name('master-days.update');
     Route::delete('/master-days/{id}', [MasterDayController::class, 'destroy'])->name('master-days.destroy');
+    Route::get('/master-uniforms/export', [MasterUniformController::class, 'export'])->name('master-uniforms.export');
     Route::resource('master-uniforms', MasterUniformController::class);
     // Master Time Allocations Management
     Route::get('/time-allocations/template', [\App\Http\Controllers\MasterTimeAllocationController::class, 'downloadTemplate'])->name('time-allocations.template');
     Route::post('/time-allocations/import', [\App\Http\Controllers\MasterTimeAllocationController::class, 'importBatch'])->name('time-allocations.import');
+    Route::get('/time-allocations/export', [\App\Http\Controllers\MasterTimeAllocationController::class, 'export'])->name('time-allocations.export');
     Route::get('/time-allocations', [\App\Http\Controllers\MasterTimeAllocationController::class, 'index'])->name('time-allocations.index');
     Route::post('/time-allocations', [\App\Http\Controllers\MasterTimeAllocationController::class, 'store'])->name('time-allocations.store');
     Route::put('/time-allocations/{id}', [MasterTimeAllocationController::class, 'update'])->name('time-allocations.update');

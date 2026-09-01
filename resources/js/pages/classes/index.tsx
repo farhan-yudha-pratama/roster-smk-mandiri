@@ -3,7 +3,7 @@ import { dashboard } from '@/routes';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { useState } from 'react';
-import { ChevronDown, Plus, Pencil, Trash2, Upload } from 'lucide-react';
+import { ChevronDown, Plus, Pencil, Trash2, Upload, Download } from 'lucide-react';
 import { CreateModal } from './components/create-modal';
 import { UpdateModal } from './components/update-modal';
 import { DeleteModal } from './components/delete-modal';
@@ -52,7 +52,13 @@ export default function ClassIndex({ classes, teachers, gradeLevels, majors }: {
                             Kelola data kelas.
                         </p>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
+                        <a href="/classes/export">
+                            <Button variant="outline" className="gap-2">
+                                <Download className="h-4 w-4" />
+                                <span className="hidden sm:inline">Export Batch</span>
+                            </Button>
+                        </a>
                         <Button variant="outline" onClick={() => setIsImportOpen(true)} className="gap-2">
                             <Upload className="h-4 w-4" />
                             <span className="hidden sm:inline">Import Batch</span>

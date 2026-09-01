@@ -6,7 +6,7 @@ import { useState, useMemo } from 'react';
 import { CreateModal } from './components/create-modal';
 import { UpdateModal } from './components/update-modal';
 import { DeleteModal } from './components/delete-modal';
-import { ArrowDownAZ, ArrowUpZA, ArrowUpDown } from 'lucide-react';
+import { ArrowDownAZ, ArrowUpZA, ArrowUpDown, Download } from 'lucide-react';
 
 export interface MasterDay {
     id: string;
@@ -64,7 +64,15 @@ export default function MasterDayIndex({ days }: { days: MasterDay[] }) {
                             Kelola data hari, seragam, dan catatan terkait.
                         </p>
                     </div>
-                    <Button onClick={() => setIsCreateOpen(true)}>Tambah Hari</Button>
+                    <div className="flex flex-wrap items-center gap-2">
+                        <a href="/master-days/export">
+                            <Button variant="outline" className="gap-2">
+                                <Download className="h-4 w-4" />
+                                <span className="hidden sm:inline">Export Batch</span>
+                            </Button>
+                        </a>
+                        <Button onClick={() => setIsCreateOpen(true)}>Tambah Hari</Button>
+                    </div>
                 </div>
 
                 <div className="flex justify-end md:hidden">

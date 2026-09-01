@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/dialog';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import { Download } from 'lucide-react';
 
 interface MasterDay {
     id: string;
@@ -101,10 +102,17 @@ export default function MasterUniformIndex({ uniforms, days }: { uniforms: Maste
                             Kelola data jenis seragam/baju dan penggunaannya.
                         </p>
                     </div>
-                    <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
-                        <DialogTrigger asChild>
-                            <Button>Tambah Seragam</Button>
-                        </DialogTrigger>
+                    <div className="flex flex-wrap items-center gap-2">
+                        <a href="/master-uniforms/export">
+                            <Button variant="outline" className="gap-2">
+                                <Download className="h-4 w-4" />
+                                <span className="hidden sm:inline">Export Batch</span>
+                            </Button>
+                        </a>
+                        <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
+                            <DialogTrigger asChild>
+                                <Button>Tambah Seragam</Button>
+                            </DialogTrigger>
                         <DialogContent>
                             <DialogHeader>
                                 <DialogTitle>Tambah Seragam</DialogTitle>
@@ -183,6 +191,7 @@ export default function MasterUniformIndex({ uniforms, days }: { uniforms: Maste
                             </form>
                         </DialogContent>
                     </Dialog>
+                    </div>
                 </div>
 
                 <div className="rounded-md border">

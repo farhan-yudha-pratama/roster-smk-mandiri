@@ -1,7 +1,7 @@
 import { Head } from '@inertiajs/react';
 import { dashboard } from '@/routes';
 import { Button } from '@/components/ui/button';
-import { PlusIcon, PencilIcon, TrashIcon, Upload } from 'lucide-react';
+import { PlusIcon, PencilIcon, TrashIcon, Upload, Download } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { useState } from 'react';
 import { CreateModal } from './components/create-modal';
@@ -50,7 +50,13 @@ export default function HomeroomTeacherIndex({ teachers, users }: { teachers: Ho
                             Kelola data guru dan tautkan dengan akun pengguna.
                         </p>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
+                        <a href="/homeroom-teachers/export">
+                            <Button variant="outline" className="gap-2">
+                                <Download className="h-4 w-4" />
+                                <span className="hidden sm:inline">Export Batch</span>
+                            </Button>
+                        </a>
                         <Button variant="outline" onClick={() => setIsImportOpen(true)} className="gap-2">
                             <Upload className="h-4 w-4" />
                             <span className="hidden sm:inline">Import Batch</span>
