@@ -166,7 +166,7 @@ class RosterScheduleController extends Controller
             $query->where('teacher_id', $teacherFilter);
         }
 
-        $schedules = $query->get();
+        $schedules = $query->paginate(20)->withQueryString();
 
         $classes = MasterClass::all();
         $subjects = MasterSubject::all();
@@ -347,6 +347,66 @@ class RosterScheduleController extends Controller
         $writer->save($filePath);
         
         return response()->download($filePath, $fileName)->deleteFileAfterSend(false);
+    }
+
+    public function export()
+    {
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        
+        $headers = ['No', 'ID Kelas', 'Hari', 'Siklus Minggu', 'JP Mulai Ke-', 'Durasi JP', 'ID Mata Pelajaran (Opsional)', 'ID Guru (Opsional)', 'ID Ruangan (Opsional)'];
+        foreach ($headers as $index => $header) {
+            $sheet->setCellValue(chr(65 + $index) . '1', $header);
+        }
+        
+        $headerStyle = [
+            'font' => ['bold' => true, 'color' => ['argb' => \PhpOffice\PhpSpreadsheet\Style\Color::COLOR_WHITE]],
+            'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER],
+            'borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]],
+            'fill' => ['fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID, 'startColor' => ['argb' => 'FF2563EB']],
+        ];
+        $sheet->getStyle('A1:I1')->applyFromArray($headerStyle);
+        $sheet->getRowDimension(1)->setRowHeight(30);
+        
+        $schedules = RosterSchedule::orderBy('class_id')->orderBy('day')->orderBy('period_number')->get();
+
+        $row = 2;
+        foreach ($schedules as $index => $schedule) {
+            $sheet->setCellValue('A' . $row, $index + 1);
+            $sheet->setCellValue('B' . $row, $schedule->class_id);
+            $sheet->setCellValue('C' . $row, $schedule->day->value ?? $schedule->day);
+            $sheet->setCellValue('D' . $row, $schedule->week_cycle->value ?? $schedule->week_cycle);
+            $sheet->setCellValue('E' . $row, $schedule->period_number);
+            $sheet->setCellValue('F' . $row, $schedule->period_duration_hours);
+            $sheet->setCellValue('G' . $row, $schedule->subject_id);
+            $sheet->setCellValue('H' . $row, $schedule->teacher_id);
+            $sheet->setCellValue('I' . $row, $schedule->classroom_id);
+            $row++;
+        }
+        
+        $lastRow = $row - 1;
+        if ($lastRow >= 2) {
+            $sheet->getStyle('A2:I' . $lastRow)->applyFromArray(['borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]]]);
+            $sheet->getStyle('A2:I' . $lastRow)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        }
+        
+        $widths = [5, 20, 15, 15, 15, 15, 25, 20, 20];
+        foreach ($widths as $index => $width) {
+            $sheet->getColumnDimension(chr(65 + $index))->setWidth($width);
+        }
+
+        $writer = new Xlsx($spreadsheet);
+        $fileName = 'Export_Jadwal_Mengajar_' . date('Y-m-d_His') . '.xlsx';
+        
+        $path = storage_path('app/public/exports');
+        if (!file_exists($path)) {
+            mkdir($path, 0755, true);
+        }
+        
+        $filePath = $path . '/' . $fileName;
+        $writer->save($filePath);
+        
+        return response()->download($filePath, $fileName)->deleteFileAfterSend(true);
     }
 
     public function importBatch(Request $request)

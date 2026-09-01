@@ -133,6 +133,76 @@ class SubjectController extends Controller
         return response()->download($filePath, $fileName)->deleteFileAfterSend(false);
     }
 
+    public function export()
+    {
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'Nama Mata Pelajaran');
+        
+        $headerStyle = [
+            'font' => [
+                'bold' => true,
+                'color' => ['argb' => \PhpOffice\PhpSpreadsheet\Style\Color::COLOR_WHITE],
+            ],
+            'alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+            ],
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                ],
+            ],
+            'fill' => [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
+                'startColor' => [
+                    'argb' => 'FF2563EB',
+                ],
+            ],
+        ];
+        $sheet->getStyle('A1:B1')->applyFromArray($headerStyle);
+        $sheet->getRowDimension(1)->setRowHeight(30);
+        
+        $subjects = MasterSubject::orderBy('subject_name')->get();
+
+        $row = 2;
+        foreach ($subjects as $index => $subject) {
+            $sheet->setCellValue('A' . $row, $index + 1);
+            $sheet->setCellValue('B' . $row, $subject->subject_name);
+            $row++;
+        }
+        
+        $lastRow = $row - 1;
+        if ($lastRow >= 2) {
+            $sheet->getStyle('A2:B' . $lastRow)->applyFromArray([
+                'borders' => [
+                    'allBorders' => [
+                        'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    ],
+                ],
+            ]);
+            $sheet->getStyle('A2:A' . $lastRow)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        }
+        
+        $sheet->getColumnDimension('A')->setWidth(6);
+        $sheet->getColumnDimension('B')->setWidth(30);
+        
+        $writer = new Xlsx($spreadsheet);
+        $fileName = 'Export_Mata_Pelajaran_' . date('Y-m-d_His') . '.xlsx';
+        
+        $path = storage_path('app/public/exports');
+        if (!file_exists($path)) {
+            mkdir($path, 0755, true);
+        }
+        
+        $filePath = $path . '/' . $fileName;
+        $writer->save($filePath);
+        
+        return response()->download($filePath, $fileName)->deleteFileAfterSend(true);
+    }
+
     public function importBatch(Request $request)
     {
         $request->validate([

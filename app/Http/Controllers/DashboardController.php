@@ -54,25 +54,19 @@ class DashboardController extends Controller
                 ];
             });
 
-        // 4. Empty Classes (Jam Kosong) - Scenario A
-        $currentTime = Carbon::now()->format('H:i:s');
-
-        // Find schedules that are active RIGHT NOW
-        $activeSchedules = RosterSchedule::where('day', $todayIndo)
-            ->where('start_time', '<=', $currentTime)
-            ->where('end_time', '>=', $currentTime)
-            ->pluck('class_id')
+        // 4. Empty Rooms (Ruangan Kosong Hari Ini)
+        $usedClassroomIds = RosterSchedule::where('day', $todayIndo)
+            ->whereNotNull('classroom_id')
+            ->pluck('classroom_id')
+            ->unique()
             ->toArray();
 
-        // Classes that do NOT have active schedules right now are "Empty"
-        // But we might only care if it's during school hours.
-        // Let's just fetch all classes not in $activeSchedules
-        $emptyClassesRaw = MasterClass::whereNotIn('id', $activeSchedules)->get();
-        $emptyClasses = $emptyClassesRaw->map(function ($cls) {
+        $emptyRoomsRaw = MasterClassroom::whereNotIn('id', $usedClassroomIds)->get();
+        $emptyRooms = $emptyRoomsRaw->map(function ($room) {
             return [
-                'class' => $cls->class_name,
-                'time' => 'Saat ini',
-                'reason' => 'Tidak ada jadwal (Kosong)',
+                'room' => $room->room_name,
+                'type' => $room->room_type ? $room->room_type->value : '-',
+                'status' => 'Tidak dipakai hari ini',
             ];
         });
 
@@ -88,11 +82,54 @@ class DashboardController extends Controller
             $uniforms = ['Bebas Rapi'];
         }
 
+        // 6. Top 20 Teachers by JP
+        $jpCounts = RosterSchedule::whereNotNull('teacher_id')
+            ->selectRaw('teacher_id, week_cycle, COUNT(*) as jp_count')
+            ->groupBy('teacher_id', 'week_cycle')
+            ->get();
+
+        $teacherJpData = [];
+        foreach ($jpCounts as $row) {
+            $teacherId = $row->teacher_id;
+            if (!isset($teacherJpData[$teacherId])) {
+                $teacherJpData[$teacherId] = [
+                    'ganjil' => 0,
+                    'genap' => 0,
+                    'total' => 0,
+                ];
+            }
+            if ($row->week_cycle === 'GANJIL') {
+                $teacherJpData[$teacherId]['ganjil'] += $row->jp_count;
+            } else if ($row->week_cycle === 'GENAP') {
+                $teacherJpData[$teacherId]['genap'] += $row->jp_count;
+            }
+            $teacherJpData[$teacherId]['total'] += $row->jp_count;
+        }
+
+        $teacherIds = array_keys($teacherJpData);
+        $teachers = MasterHomeroomTeacher::whereIn('id', $teacherIds)->pluck('teacher_name', 'id');
+
+        $topTeachersRaw = [];
+        foreach ($teacherJpData as $id => $data) {
+            $topTeachersRaw[] = [
+                'name' => $teachers[$id] ?? $id,
+                'ganjil' => $data['ganjil'],
+                'genap' => $data['genap'],
+                'total' => $data['total'],
+            ];
+        }
+
+        usort($topTeachersRaw, function($a, $b) {
+            return $b['total'] <=> $a['total'];
+        });
+        $topTeachers = array_slice($topTeachersRaw, 0, 20);
+
         return Inertia::render('dashboard', [
             'stats' => $stats,
             'todaySchedules' => $todaySchedules,
-            'emptyClasses' => $emptyClasses,
+            'emptyRooms' => $emptyRooms,
             'uniforms' => $uniforms,
+            'topTeachers' => $topTeachers,
             'todayDay' => $todayIndo,
             'currentDate' => Carbon::now()->translatedFormat('l, d F Y'),
         ]);

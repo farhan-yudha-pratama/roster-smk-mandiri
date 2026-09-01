@@ -3,7 +3,7 @@ import { dashboard } from '@/routes';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import React, { useState, useMemo } from 'react';
-import { ChevronDown, ChevronRight, Upload } from 'lucide-react';
+import { ChevronDown, ChevronRight, Upload, Download } from 'lucide-react';
 import { CreateModal } from './components/create-modal';
 import { UpdateModal } from './components/update-modal';
 import { DeleteModal } from './components/delete-modal';
@@ -133,12 +133,18 @@ export default function TimeAllocationIndex({ allocations, days }: { allocations
                             Kelola jadwal per hari (Jam Pelajaran, Istirahat, Upacara).
                         </p>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                         {selectedIds.length > 0 && (
                             <Button variant="destructive" onClick={() => setIsDeleteBatchOpen(true)}>
                                 Hapus Terpilih ({selectedIds.length})
                             </Button>
                         )}
+                        <a href="/time-allocations/export">
+                            <Button variant="outline" className="gap-2">
+                                <Download className="h-4 w-4" />
+                                <span className="hidden sm:inline">Export Batch</span>
+                            </Button>
+                        </a>
                         <Button variant="outline" onClick={() => setIsImportOpen(true)} className="gap-2">
                             <Upload className="h-4 w-4" />
                             <span className="hidden sm:inline">Import Batch</span>

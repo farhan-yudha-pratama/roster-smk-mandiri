@@ -1,7 +1,7 @@
-import { Head, router } from '@inertiajs/react';
+import { Head, router, Link } from '@inertiajs/react';
 import { dashboard } from '@/routes';
 import { Button } from '@/components/ui/button';
-import { PlusIcon, ArrowDownAZ, ArrowUpZA, ArrowUpDown, Upload, Clock, MapPin, User, BookOpen, Calendar, Filter, X } from 'lucide-react';
+import { PlusIcon, ArrowDownAZ, ArrowUpZA, ArrowUpDown, Upload, Download, Clock, MapPin, User, BookOpen, Calendar, Filter, X } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
@@ -32,10 +32,20 @@ interface RosterSchedule {
     classroom?: MasterClassroom | null;
 }
 
+interface PaginatedData<T> {
+    data: T[];
+    links: { url: string | null; label: string; active: boolean }[];
+    current_page: number;
+    last_page: number;
+    from: number;
+    to: number;
+    total: number;
+}
+
 export default function RosterScheduleIndex({ 
     schedules, classes, subjects, teachers, classrooms, days, weekCycles, filters 
 }: { 
-    schedules: RosterSchedule[], 
+    schedules: PaginatedData<RosterSchedule>, 
     classes: MasterClass[], 
     subjects: MasterSubject[], 
     teachers: MasterHomeroomTeacher[], 
@@ -98,7 +108,7 @@ export default function RosterScheduleIndex({
     const isFiltered = gradeFilter !== 'all' || dayFilter !== 'all' || teacherFilter !== 'all';
 
     const sortedSchedules = useMemo(() => {
-        let result = schedules;
+        let result = schedules.data;
 
         if (!sortOrder) return result;
         return [...result].sort((a, b) => {
@@ -132,6 +142,12 @@ export default function RosterScheduleIndex({
                         </p>
                     </div>
                     <div className="flex flex-col sm:flex-row items-center gap-3">
+                        <a href="/roster-schedules/export" className="w-full sm:w-auto">
+                            <Button variant="outline" className="w-full gap-2 bg-background hover:bg-muted shadow-sm">
+                                <Download className="h-4 w-4" />
+                                <span>Export Batch</span>
+                            </Button>
+                        </a>
                         <Button variant="outline" onClick={() => setIsImportOpen(true)} className="w-full sm:w-auto gap-2 bg-background hover:bg-muted shadow-sm">
                             <Upload className="h-4 w-4" />
                             <span>Import Batch</span>
@@ -212,7 +228,7 @@ export default function RosterScheduleIndex({
                 <div className="flex flex-col gap-4 mt-2">
                     <div className="flex items-center justify-between md:justify-end">
                         <span className="text-sm font-medium text-muted-foreground bg-muted/50 px-3 py-1 rounded-full">
-                            Menampilkan {sortedSchedules.length} jadwal
+                            Menampilkan {schedules.from || 0} - {schedules.to || 0} dari {schedules.total} jadwal
                         </span>
                         <div className="md:hidden">
                             <Button variant="outline" size="sm" onClick={handleSort} className="gap-2 bg-background shadow-sm">
@@ -366,6 +382,31 @@ export default function RosterScheduleIndex({
                                 </div>
                             </div>
                         </>
+                    )}
+
+                    {/* Pagination */}
+                    {schedules.last_page > 1 && (
+                        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-4 px-2">
+                            <div className="text-sm text-muted-foreground text-center sm:text-left">
+                                Menampilkan <span className="font-medium text-foreground">{schedules.from || 0}</span> sampai <span className="font-medium text-foreground">{schedules.to || 0}</span> dari <span className="font-medium text-foreground">{schedules.total}</span> data
+                            </div>
+                            <div className="flex flex-wrap justify-center gap-1">
+                                {schedules.links.map((link, i) => (
+                                    <Link
+                                        key={i}
+                                        href={link.url || '#'}
+                                        className={`px-3 py-1.5 rounded-md text-sm border transition-colors ${
+                                            link.active 
+                                                ? 'bg-primary text-primary-foreground border-primary' 
+                                                : 'bg-background text-foreground hover:bg-muted'
+                                        } ${!link.url ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
+                                        dangerouslySetInnerHTML={{ __html: link.label }}
+                                        preserveState
+                                        preserveScroll
+                                    />
+                                ))}
+                            </div>
+                        </div>
                     )}
                 </div>
             </div>

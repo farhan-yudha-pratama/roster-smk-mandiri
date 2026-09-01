@@ -7,7 +7,7 @@ import { CreateSubjectModal } from './components/create-subject-modal';
 import { UpdateSubjectModal } from './components/update-subject-modal';
 import { DeleteSubjectModal } from './components/delete-subject-modal';
 import { CreateBatchSubjectModal } from './components/create-batch-subject-modal';
-import { ArrowDownAZ, ArrowUpZA, ArrowUpDown, Upload } from 'lucide-react';
+import { ArrowDownAZ, ArrowUpZA, ArrowUpDown, Upload, Download } from 'lucide-react';
 
 interface Subject {
     id: string;
@@ -65,7 +65,13 @@ export default function SubjectIndex({ subjects }: { subjects: Subject[] }) {
                             Kelola data mata pelajaran.
                         </p>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
+                        <a href="/subjects/export">
+                            <Button variant="outline" className="gap-2">
+                                <Download className="h-4 w-4" />
+                                <span className="hidden sm:inline">Export Batch</span>
+                            </Button>
+                        </a>
                         <Button variant="outline" onClick={() => setIsImportOpen(true)} className="gap-2">
                             <Upload className="h-4 w-4" />
                             <span className="hidden sm:inline">Import Batch</span>

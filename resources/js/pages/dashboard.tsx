@@ -1,7 +1,7 @@
 import { Head } from '@inertiajs/react';
 import { dashboard as dashboardRoute } from '@/routes';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Users, BookOpen, LayoutGrid, DoorOpen, CalendarClock, Shirt, UserCircle } from 'lucide-react';
+import { Users, BookOpen, LayoutGrid, DoorOpen, CalendarClock, Shirt, UserCircle, Star } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 interface StatProps {
@@ -19,22 +19,30 @@ interface ScheduleProps {
     room: string;
 }
 
-interface EmptyClassProps {
-    class: string;
-    time: string;
-    reason: string;
+interface EmptyRoomProps {
+    room: string;
+    type: string;
+    status: string;
+}
+
+interface TopTeacherProps {
+    name: string;
+    ganjil: number;
+    genap: number;
+    total: number;
 }
 
 interface DashboardProps {
     stats: StatProps;
     todaySchedules: ScheduleProps[];
-    emptyClasses: EmptyClassProps[];
+    emptyRooms: EmptyRoomProps[];
     uniforms: string[];
+    topTeachers: TopTeacherProps[];
     todayDay: string;
     currentDate: string;
 }
 
-export default function Dashboard({ stats, todaySchedules, emptyClasses, uniforms, todayDay, currentDate }: DashboardProps) {
+export default function Dashboard({ stats, todaySchedules, emptyRooms, uniforms, topTeachers, todayDay, currentDate }: DashboardProps) {
     const statsData = [
         { title: "Total Guru", value: stats?.total_teachers || 0, icon: <UserCircle className="h-4 w-4 text-muted-foreground" /> },
         { title: "Rombel Kelas", value: stats?.total_classes || 0, icon: <LayoutGrid className="h-4 w-4 text-muted-foreground" /> },
@@ -46,7 +54,7 @@ export default function Dashboard({ stats, todaySchedules, emptyClasses, uniform
         <>
             <Head title="Dashboard" />
             <div className="flex h-full flex-1 flex-col gap-6 overflow-y-auto rounded-xl p-4 lg:p-8">
-                
+
                 {/* Header Title */}
                 <div>
                     <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
@@ -74,12 +82,12 @@ export default function Dashboard({ stats, todaySchedules, emptyClasses, uniform
 
                 {/* Main Content Grid */}
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-                    
+
                     {/* Today's Schedule Table (Spans 4 columns) */}
                     <Card className="col-span-4 flex flex-col">
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2">
-                                <CalendarClock className="h-5 w-5" /> 
+                                <CalendarClock className="h-5 w-5" />
                                 Jadwal Berjalan Saat Ini
                             </CardTitle>
                             <CardDescription>
@@ -126,32 +134,32 @@ export default function Dashboard({ stats, todaySchedules, emptyClasses, uniform
 
                     {/* Right Side Info (Spans 3 columns) */}
                     <div className="col-span-3 flex flex-col gap-4">
-                        
-                        {/* Info Jam Kosong */}
+
+                        {/* Info Ruangan Kosong */}
                         <Card>
                             <CardHeader>
-                                <CardTitle className="flex items-center gap-2 text-red-500">
-                                    Informasi Jam Kosong
+                                <CardTitle className="flex items-center gap-2 text-green-600">
+                                    Informasi Ruangan Kosong
                                 </CardTitle>
                                 <CardDescription>
-                                    Kelas yang saat ini tidak ada guru pengajar ({todayDay}).
+                                    Ruangan yang tidak memiliki jadwal hari ini ({todayDay}).
                                 </CardDescription>
                             </CardHeader>
                             <CardContent>
                                 <div className="space-y-4 max-h-[300px] overflow-y-auto pr-2">
-                                    {emptyClasses?.length > 0 ? (
-                                        emptyClasses.map((empty, i) => (
+                                    {emptyRooms?.length > 0 ? (
+                                        emptyRooms.map((empty, i) => (
                                             <div key={i} className="flex items-start justify-between border-b pb-3 last:border-0 last:pb-0">
                                                 <div className="flex flex-col gap-1">
-                                                    <span className="font-semibold">{empty.class}</span>
-                                                    <span className="text-xs text-muted-foreground">{empty.time}</span>
+                                                    <span className="font-semibold">{empty.room}</span>
+                                                    <span className="text-xs text-muted-foreground">{empty.type}</span>
                                                 </div>
-                                                <Badge variant="destructive">{empty.reason}</Badge>
+                                                <Badge variant="outline" className="text-green-600 border-green-600 bg-green-50">{empty.status}</Badge>
                                             </div>
                                         ))
                                     ) : (
                                         <div className="text-sm text-muted-foreground text-center py-2">
-                                            Tidak ada jam kosong saat ini.
+                                            Semua ruangan digunakan hari ini.
                                         </div>
                                     )}
                                 </div>
@@ -178,7 +186,7 @@ export default function Dashboard({ stats, todaySchedules, emptyClasses, uniform
                                 </ul>
                             </CardContent>
                         </Card>
-                        
+
                     </div>
                 </div>
             </div>

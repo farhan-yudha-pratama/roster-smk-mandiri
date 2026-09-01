@@ -127,6 +127,59 @@ class HomeroomTeacherController extends Controller
         return response()->download($filePath, $fileName)->deleteFileAfterSend(false);
     }
 
+    public function export()
+    {
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        
+        $headers = ['No', 'Nama Guru'];
+        foreach ($headers as $index => $header) {
+            $sheet->setCellValue(chr(65 + $index) . '1', $header);
+        }
+        
+        $headerStyle = [
+            'font' => ['bold' => true, 'color' => ['argb' => \PhpOffice\PhpSpreadsheet\Style\Color::COLOR_WHITE]],
+            'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER, 'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER],
+            'borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]],
+            'fill' => ['fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID, 'startColor' => ['argb' => 'FF2563EB']],
+        ];
+        $sheet->getStyle('A1:B1')->applyFromArray($headerStyle);
+        $sheet->getRowDimension(1)->setRowHeight(30);
+        
+        $teachers = MasterHomeroomTeacher::orderBy('teacher_name')->get();
+
+        $row = 2;
+        foreach ($teachers as $index => $teacher) {
+            $sheet->setCellValue('A' . $row, $index + 1);
+            $sheet->setCellValue('B' . $row, $teacher->teacher_name);
+            $row++;
+        }
+        
+        $lastRow = $row - 1;
+        if ($lastRow >= 2) {
+            $sheet->getStyle('A2:B' . $lastRow)->applyFromArray(['borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]]]);
+            $sheet->getStyle('A2:A' . $lastRow)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        }
+        
+        $widths = [5, 40];
+        foreach ($widths as $index => $width) {
+            $sheet->getColumnDimension(chr(65 + $index))->setWidth($width);
+        }
+        
+        $writer = new Xlsx($spreadsheet);
+        $fileName = 'Export_Guru_' . date('Y-m-d_His') . '.xlsx';
+        
+        $path = storage_path('app/public/exports');
+        if (!file_exists($path)) {
+            mkdir($path, 0755, true);
+        }
+        
+        $filePath = $path . '/' . $fileName;
+        $writer->save($filePath);
+        
+        return response()->download($filePath, $fileName)->deleteFileAfterSend(true);
+    }
+
     public function importBatch(Request $request)
     {
         $request->validate([

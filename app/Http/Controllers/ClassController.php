@@ -165,6 +165,61 @@ class ClassController extends Controller
         return response()->download($filePath, $fileName)->deleteFileAfterSend(false);
     }
 
+    public function export()
+    {
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        
+        $headers = ['No', 'Tingkat (X/XI/XII)', 'Nama Kelas (1, 2, A, B)', 'Jurusan'];
+        foreach ($headers as $index => $header) {
+            $sheet->setCellValue(chr(65 + $index) . '1', $header);
+        }
+        
+        $headerStyle = [
+            'font' => ['bold' => true, 'color' => ['argb' => \PhpOffice\PhpSpreadsheet\Style\Color::COLOR_WHITE]],
+            'alignment' => ['horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER, 'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER],
+            'borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]],
+            'fill' => ['fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID, 'startColor' => ['argb' => 'FF2563EB']],
+        ];
+        $sheet->getStyle('A1:D1')->applyFromArray($headerStyle);
+        $sheet->getRowDimension(1)->setRowHeight(30);
+        
+        $classes = MasterClass::orderBy('grade_level')->orderBy('major')->orderBy('class_name')->get();
+
+        $row = 2;
+        foreach ($classes as $index => $cls) {
+            $sheet->setCellValue('A' . $row, $index + 1);
+            $sheet->setCellValue('B' . $row, $cls->grade_level);
+            $sheet->setCellValue('C' . $row, $cls->class_name);
+            $sheet->setCellValue('D' . $row, $cls->major);
+            $row++;
+        }
+        
+        $lastRow = $row - 1;
+        if ($lastRow >= 2) {
+            $sheet->getStyle('A2:D' . $lastRow)->applyFromArray(['borders' => ['allBorders' => ['borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]]]);
+            $sheet->getStyle('A2:A' . $lastRow)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        }
+        
+        $widths = [5, 20, 25, 30];
+        foreach ($widths as $index => $width) {
+            $sheet->getColumnDimension(chr(65 + $index))->setWidth($width);
+        }
+        
+        $writer = new Xlsx($spreadsheet);
+        $fileName = 'Export_Kelas_' . date('Y-m-d_His') . '.xlsx';
+        
+        $path = storage_path('app/public/exports');
+        if (!file_exists($path)) {
+            mkdir($path, 0755, true);
+        }
+        
+        $filePath = $path . '/' . $fileName;
+        $writer->save($filePath);
+        
+        return response()->download($filePath, $fileName)->deleteFileAfterSend(true);
+    }
+
     public function importBatch(Request $request)
     {
         $request->validate([
