@@ -40,9 +40,40 @@ class DashboardController extends Controller
         $todayIndo = $dayMap[$todayString] ?? $todayString;
 
         // 3. Today's Schedules
-        $todaySchedules = RosterSchedule::with(['masterClass', 'subject', 'teacher', 'classroom'])
-            ->where('day', $todayIndo)
-            ->orderBy('start_time')
+        $query = RosterSchedule::with(['masterClass', 'subject', 'teacher', 'classroom'])
+            ->where('day', $todayIndo);
+
+        // Apply general settings filters for hiding grades and majors
+        $grades = \App\Enums\GradeLevel::values();
+        $majors = \App\Enums\Major::values();
+        $hiddenGrades = [];
+        $hiddenMajors = [];
+
+        foreach ($grades as $grade) {
+            if (\App\Models\GeneralSetting::getValue('hide_roster_grade_' . strtolower($grade), 'false') === 'true') {
+                $hiddenGrades[] = $grade;
+            }
+        }
+
+        foreach ($majors as $major) {
+            if (\App\Models\GeneralSetting::getValue('hide_roster_major_' . strtolower(str_replace(' ', '_', $major)), 'false') === 'true') {
+                $hiddenMajors[] = $major;
+            }
+        }
+
+        if (!empty($hiddenGrades)) {
+            $query->whereHas('masterClass', function ($q) use ($hiddenGrades) {
+                $q->whereNotIn('grade_level', $hiddenGrades);
+            });
+        }
+
+        if (!empty($hiddenMajors)) {
+            $query->whereHas('masterClass', function ($q) use ($hiddenMajors) {
+                $q->whereNotIn('major', $hiddenMajors);
+            });
+        }
+
+        $todaySchedules = $query->orderBy('start_time')
             ->get()
             ->map(function ($schedule) {
                 return [

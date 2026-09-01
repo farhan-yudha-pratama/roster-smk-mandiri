@@ -166,9 +166,46 @@ class RosterScheduleController extends Controller
             $query->where('teacher_id', $teacherFilter);
         }
 
+        // Apply general settings filters for hiding grades and majors
+        $gradesEnum = \App\Enums\GradeLevel::values();
+        $majorsEnum = \App\Enums\Major::values();
+        $hiddenGrades = [];
+        $hiddenMajors = [];
+
+        foreach ($gradesEnum as $grade) {
+            if (\App\Models\GeneralSetting::getValue('hide_roster_grade_' . strtolower($grade), 'false') === 'true') {
+                $hiddenGrades[] = $grade;
+            }
+        }
+
+        foreach ($majorsEnum as $major) {
+            if (\App\Models\GeneralSetting::getValue('hide_roster_major_' . strtolower(str_replace(' ', '_', $major)), 'false') === 'true') {
+                $hiddenMajors[] = $major;
+            }
+        }
+
+        if (!empty($hiddenGrades)) {
+            $query->whereHas('masterClass', function ($q) use ($hiddenGrades) {
+                $q->whereNotIn('grade_level', $hiddenGrades);
+            });
+        }
+
+        if (!empty($hiddenMajors)) {
+            $query->whereHas('masterClass', function ($q) use ($hiddenMajors) {
+                $q->whereNotIn('major', $hiddenMajors);
+            });
+        }
+
         $schedules = $query->paginate(20)->withQueryString();
 
-        $classes = MasterClass::all();
+        $classesQuery = MasterClass::query();
+        if (!empty($hiddenGrades)) {
+            $classesQuery->whereNotIn('grade_level', $hiddenGrades);
+        }
+        if (!empty($hiddenMajors)) {
+            $classesQuery->whereNotIn('major', $hiddenMajors);
+        }
+        $classes = $classesQuery->get();
         $subjects = MasterSubject::all();
         $classrooms = MasterClassroom::all();
 

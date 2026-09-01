@@ -62,6 +62,36 @@ class WelcomeController extends Controller
             });
         }
 
+        // Apply general settings filters for hiding grades and majors
+        $grades = \App\Enums\GradeLevel::values();
+        $majors = \App\Enums\Major::values();
+        $hiddenGrades = [];
+        $hiddenMajors = [];
+
+        foreach ($grades as $grade) {
+            if (\App\Models\GeneralSetting::getValue('hide_roster_grade_' . strtolower($grade), 'false') === 'true') {
+                $hiddenGrades[] = $grade;
+            }
+        }
+
+        foreach ($majors as $major) {
+            if (\App\Models\GeneralSetting::getValue('hide_roster_major_' . strtolower(str_replace(' ', '_', $major)), 'false') === 'true') {
+                $hiddenMajors[] = $major;
+            }
+        }
+
+        if (!empty($hiddenGrades)) {
+            $query->whereHas('masterClass', function ($q) use ($hiddenGrades) {
+                $q->whereNotIn('grade_level', $hiddenGrades);
+            });
+        }
+
+        if (!empty($hiddenMajors)) {
+            $query->whereHas('masterClass', function ($q) use ($hiddenMajors) {
+                $q->whereNotIn('major', $hiddenMajors);
+            });
+        }
+
         if ($filters['search']) {
             $search = strtolower($filters['search']);
             $query->where(function ($q) use ($search) {

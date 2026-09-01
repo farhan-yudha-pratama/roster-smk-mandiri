@@ -24,6 +24,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->name('user-password.update');
 
     Route::inertia('settings/appearance', 'settings/appearance')->name('appearance.edit');
+    
+    Route::get('settings/general', [\App\Http\Controllers\Settings\GeneralController::class, 'edit'])->name('general.edit');
+    Route::patch('settings/general', [\App\Http\Controllers\Settings\GeneralController::class, 'update'])->name('general.update');
 });
 
 Route::get('.well-known/passkey-endpoints', function () {
