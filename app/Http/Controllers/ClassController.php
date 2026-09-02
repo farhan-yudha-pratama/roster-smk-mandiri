@@ -253,15 +253,28 @@ class ClassController extends Controller
                         continue; // skip invalid enum values
                     }
 
+                    $cleanClassName = strtoupper($className);
+                    if (str_starts_with($cleanClassName, $gradeLevel . ' ')) {
+                        $cleanClassName = substr($cleanClassName, strlen($gradeLevel) + 1);
+                    } elseif (str_starts_with($cleanClassName, $gradeLevel)) {
+                        $cleanClassName = substr($cleanClassName, strlen($gradeLevel));
+                    }
+                    $cleanClassName = str_replace([strtoupper($major), str_replace('-', ' ', strtoupper($major))], '', $cleanClassName);
+                    $cleanClassName = trim($cleanClassName);
+
+                    if (empty($cleanClassName)) {
+                        $cleanClassName = $className;
+                    }
+
                     // Generate ID like X-PPL-GIM-1
-                    $id = $gradeLevel . '-' . str_replace(' ', '-', strtoupper($major)) . '-' . strtoupper(str_replace(' ', '', $className));
+                    $id = $gradeLevel . '-' . str_replace(' ', '-', strtoupper($major)) . '-' . str_replace(' ', '', $cleanClassName);
 
                     // Create or update
                     MasterClass::updateOrCreate(
                         ['id' => $id],
                         [
                             'grade_level' => $gradeLevel,
-                            'class_name' => $className,
+                            'class_name' => $cleanClassName,
                             'major' => $major,
                         ]
                     );
