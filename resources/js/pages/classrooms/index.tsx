@@ -4,9 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { useState } from 'react';
 import { CreateModal } from './components/create-modal';
-import { Download } from 'lucide-react';
+import { Download, Upload } from 'lucide-react';
 import { UpdateModal } from './components/update-modal';
 import { DeleteModal } from './components/delete-modal';
+import { CreateBatchClassroomModal } from './components/create-batch-classroom-modal';
 
 export interface ClassroomModel {
     id: string;
@@ -16,6 +17,7 @@ export interface ClassroomModel {
 
 export default function ClassroomIndex({ classrooms, roomTypes }: { classrooms: ClassroomModel[], roomTypes: string[] }) {
     const [isCreateOpen, setIsCreateOpen] = useState(false);
+    const [isImportOpen, setIsImportOpen] = useState(false);
     const [editClassroom, setEditClassroom] = useState<ClassroomModel | null>(null);
     const [isEditOpen, setIsEditOpen] = useState(false);
     const [deleteClassroom, setDeleteClassroom] = useState<ClassroomModel | null>(null);
@@ -49,6 +51,10 @@ export default function ClassroomIndex({ classrooms, roomTypes }: { classrooms: 
                                 <span className="hidden sm:inline">Export Batch</span>
                             </Button>
                         </a>
+                        <Button variant="outline" onClick={() => setIsImportOpen(true)} className="gap-2">
+                            <Upload className="h-4 w-4" />
+                            <span className="hidden sm:inline">Import Batch</span>
+                        </Button>
                         <Button onClick={() => setIsCreateOpen(true)}>Tambah Ruangan</Button>
                     </div>
                 </div>
@@ -122,6 +128,8 @@ export default function ClassroomIndex({ classrooms, roomTypes }: { classrooms: 
                     </table>
                 </div>
             </div>
+
+            <CreateBatchClassroomModal isOpen={isImportOpen} setIsOpen={setIsImportOpen} />
 
             <CreateModal isOpen={isCreateOpen} setIsOpen={setIsCreateOpen} roomTypes={roomTypes} />
             

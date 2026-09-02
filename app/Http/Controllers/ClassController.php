@@ -189,9 +189,9 @@ class ClassController extends Controller
         $row = 2;
         foreach ($classes as $index => $cls) {
             $sheet->setCellValue('A' . $row, $index + 1);
-            $sheet->setCellValue('B' . $row, $cls->grade_level);
+            $sheet->setCellValue('B' . $row, $cls->grade_level?->value ?? $cls->grade_level);
             $sheet->setCellValue('C' . $row, $cls->class_name);
-            $sheet->setCellValue('D' . $row, $cls->major);
+            $sheet->setCellValue('D' . $row, $cls->major?->value ?? $cls->major);
             $row++;
         }
         

@@ -41,6 +41,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('classes', ClassController::class);
 
     // Classrooms Management
+    Route::get('/classrooms/template', [ClassroomController::class, 'downloadTemplate'])->name('classrooms.template');
+    Route::post('/classrooms/import', [ClassroomController::class, 'importBatch'])->name('classrooms.import');
     Route::get('/classrooms', [ClassroomController::class, 'index'])->name('classrooms.index');
     Route::get('/classrooms/export', [ClassroomController::class, 'export'])->name('classrooms.export');
     Route::post('/classrooms', [ClassroomController::class, 'store'])->name('classrooms.store');

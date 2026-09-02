@@ -1,6 +1,6 @@
 import { Search, RotateCcw, CalendarDays, Filter, SlidersHorizontal } from 'lucide-react';
 import { router } from '@inertiajs/react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -9,10 +9,12 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/co
 export function WelcomeFilters({ filters }: { filters: any }) {
     const [search, setSearch] = useState(filters.search || '');
     const [sheetOpen, setSheetOpen] = useState(false);
+    const isResetting = useRef(false);
 
     useEffect(() => {
         const timeout = setTimeout(() => {
-            if (search !== filters.search) {
+            if (isResetting.current) return;
+            if (search !== (filters.search || '')) {
                 applyFilter('search', search);
             }
         }, 500);
@@ -24,8 +26,13 @@ export function WelcomeFilters({ filters }: { filters: any }) {
     };
 
     const resetFilters = () => {
-        router.get('/', {}, { preserveState: true, replace: true });
+        isResetting.current = true;
         setSearch('');
+        router.get('/', {}, { 
+            preserveState: true, 
+            replace: true,
+            onFinish: () => { isResetting.current = false; }
+        });
     };
 
     const days = [

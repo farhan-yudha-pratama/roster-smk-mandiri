@@ -63,25 +63,6 @@ export default function Welcome({
 }) {
     const { auth } = usePage().props;
 
-    // Auto-scroll ke jam aktif
-    useEffect(() => {
-        if (currentTime && schedules.length > 0) {
-            const activeSchedule = schedules.find(
-                s => currentTime >= (s.start_time || '') && currentTime <= (s.end_time || '')
-            );
-            
-            if (activeSchedule) {
-                // Beri sedikit delay agar DOM dirender
-                setTimeout(() => {
-                    const el = document.getElementById(`schedule-${activeSchedule.id}`);
-                    if (el) {
-                        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                }, 100);
-            }
-        }
-    }, [currentTime, schedules]);
-
     const getIndonesianDay = (day: string) => {
         const map: Record<string, string> = {
             Monday: 'Senin', Tuesday: 'Selasa', Wednesday: 'Rabu',
@@ -99,6 +80,35 @@ export default function Welcome({
     const actualCurrentDay = getIndonesianDay(
         new Date().toLocaleDateString('en-US', { weekday: 'long' })
     );
+    const isToday = displayDay === actualCurrentDay;
+
+    // Auto-scroll ke jam aktif
+    useEffect(() => {
+        if (currentTime && schedules.length > 0 && isToday) {
+            const activeSchedule = schedules.find(
+                s => currentTime >= (s.start_time || '') && currentTime <= (s.end_time || '')
+            );
+            
+            if (activeSchedule) {
+                // Beri sedikit delay agar DOM dirender
+                setTimeout(() => {
+                    const el = document.getElementById(`schedule-${activeSchedule.id}`);
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }, 100);
+            }
+        }
+    }, [currentTime, schedules, isToday]);
+
+    const sortedSchedules = [...schedules].sort((a, b) => {
+        if (!isToday || !currentTime) return 0;
+        const aActive = currentTime >= (a.start_time || '') && currentTime <= (a.end_time || '');
+        const bActive = currentTime >= (b.start_time || '') && currentTime <= (b.end_time || '');
+        if (aActive && !bActive) return -1;
+        if (!aActive && bActive) return 1;
+        return 0;
+    });
 
     type StatusKey = 'ACTIVE' | 'BREAK' | 'NOT_STARTED' | 'ENDED' | 'NO_SCHEDULE';
 
@@ -278,18 +288,29 @@ export default function Welcome({
 
                     {/* Schedule Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="schedule-container">
-                        {schedules.map((schedule) => {
+                        {sortedSchedules.map((schedule) => {
                             const startTime = schedule.start_time || '';
                             const endTime = schedule.end_time || '';
                             let scheduleStatus = 'MENDATANG';
                             let isActiveNow = false;
                             
                             if (currentTime) {
-                                if (currentTime > endTime) {
-                                    scheduleStatus = 'SELESAI';
-                                } else if (currentTime >= startTime && currentTime <= endTime) {
-                                    scheduleStatus = 'SEKARANG';
-                                    isActiveNow = true;
+                                if (!isToday) {
+                                    const dayIndices: Record<string, number> = { 'Senin': 1, 'Selasa': 2, 'Rabu': 3, 'Kamis': 4, 'Jumat': 5, 'Sabtu': 6, 'Minggu': 7 };
+                                    const dIdx = dayIndices[displayDay] || 0;
+                                    const aIdx = dayIndices[actualCurrentDay] || 0;
+                                    if (dIdx < aIdx) {
+                                        scheduleStatus = 'SELESAI';
+                                    } else {
+                                        scheduleStatus = 'MENDATANG';
+                                    }
+                                } else {
+                                    if (currentTime > endTime) {
+                                        scheduleStatus = 'SELESAI';
+                                    } else if (currentTime >= startTime && currentTime <= endTime) {
+                                        scheduleStatus = 'SEKARANG';
+                                        isActiveNow = true;
+                                    }
                                 }
                             }
 
